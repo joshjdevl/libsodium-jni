@@ -32,4 +32,7 @@ public class NaCl {
     private NaCl() {
     }
 
+    static {
+        System.loadLibrary("testjni");
+    }
 }

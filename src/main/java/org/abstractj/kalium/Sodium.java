@@ -76,7 +76,5 @@ public class Sodium {
   }
 
 
-    static {
-        System.loadLibrary("testjni");
-    }
+
 }
