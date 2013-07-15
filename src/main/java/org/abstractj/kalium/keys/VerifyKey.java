@@ -19,8 +19,8 @@ package org.abstractj.kalium.keys;
 
 import org.abstractj.kalium.encoders.Encoder;
 
-import static org.abstractj.kalium.Sodium.PUBLICKEY_BYTES;
-import static org.abstractj.kalium.Sodium.SIGNATURE_BYTES;
+import static org.abstractj.kalium.SodiumConstants.PUBLICKEY_BYTES;
+import static org.abstractj.kalium.SodiumConstants.SIGNATURE_BYTES;
 import static org.abstractj.kalium.NaCl.sodium;
 import static org.abstractj.kalium.crypto.Util.checkLength;
 import static org.abstractj.kalium.crypto.Util.isValid;

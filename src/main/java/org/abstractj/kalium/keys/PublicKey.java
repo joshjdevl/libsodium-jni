@@ -16,7 +16,7 @@
 
 package org.abstractj.kalium.keys;
 
-import static org.abstractj.kalium.Sodium.PUBLICKEY_BYTES;
+import static org.abstractj.kalium.SodiumConstants.PUBLICKEY_BYTES;
 import static org.abstractj.kalium.crypto.Util.checkLength;
 import static org.abstractj.kalium.encoders.Encoder.HEX;
 
