@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.abstractj.kalium</groupId>
-    <artifactId>kalium</artifactId>
-    <version>0.1.4-SNAPSHOT</version>
+    <artifactId>kalium-jni</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>kalium</name>
@@ -23,9 +23,9 @@
     </properties>
 
     <scm>
-        <connection>scm:git:git@github.com:abstractj/kalium.git</connection>
-        <developerConnection>scm:git:git@github.com:abstractj/kalium.git</developerConnection>
-        <url>https://github.com/abstractj/kalium</url>
+        <connection>scm:git:git@bitbucket.org:joshjdevl/kalium-jni.git</connection>
+        <developerConnection>scm:git:git@bitbucket.org:joshjdevl/kalium-jni.git</developerConnection>
+        <url>https://bitbucket.com/abstractj/kalium</url>
         <tag>HEAD</tag>
     </scm>
 
