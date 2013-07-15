@@ -18,10 +18,10 @@ package org.abstractj.kalium.crypto;
 
 import org.abstractj.kalium.encoders.Encoder;
 
-import static org.abstractj.kalium.NaCl.Sodium.BOXZERO_BYTES;
-import static org.abstractj.kalium.NaCl.Sodium.XSALSA20_POLY1305_SECRETBOX_NONCEBYTES;
-import static org.abstractj.kalium.NaCl.Sodium.XSALSA20_POLY1305_SECRETBOX_KEYBYTES;
-import static org.abstractj.kalium.NaCl.Sodium.ZERO_BYTES;
+import static org.abstractj.kalium.Sodium.BOXZERO_BYTES;
+import static org.abstractj.kalium.Sodium.XSALSA20_POLY1305_SECRETBOX_NONCEBYTES;
+import static org.abstractj.kalium.Sodium.XSALSA20_POLY1305_SECRETBOX_KEYBYTES;
+import static org.abstractj.kalium.Sodium.ZERO_BYTES;
 import static org.abstractj.kalium.NaCl.sodium;
 import static org.abstractj.kalium.crypto.Util.checkLength;
 import static org.abstractj.kalium.crypto.Util.isValid;

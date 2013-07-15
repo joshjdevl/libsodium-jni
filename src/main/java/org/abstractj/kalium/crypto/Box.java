@@ -20,11 +20,11 @@ import org.abstractj.kalium.encoders.Encoder;
 import org.abstractj.kalium.keys.PrivateKey;
 import org.abstractj.kalium.keys.PublicKey;
 
-import static org.abstractj.kalium.NaCl.Sodium.BOXZERO_BYTES;
-import static org.abstractj.kalium.NaCl.Sodium.NONCE_BYTES;
-import static org.abstractj.kalium.NaCl.Sodium.PUBLICKEY_BYTES;
-import static org.abstractj.kalium.NaCl.Sodium.SECRETKEY_BYTES;
-import static org.abstractj.kalium.NaCl.Sodium.ZERO_BYTES;
+import static org.abstractj.kalium.Sodium.BOXZERO_BYTES;
+import static org.abstractj.kalium.Sodium.NONCE_BYTES;
+import static org.abstractj.kalium.Sodium.PUBLICKEY_BYTES;
+import static org.abstractj.kalium.Sodium.SECRETKEY_BYTES;
+import static org.abstractj.kalium.Sodium.ZERO_BYTES;
 import static org.abstractj.kalium.NaCl.sodium;
 import static org.abstractj.kalium.crypto.Util.checkLength;
 import static org.abstractj.kalium.crypto.Util.isValid;

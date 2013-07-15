@@ -16,11 +16,11 @@
 
 package org.abstractj.kalium.keys;
 
-import jnr.ffi.byref.LongLongByReference;
+
 import org.abstractj.kalium.encoders.Encoder;
 
-import static org.abstractj.kalium.NaCl.Sodium.PUBLICKEY_BYTES;
-import static org.abstractj.kalium.NaCl.Sodium.SIGNATURE_BYTES;
+import static org.abstractj.kalium.Sodium.PUBLICKEY_BYTES;
+import static org.abstractj.kalium.Sodium.SIGNATURE_BYTES;
 import static org.abstractj.kalium.NaCl.sodium;
 import static org.abstractj.kalium.crypto.Util.checkLength;
 import static org.abstractj.kalium.crypto.Util.isValid;
@@ -45,7 +45,7 @@ public class VerifyKey {
         checkLength(signature, SIGNATURE_BYTES);
         byte[] sigAndMsg = merge(signature, message);
         byte[] buffer = zeros(sigAndMsg.length);
-        LongLongByReference bufferLen = new LongLongByReference(0);
+        Long bufferLen = new Long(0);
 
         return isValid(sodium().crypto_sign_ed25519_ref_open(buffer, bufferLen, sigAndMsg, sigAndMsg.length, key), "signature was forged or corrupted");
     }

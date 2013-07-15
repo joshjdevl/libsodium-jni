@@ -16,14 +16,14 @@
 
 package org.abstractj.kalium.keys;
 
-import jnr.ffi.byref.LongLongByReference;
+
 import org.abstractj.kalium.crypto.Random;
 import org.abstractj.kalium.crypto.Util;
 import org.abstractj.kalium.encoders.Encoder;
 
-import static org.abstractj.kalium.NaCl.Sodium.PUBLICKEY_BYTES;
-import static org.abstractj.kalium.NaCl.Sodium.SECRETKEY_BYTES;
-import static org.abstractj.kalium.NaCl.Sodium.SIGNATURE_BYTES;
+import static org.abstractj.kalium.Sodium.PUBLICKEY_BYTES;
+import static org.abstractj.kalium.Sodium.SECRETKEY_BYTES;
+import static org.abstractj.kalium.Sodium.SIGNATURE_BYTES;
 import static org.abstractj.kalium.NaCl.sodium;
 import static org.abstractj.kalium.crypto.Util.checkLength;
 import static org.abstractj.kalium.crypto.Util.isValid;
@@ -57,7 +57,7 @@ public class SigningKey {
 
     public byte[] sign(byte[] message) {
         byte[] signature = Util.prependZeros(SIGNATURE_BYTES, message);
-        LongLongByReference bufferLen = new LongLongByReference(0);
+        Long bufferLen = new Long(0);
         sodium().crypto_sign_ed25519_ref(signature, bufferLen, message, message.length, secretKey);
         signature = slice(signature, 0, SIGNATURE_BYTES);
         return signature;
