@@ -45,7 +45,7 @@ public class VerifyKey {
         checkLength(signature, SIGNATURE_BYTES);
         byte[] sigAndMsg = merge(signature, message);
         byte[] buffer = zeros(sigAndMsg.length);
-        Long bufferLen = new Long(0);
+        int[] bufferLen = new int[1];
 
         return isValid(sodium().crypto_sign_ed25519_ref_open(buffer, bufferLen, sigAndMsg, sigAndMsg.length, key), "signature was forged or corrupted");
     }
