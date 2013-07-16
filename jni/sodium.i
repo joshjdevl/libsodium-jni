@@ -71,10 +71,6 @@ int
 crypto_hash_sha256_ref(unsigned char *out, const unsigned char *in,
                        unsigned long long inlen);
 
-void foo(char *array);
-
-void foo2(unsigned char *array);
-
 int crypto_hash_sha512_ref(unsigned char *out, const unsigned char *in,
                        unsigned long long inlen);
 
