@@ -12,10 +12,16 @@ rm *.java
 rm *.c
 rm *.so
 
-swig -java sodium.i
+#swig -java sodium.i
 swig -java -package org.abstractj.kalium -outdir ../src/main/java/org/abstractj/kalium sodium.i
 
-gcc sodium_wrap.c -shared -fPIC -L/usr/lib -lsodium -o libtestjni.so
+
+jnilib=libtestjni.so
+if uname -a | grep -q -i darwin; then
+  jnilib=libtestjni.jnilib
+fi
+echo $jnilib
+gcc sodium_wrap.c -shared -fPIC -L/usr/lib -lsodium -o $jnilib
 sudo rm /usr/lib/libtestjni.so 
 sudo cp libtestjni.so /usr/lib
 
