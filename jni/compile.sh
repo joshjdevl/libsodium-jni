@@ -10,9 +10,9 @@ fi
 C_INCLUDE_PATH="${JAVA_HOME}/include:${JAVA_HOME}/include/linux:/System/Library/Frameworks/JavaVM.framework/Headers"
 export C_INCLUDE_PATH
 
-rm *.java
-rm *.c
-rm *.so
+rm -f *.java
+rm -f *.c
+rm -f *.so
 
 #swig -java sodium.i
 swig -java -package org.abstractj.kalium -outdir ../src/main/java/org/abstractj/kalium sodium.i
