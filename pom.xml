@@ -56,6 +56,15 @@
                 <role>Software Developer</role>
             </roles>
         </developer>
+        <developer>
+            <id>joshjdevl</id>
+            <name>joshj</name>
+            <url>http://github.com/joshjdevl</url>
+            <email>joshjdevl@gmail.com</email>
+            <roles>
+                <role>Software Developer</role>
+            </roles>
+        </developer>
     </developers>
 
     <dependencies>
