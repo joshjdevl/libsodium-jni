@@ -5,7 +5,7 @@ if [ -z "$JAVA_HOME" ]; then
 fi
 
 
-C_INCLUDE_PATH="${JAVA_HOME}/include:${JAVA_HOME}/include/linux"
+C_INCLUDE_PATH="${JAVA_HOME}/include:${JAVA_HOME}/include/linux:/System/Library/Frameworks/JavaVM.framework/Headers"
 export C_INCLUDE_PATH
 
 rm *.java
