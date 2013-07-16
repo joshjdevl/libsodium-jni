@@ -17,11 +17,14 @@ swig -java -package org.abstractj.kalium -outdir ../src/main/java/org/abstractj/
 
 
 jnilib=libtestjni.so
+destlib=/usr/lib
 if uname -a | grep -q -i darwin; then
   jnilib=libtestjni.jnilib
+  destlib=/usr/lib/java
 fi
 echo $jnilib
+echo $destlib
 gcc sodium_wrap.c -shared -fPIC -L/usr/lib -lsodium -o $jnilib
 sudo rm /usr/lib/libtestjni.so 
-sudo cp libtestjni.so /usr/lib
+sudo cp libtestjni.so $destlib
 
