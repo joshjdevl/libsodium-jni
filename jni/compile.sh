@@ -1,3 +1,5 @@
+set -e
+
 if [ -z "$JAVA_HOME" ]; then
     echo "ERROR You should set JAVA_HOME"
     echo "Exiting!"
