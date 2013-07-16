@@ -26,7 +26,9 @@ if uname -a | grep -q -i darwin; then
 fi
 echo $jnilib
 echo $destlib
-gcc sodium_wrap.c -shared -fPIC -L/usr/lib -lsodium -o $jnilib
+
+sudo cp /usr/local/lib/libsodium.* /usr/lib
+gcc -I${JAVA_HOME}/include -I${JAVA_HOME}/include/linux sodium_wrap.c -shared -fPIC -L/usr/lib -lsodium -o $jnilib
 sudo rm /usr/lib/libtestjni.so 
 sudo cp libtestjni.so $destlib
 
