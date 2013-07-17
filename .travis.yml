@@ -3,13 +3,10 @@ language: java
 before_script:
   - wget -c http://download.libsodium.org/libsodium/releases/libsodium-0.4.1.tar.gz
   - tar xzvf libsodium-0.4.1.tar.gz
-  - cd libsodium-0.4.1 && mkdir vendor
+  - pushd libsodium-0.4.1 && mkdir vendor
   - ./configure --prefix=`pwd`/vendor
   - make && make install
-  - cd ../
-  - cd jni
-  - ./compile
-  - cd ../
+  - popd
 
 script: "LD_LIBRARY_PATH=/home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/lib"
 
