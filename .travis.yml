@@ -22,8 +22,7 @@ before_script:
 #script: "LD_LIBRARY_PATH=/home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/lib "
 
 env: 
-  - JAVA_OPTS="-Djava.library.path=/home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/lib"
-  - LD_LIBRARY_PATH=/home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/lib
+  - JAVA_OPTS="-Djava.library.path=/home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/lib" LD_LIBRARY_PATH=/home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/lib
 
 jdk:
   - oraclejdk7
