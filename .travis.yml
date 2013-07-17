@@ -14,6 +14,9 @@ before_script:
   - make -j 5 && make install
   - popd
   - wget https://raw.github.com/joshjdevl/kalium-jni/master/jni/sodium.i
+  - wget https://raw.github.com/joshjdevl/kalium-jni/master/jni/Path.java
+  - javac Path.java
+  - java Path
   - find /home/travis/build/joshjdevl/kalium-jni/swig-2.0.10/vendor
   - /home/travis/build/joshjdevl/kalium-jni/swig-2.0.10/vendor/bin/swig -java sodium.i
   - gcc -I/home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/include -I/home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/sodium -I${JAVA_HOME}/include -I${JAVA_HOME}/include/linux sodium_wrap.c -shared -fPIC -L/home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/lib -lsodium -o /home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/lib/libtestjni.so
@@ -22,7 +25,7 @@ before_script:
 #script: "LD_LIBRARY_PATH=/home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/lib "
 
 env: 
-  - JAVA_OPTS="-Djava.library.path=/home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/lib" LD_LIBRARY_PATH=/home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/lib
+  - JAVA_OPTS="-Djava.library.path=/home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/lib" 
 
 jdk:
   - oraclejdk7
