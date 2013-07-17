@@ -44,3 +44,12 @@ kalium-jni is a work in progress, feedback, bug reports and patches are always w
 
 
 
+### Issues / Improvements / Help Seeked
+
+if anyone understands travis-ci and how to configure maven tests to find jni libraries, please submit a patch or email me
+[travis-ci build](https://travis-ci.org/joshjdevl/kalium-jni/)
+
+the blake tests have been commented out, there were some strange jni errors
+
+Everything has been tested and working on ubuntu 12.04 32bit and 64 bit, macos, and Android
+
