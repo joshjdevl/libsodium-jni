@@ -7,8 +7,15 @@ before_script:
   - ./configure --prefix=`pwd`/vendor
   - make && make install
   - popd
+  - wget http://prdownloads.sourceforge.net/swig/swig-2.0.10.tar.gz
+  - tar -xvf swig-2.0.10.tar.gz
+  - pushd swig-2.0.10 && mkdir vendor
+  - ./configure --prefix=`pwd`/vendor
+  - make -j 5 && make install
+  - popd
 
-script: "LD_LIBRARY_PATH=/home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/lib"
+
+script: "LD_LIBRARY_PATH=/home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/lib && PATH=/home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/bin:$PATH"
 
 env: JAVA_OPTS="-Djava.library.path=/home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/lib"
 
