@@ -14,6 +14,7 @@ before_script:
   - make -j 5 && make install
   - popd
   - wget https://raw.github.com/joshjdevl/kalium-jni/master/jni/sodium.i
+  - find /home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor
   - /home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/bin/swig -java sodium.i
   - gcc -I${JAVA_HOME}/include -I${JAVA_HOME}/include/linux sodium_wrap.c -shared -fPIC -L/home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/lib -lsodium -o /home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/lib/libtestjni.so
 
