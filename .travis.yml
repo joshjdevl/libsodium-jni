@@ -22,6 +22,7 @@ before_script:
   - gcc -I/home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/include -I/home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/sodium -I${JAVA_HOME}/include -I${JAVA_HOME}/include/linux sodium_wrap.c -shared -fPIC -L/home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/lib -lsodium -o /home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/lib/libtestjni.so
   - sudo cp /home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/lib/libtestjni.so /usr/lib/libtestjni.so
   - sudo cp /home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/lib/libsodium.* /usr/lib
+  - ls -ltr /usr/lib
 
 
 #script: "LD_LIBRARY_PATH=/home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/lib "
