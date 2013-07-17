@@ -17,23 +17,13 @@ public class Sodium {
     return SodiumJNI.crypto_hash_sha256_ref(out, in, inlen);
   }
 
-  public static void foo(String array) {
-    SodiumJNI.foo(array);
-  }
-
-  public static void foo2(byte[] array) {
-    SodiumJNI.foo2(array);
-  }
-
   public static int crypto_hash_sha512_ref(byte[] out, byte[] in, int inlen) {
     return SodiumJNI.crypto_hash_sha512_ref(out, in, inlen);
   }
 
-  /*
   public static int crypto_generichash_blake2b(byte[] out, long outlen, byte[] in, int inlen, byte[] key, long keylen) {
     return SodiumJNI.crypto_generichash_blake2b(out, outlen, in, inlen, key, keylen);
   }
-  */
 
   public static int crypto_box_curve25519xsalsa20poly1305_ref_keypair(byte[] pk, byte[] sk) {
     return SodiumJNI.crypto_box_curve25519xsalsa20poly1305_ref_keypair(pk, sk);
@@ -74,7 +64,5 @@ public class Sodium {
   public static int crypto_sign_ed25519_ref_open(byte[] m, int[] mlen, byte[] sm, int smlen, byte[] pk) {
     return SodiumJNI.crypto_sign_ed25519_ref_open(m, mlen, sm, smlen, pk);
   }
-
-
 
 }

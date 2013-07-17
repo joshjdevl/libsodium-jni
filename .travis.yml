@@ -7,10 +7,13 @@ before_script:
   - ./configure --prefix=`pwd`/vendor
   - make && make install
   - cd ../
+  - cd jni
+  - ./compile
+  - cd ../
 
-script: "LD_LIBRARY_PATH=/home/travis/build/abstractj/kalium/libsodium-0.4.1/vendor/lib"
+script: "LD_LIBRARY_PATH=/home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/lib"
 
-env: JAVA_OPTS="-Djava.library.path=/home/travis/build/abstractj/kalium/libsodium-0.4.1/vendor/lib"
+env: JAVA_OPTS="-Djava.library.path=/home/travis/build/joshjdevl/kalium-jni/libsodium-0.4.1/vendor/lib"
 
 jdk:
   - oraclejdk7
