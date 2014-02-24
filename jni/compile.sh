@@ -29,6 +29,6 @@ echo $destlib
 
 sudo cp /usr/local/lib/libsodium.* /usr/lib
 gcc -I${JAVA_HOME}/include -I${JAVA_HOME}/include/linux sodium_wrap.c -shared -fPIC -L/usr/lib -lsodium -o $jnilib
-sudo rm /usr/lib/libtestjni.so 
+sudo rm -f /usr/lib/libtestjni.so 
 sudo cp libtestjni.so $destlib
 
