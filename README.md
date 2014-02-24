@@ -41,7 +41,8 @@ Add as a Maven dependency at your project:
 
 kalium-jni is a work in progress, feedback, bug reports and patches are always welcome.
 
-
+[Docker build](https://github.com/joshjdevl/docker-libsodium)
+[Docker container](https://index.docker.io/u/joshjdevl/docker-libsodium/)
 
 
 ### Issues / Improvements / Help Seeked
