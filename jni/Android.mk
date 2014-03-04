@@ -21,7 +21,7 @@ include $(PREBUILT_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE    := hello-jni
+LOCAL_MODULE    := testjni
 LOCAL_SRC_FILES :=  \
 sodium_wrap.c
 
