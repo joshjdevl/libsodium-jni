@@ -27,7 +27,7 @@ sodium_wrap.c
 
 LOCAL_CFLAGS   += -Wall -g -pedantic -std=c99
 
-LOCAL_C_INCLUDES += /installs/libsodium/libsodium-android-x86/include /installs/libsodium/libsodium-android-x86/include/sodium
+LOCAL_C_INCLUDES += /installs/libsodium/libsodium-android-arm/include /installs/libsodium/libsodium-android-arm/include/sodium
 LOCAL_STATIC_LIBRARIES += android_native_app_glue sodium
 #LOCAL_LDLIBS += -llog -lsodium
 
