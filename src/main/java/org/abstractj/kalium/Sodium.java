@@ -13,56 +13,56 @@ public class Sodium {
     return SodiumJNI.sodium_version_string();
   }
 
-  public static int crypto_hash_sha256_ref(byte[] out, byte[] in, int inlen) {
-    return SodiumJNI.crypto_hash_sha256_ref(out, in, inlen);
+  public static int crypto_hash_sha256(byte[] out, byte[] in, int inlen) {
+    return SodiumJNI.crypto_hash_sha256(out, in, inlen);
   }
 
-  public static int crypto_hash_sha512_ref(byte[] out, byte[] in, int inlen) {
-    return SodiumJNI.crypto_hash_sha512_ref(out, in, inlen);
+  public static int crypto_hash_sha512(byte[] out, byte[] in, int inlen) {
+    return SodiumJNI.crypto_hash_sha512(out, in, inlen);
   }
 
   public static int crypto_generichash_blake2b(byte[] out, long outlen, byte[] in, int inlen, byte[] key, long keylen) {
     return SodiumJNI.crypto_generichash_blake2b(out, outlen, in, inlen, key, keylen);
   }
 
-  public static int crypto_box_curve25519xsalsa20poly1305_ref_keypair(byte[] pk, byte[] sk) {
-    return SodiumJNI.crypto_box_curve25519xsalsa20poly1305_ref_keypair(pk, sk);
+  public static int crypto_box_curve25519xsalsa20poly1305_keypair(byte[] pk, byte[] sk) {
+    return SodiumJNI.crypto_box_curve25519xsalsa20poly1305_keypair(pk, sk);
   }
 
   public static void randombytes(byte[] buf, int size) {
     SodiumJNI.randombytes(buf, size);
   }
 
-  public static int crypto_box_curve25519xsalsa20poly1305_ref(byte[] c, byte[] m, int mlen, byte[] n, byte[] pk, byte[] sk) {
-    return SodiumJNI.crypto_box_curve25519xsalsa20poly1305_ref(c, m, mlen, n, pk, sk);
+  public static int crypto_box_curve25519xsalsa20poly1305(byte[] c, byte[] m, int mlen, byte[] n, byte[] pk, byte[] sk) {
+    return SodiumJNI.crypto_box_curve25519xsalsa20poly1305(c, m, mlen, n, pk, sk);
   }
 
-  public static int crypto_box_curve25519xsalsa20poly1305_ref_open(byte[] m, byte[] c, int clen, byte[] n, byte[] pk, byte[] sk) {
-    return SodiumJNI.crypto_box_curve25519xsalsa20poly1305_ref_open(m, c, clen, n, pk, sk);
+  public static int crypto_box_curve25519xsalsa20poly1305_open(byte[] m, byte[] c, int clen, byte[] n, byte[] pk, byte[] sk) {
+    return SodiumJNI.crypto_box_curve25519xsalsa20poly1305_open(m, c, clen, n, pk, sk);
   }
 
-  public static int crypto_scalarmult_curve25519_ref(byte[] q, byte[] n, byte[] p) {
-    return SodiumJNI.crypto_scalarmult_curve25519_ref(q, n, p);
+  public static int crypto_scalarmult_curve25519(byte[] q, byte[] n, byte[] p) {
+    return SodiumJNI.crypto_scalarmult_curve25519(q, n, p);
   }
 
-  public static int crypto_secretbox_xsalsa20poly1305_ref(byte[] c, byte[] m, int mlen, byte[] n, byte[] k) {
-    return SodiumJNI.crypto_secretbox_xsalsa20poly1305_ref(c, m, mlen, n, k);
+  public static int crypto_secretbox_xsalsa20poly1305(byte[] c, byte[] m, int mlen, byte[] n, byte[] k) {
+    return SodiumJNI.crypto_secretbox_xsalsa20poly1305(c, m, mlen, n, k);
   }
 
-  public static int crypto_secretbox_xsalsa20poly1305_ref_open(byte[] m, byte[] c, int clen, byte[] n, byte[] k) {
-    return SodiumJNI.crypto_secretbox_xsalsa20poly1305_ref_open(m, c, clen, n, k);
+  public static int crypto_secretbox_xsalsa20poly1305_open(byte[] m, byte[] c, int clen, byte[] n, byte[] k) {
+    return SodiumJNI.crypto_secretbox_xsalsa20poly1305_open(m, c, clen, n, k);
   }
 
-  public static int crypto_sign_ed25519_ref_seed_keypair(byte[] pk, byte[] sk, byte[] seed) {
-    return SodiumJNI.crypto_sign_ed25519_ref_seed_keypair(pk, sk, seed);
+  public static int crypto_sign_ed25519_seed_keypair(byte[] pk, byte[] sk, byte[] seed) {
+    return SodiumJNI.crypto_sign_ed25519_seed_keypair(pk, sk, seed);
   }
 
-  public static int crypto_sign_ed25519_ref(byte[] sm, int[] smlen, byte[] m, int mlen, byte[] sk) {
-    return SodiumJNI.crypto_sign_ed25519_ref(sm, smlen, m, mlen, sk);
+  public static int crypto_sign_ed25519(byte[] sm, int[] smlen, byte[] m, int mlen, byte[] sk) {
+    return SodiumJNI.crypto_sign_ed25519(sm, smlen, m, mlen, sk);
   }
 
-  public static int crypto_sign_ed25519_ref_open(byte[] m, int[] mlen, byte[] sm, int smlen, byte[] pk) {
-    return SodiumJNI.crypto_sign_ed25519_ref_open(m, mlen, sm, smlen, pk);
+  public static int crypto_sign_ed25519_open(byte[] m, int[] mlen, byte[] sm, int smlen, byte[] pk) {
+    return SodiumJNI.crypto_sign_ed25519_open(m, mlen, sm, smlen, pk);
   }
 
 }
