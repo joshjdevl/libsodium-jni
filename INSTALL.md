@@ -37,7 +37,7 @@ Android NDK installation (Only if you don't have NDK installed)
     cd libsodium
     ./autogen.sh
 
-## Generate Android libs for all architectures.
+Generate Android libs for all architectures.
 
     ./dist-build/android-arm.sh
     ./dist-build/android-armv7.sh
