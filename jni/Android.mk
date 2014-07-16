@@ -16,18 +16,18 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := sodium
-LOCAL_SRC_FILES := /installs/libsodium/libsodium-android-$(TARGET_ARCH)/lib/libsodium.a #/installs/libsodium/libsodium-android-(x86|arm|mips)/lib/libsodium.a
+LOCAL_SRC_FILES := /home/astonkus/dev/rooms/libsodium/libsodium-0.5.0/libsodium-android-arm/lib/libsodium.a #/installs/libsodium/libsodium-android-x86/lib/libsodium.a
 include $(PREBUILT_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE    := testjni
+LOCAL_MODULE    := kalium-jni
 LOCAL_SRC_FILES :=  \
 sodium_wrap.c
 
 LOCAL_CFLAGS   += -Wall -g -pedantic -std=c99
 
-LOCAL_C_INCLUDES += /installs/libsodium/libsodium-android-$(TARGET_ARCH)/include /installs/libsodium/libsodium-android-$(TARGET_ARCH)/include/sodium
+LOCAL_C_INCLUDES += /home/astonkus/dev/rooms/libsodium/libsodium-0.5.0/libsodium-android-arm/include /home/astonkus/dev/rooms/libsodium/libsodium-0.5.0/libsodium-android-arm/include/sodium
 LOCAL_STATIC_LIBRARIES += android_native_app_glue sodium
 #LOCAL_LDLIBS += -llog -lsodium
 

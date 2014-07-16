@@ -16,20 +16,20 @@
 
 package org.abstractj.kalium.crypto;
 
-import org.abstractj.kalium.encoders.Encoder;
-import org.abstractj.kalium.keys.PrivateKey;
-import org.abstractj.kalium.keys.PublicKey;
-
+import static org.abstractj.kalium.NaCl.sodium;
 import static org.abstractj.kalium.SodiumConstants.BOXZERO_BYTES;
 import static org.abstractj.kalium.SodiumConstants.NONCE_BYTES;
 import static org.abstractj.kalium.SodiumConstants.PUBLICKEY_BYTES;
 import static org.abstractj.kalium.SodiumConstants.SECRETKEY_BYTES;
 import static org.abstractj.kalium.SodiumConstants.ZERO_BYTES;
-import static org.abstractj.kalium.NaCl.sodium;
 import static org.abstractj.kalium.crypto.Util.checkLength;
 import static org.abstractj.kalium.crypto.Util.isValid;
 import static org.abstractj.kalium.crypto.Util.prependZeros;
 import static org.abstractj.kalium.crypto.Util.removeZeros;
+
+import org.abstractj.kalium.encoders.Encoder;
+import org.abstractj.kalium.keys.PrivateKey;
+import org.abstractj.kalium.keys.PublicKey;
 
 /**
  * Based on Curve25519XSalsa20Poly1305 and Box classes from rbnacl
@@ -58,7 +58,7 @@ public class Box {
         checkLength(nonce, NONCE_BYTES);
         byte[] msg = prependZeros(ZERO_BYTES, message);
         byte[] ct = new byte[msg.length];
-        isValid(sodium().crypto_box_curve25519xsalsa20poly1305(ct, msg,
+        isValid(sodium().crypto_box(ct, msg,
                 msg.length, nonce, publicKey, privateKey), "Encryption failed");
         return removeZeros(BOXZERO_BYTES, ct);
     }
@@ -71,7 +71,7 @@ public class Box {
         checkLength(nonce, NONCE_BYTES);
         byte[] ct = prependZeros(BOXZERO_BYTES, ciphertext);
         byte[] message = new byte[ct.length];
-        isValid(sodium().crypto_box_curve25519xsalsa20poly1305_open(message, ct,
+        isValid(sodium().crypto_box_open(message, ct,
                 message.length, nonce, publicKey, privateKey), "Decryption failed. Ciphertext failed verification.");
         return removeZeros(ZERO_BYTES, message);
     }

@@ -33,6 +33,6 @@ public class NaCl {
     }
 
     static {
-        System.loadLibrary("testjni");
+        System.loadLibrary("kalium-jni");
     }
 }

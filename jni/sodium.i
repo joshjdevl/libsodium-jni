@@ -1,4 +1,4 @@
-/* example.i */
+//* example.i */
  %module Sodium
 %include "typemaps.i"
 %include "stdint.i"
@@ -79,14 +79,14 @@ int crypto_generichash_blake2b(unsigned char *out, size_t outlen,
                                unsigned long long inlen,
                                const unsigned char *key, size_t keylen);
 
-int crypto_box_curve25519xsalsa20poly1305_keypair(unsigned char *pk,
+int crypto_box_keypair(unsigned char *pk,
                                                   unsigned char *sk);
 
 void        randombytes(unsigned char *buf, unsigned long long size);
-/* void        randombytes(unsigned char * const buf, const unsigned long long buf_len); */
 
 
-int crypto_box_curve25519xsalsa20poly1305(unsigned char *c,
+
+int crypto_box(unsigned char *c,
                                           const unsigned char *m,
                                           unsigned long long mlen,
                                           const unsigned char *n,
@@ -94,7 +94,7 @@ int crypto_box_curve25519xsalsa20poly1305(unsigned char *c,
                                           const unsigned char *sk);
 
 
-int crypto_box_curve25519xsalsa20poly1305_open(unsigned char *m,
+int crypto_box_open(unsigned char *m,
                                                const unsigned char *c,
                                                unsigned long long clen,
                                                const unsigned char *n,
@@ -102,32 +102,32 @@ int crypto_box_curve25519xsalsa20poly1305_open(unsigned char *m,
                                                const unsigned char *sk);
 
 
-int crypto_scalarmult_curve25519(unsigned char *q, const unsigned char *n,
+int crypto_scalarmult(unsigned char *q, const unsigned char *n,
                                  const unsigned char *p);
 
 
 
 
 
-int crypto_secretbox_xsalsa20poly1305(unsigned char *c,
+int crypto_secretbox(unsigned char *c,
                                       const unsigned char *m,
                                       unsigned long long mlen,
                                       const unsigned char *n,
                                       const unsigned char *k);
 
-int crypto_secretbox_xsalsa20poly1305_open(unsigned char *m,
+int crypto_secretbox_open(unsigned char *m,
                                            const unsigned char *c,
                                            unsigned long long clen,
                                            const unsigned char *n,
                                            const unsigned char *k);
 
-int crypto_sign_ed25519_seed_keypair(unsigned char *pk, unsigned char *sk,
+int crypto_sign_seed_keypair(unsigned char *pk, unsigned char *sk,
                                      const unsigned char *seed);
 
-int crypto_sign_ed25519(unsigned char *sm, unsigned long long *smlen,
+int crypto_sign(unsigned char *sm, unsigned long long *smlen,
                         const unsigned char *m, unsigned long long mlen,
                         const unsigned char *sk);
 
-int crypto_sign_ed25519_open(unsigned char *m, unsigned long long *mlen,
+int crypto_sign_open(unsigned char *m, unsigned long long *mlen,
                              const unsigned char *sm, unsigned long long smlen,
                              const unsigned char *pk);

@@ -4,3 +4,9 @@ target/
 hs_err*
 *.*~
 *.class
+.classpath
+.project
+.settings
+jni/swig*
+libs
+obj

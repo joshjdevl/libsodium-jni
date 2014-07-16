@@ -33,7 +33,7 @@ public class KeyPair {
     public KeyPair() {
         this.secretKey = zeros(SECRETKEY_BYTES);
         this.publicKey = zeros(PUBLICKEY_BYTES);
-        sodium().crypto_box_curve25519xsalsa20poly1305_keypair(publicKey, secretKey);
+        sodium().crypto_box_keypair(publicKey, secretKey);
     }
 
     public KeyPair(byte[] secretKey) {
@@ -41,8 +41,19 @@ public class KeyPair {
         checkLength(this.secretKey, SECRETKEY_BYTES);
     }
 
+    public KeyPair(byte[] secretKey, byte[] publicKey) {
+        this.secretKey = secretKey;
+        checkLength(this.secretKey, SECRETKEY_BYTES);
+        this.publicKey = publicKey;
+        checkLength(this.publicKey, PUBLICKEY_BYTES);
+    }
+
     public KeyPair(String secretKey, Encoder encoder) {
         this(encoder.decode(secretKey));
+    }
+
+    public KeyPair(String secretKey, String publicKey, Encoder encoder) {
+        this(encoder.decode(secretKey), encoder.decode(publicKey));
     }
 
     public PublicKey getPublicKey() {

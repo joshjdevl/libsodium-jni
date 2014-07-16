@@ -156,6 +156,15 @@
                     <pushChanges>false</pushChanges>
                 </configuration>
             </plugin>
+			<plugin>
+			      <groupId>org.apache.maven.plugins</groupId>
+			      <artifactId>maven-surefire-plugin</artifactId>
+			      <configuration>
+			         <forkMode>once</forkMode>
+			         <workingDirectory>target</workingDirectory>
+			        <argLine>-Djava.library.path=${basedir}/jni</argLine>
+			    </configuration>
+			</plugin>
         </plugins>
     </build>
 

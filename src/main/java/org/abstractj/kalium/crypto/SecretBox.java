@@ -16,16 +16,16 @@
 
 package org.abstractj.kalium.crypto;
 
-import org.abstractj.kalium.encoders.Encoder;
-
-import static org.abstractj.kalium.SodiumConstants.BOXZERO_BYTES;
-import static org.abstractj.kalium.SodiumConstants.XSALSA20_POLY1305_SECRETBOX_NONCEBYTES;
-import static org.abstractj.kalium.SodiumConstants.XSALSA20_POLY1305_SECRETBOX_KEYBYTES;
-import static org.abstractj.kalium.SodiumConstants.ZERO_BYTES;
 import static org.abstractj.kalium.NaCl.sodium;
+import static org.abstractj.kalium.SodiumConstants.BOXZERO_BYTES;
+import static org.abstractj.kalium.SodiumConstants.XSALSA20_POLY1305_SECRETBOX_KEYBYTES;
+import static org.abstractj.kalium.SodiumConstants.XSALSA20_POLY1305_SECRETBOX_NONCEBYTES;
+import static org.abstractj.kalium.SodiumConstants.ZERO_BYTES;
 import static org.abstractj.kalium.crypto.Util.checkLength;
 import static org.abstractj.kalium.crypto.Util.isValid;
 import static org.abstractj.kalium.crypto.Util.removeZeros;
+
+import org.abstractj.kalium.encoders.Encoder;
 
 public class SecretBox {
 
@@ -44,7 +44,7 @@ public class SecretBox {
         checkLength(nonce, XSALSA20_POLY1305_SECRETBOX_NONCEBYTES);
         byte[] msg = Util.prependZeros(ZERO_BYTES, message);
         byte[] ct = Util.zeros(msg.length);
-        isValid(sodium().crypto_secretbox_xsalsa20poly1305(ct, msg, msg.length,
+        isValid(sodium().crypto_secretbox(ct, msg, msg.length,
                 nonce, key), "Encryption failed");
         return removeZeros(BOXZERO_BYTES, ct);
     }
@@ -53,7 +53,7 @@ public class SecretBox {
         checkLength(nonce, XSALSA20_POLY1305_SECRETBOX_NONCEBYTES);
         byte[] ct = Util.prependZeros(BOXZERO_BYTES, ciphertext);
         byte[] message = Util.zeros(ct.length);
-        isValid(sodium().crypto_secretbox_xsalsa20poly1305_open(message, ct,
+        isValid(sodium().crypto_secretbox_open(message, ct,
                 ct.length, nonce, key), "Decryption failed. Ciphertext failed verification");
         return removeZeros(ZERO_BYTES, message);
     }
