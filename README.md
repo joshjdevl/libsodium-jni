@@ -33,7 +33,7 @@ Add as a Maven dependency at your project:
         <scope>compile</scope>
     </dependency>
 
-Add libtest.so that you'll find inside libs folder(kalium-jni/libs) in jniLibs (src/main/jniLibs) folder of your project.
+Add libkaliumjni.so that you'll find inside libs folder(kalium-jni/libs) in jniLibs (src/main/jniLibs) folder of your project.
  
 ### Notes
 
