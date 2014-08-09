@@ -20,4 +20,7 @@ public abstract class SodiumConstants {
     public static final int XSALSA20_POLY1305_SECRETBOX_KEYBYTES = 32;
     public static final int XSALSA20_POLY1305_SECRETBOX_NONCEBYTES = 24;
     public static final int SIGNATURE_BYTES = 64;
+    public static final int AEAD_CHACHA20_POLY1305_KEYBYTES = 32;
+    public static final int AEAD_CHACHA20_POLY1305_NPUBBYTES = 8;
+    public static final int AEAD_CHACHA20_POLY1305_ABYTES = 8;
 }

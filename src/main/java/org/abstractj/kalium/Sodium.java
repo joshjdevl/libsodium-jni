@@ -13,6 +13,14 @@ public class Sodium {
     return SodiumJNI.sodium_version_string();
   }
 
+  public static int crypto_aead_chacha20poly1305_encrypt(byte[] c, int[] clen, byte[] m, int mlen, byte[] ad, int adlen, byte[] nsec, byte[] npub, byte[] k) {
+    return SodiumJNI.crypto_aead_chacha20poly1305_encrypt(c, clen, m, mlen, ad, adlen, nsec, npub, k);
+  }
+
+  public static int crypto_aead_chacha20poly1305_decrypt(byte[] m, int[] mlen, byte[] nsec, byte[] c, int clen, byte[] ad, int adlen, byte[] npub, byte[] k) {
+    return SodiumJNI.crypto_aead_chacha20poly1305_decrypt(m, mlen, nsec, c, clen, ad, adlen, npub, k);
+  }
+
   public static int crypto_hash_sha256(byte[] out, byte[] in, int inlen) {
     return SodiumJNI.crypto_hash_sha256(out, in, inlen);
   }
