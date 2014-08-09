@@ -18,10 +18,10 @@ rm -f *.so
 swig -java -package org.abstractj.kalium -outdir ../src/main/java/org/abstractj/kalium sodium.i
 
 
-jnilib=libtestjni.so
+jnilib=libkaliumjni.so
 destlib=/usr/lib
 if uname -a | grep -q -i darwin; then
-  jnilib=libtestjni.jnilib
+  jnilib=libkaliumjni.jnilib
   destlib=/usr/lib/java
 fi
 echo $jnilib
@@ -29,6 +29,6 @@ echo $destlib
 
 sudo cp /usr/local/lib/libsodium.* /usr/lib
 gcc -I${JAVA_HOME}/include -I${JAVA_HOME}/include/linux sodium_wrap.c -shared -fPIC -L/usr/lib -lsodium -o $jnilib
-sudo rm -f /usr/lib/libtestjni.so 
-sudo cp libtestjni.so $destlib
+sudo rm -f /usr/lib/libkaliumjni.so 
+sudo cp libkaliumjni.so $destlib
 
