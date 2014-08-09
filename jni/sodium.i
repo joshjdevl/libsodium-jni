@@ -67,8 +67,27 @@
  %}
 const char *sodium_version_string(void);
 
-int
-crypto_hash_sha256(unsigned char *out, const unsigned char *in,
+int crypto_aead_chacha20poly1305_encrypt(unsigned char *c,
+                                         unsigned long long *clen,
+                                         const unsigned char *m,
+                                         unsigned long long mlen,
+                                         const unsigned char *ad,
+                                         unsigned long long adlen,
+                                         const unsigned char *nsec,
+                                         const unsigned char *npub,
+                                         const unsigned char *k);
+
+int crypto_aead_chacha20poly1305_decrypt(unsigned char *m,
+                                         unsigned long long *mlen,
+                                         unsigned char *nsec,
+                                         const unsigned char *c,
+                                         unsigned long long clen,
+                                         const unsigned char *ad,
+                                         unsigned long long adlen,
+                                         const unsigned char *npub,
+                                         const unsigned char *k);
+
+int crypto_hash_sha256(unsigned char *out, const unsigned char *in,
                        unsigned long long inlen);
 
 int crypto_hash_sha512(unsigned char *out, const unsigned char *in,

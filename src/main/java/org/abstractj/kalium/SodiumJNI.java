@@ -10,6 +10,8 @@ package org.abstractj.kalium;
 
 public class SodiumJNI {
   public final static native String sodium_version_string();
+  public final static native int crypto_aead_chacha20poly1305_encrypt(byte[] jarg1, int[] jarg2, byte[] jarg3, int jarg4, byte[] jarg5, int jarg6, byte[] jarg7, byte[] jarg8, byte[] jarg9);
+  public final static native int crypto_aead_chacha20poly1305_decrypt(byte[] jarg1, int[] jarg2, byte[] jarg3, byte[] jarg4, int jarg5, byte[] jarg6, int jarg7, byte[] jarg8, byte[] jarg9);
   public final static native int crypto_hash_sha256(byte[] jarg1, byte[] jarg2, int jarg3);
   public final static native int crypto_hash_sha512(byte[] jarg1, byte[] jarg2, int jarg3);
   public final static native int crypto_generichash_blake2b(byte[] jarg1, long jarg2, byte[] jarg3, int jarg4, byte[] jarg5, long jarg6);
