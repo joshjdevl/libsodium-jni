@@ -8,25 +8,22 @@ A Java JNI binding (to allow for Java and Android integration) to [Networking an
 * JDK 6 or [higher](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Apache Maven](http://maven.apache.org/guides/getting-started/)
 
-## Installation
+## Installation 
 
-### libsodium
+###Shared Library and Jar File
 
-kalium-jni is implemented using [jni](http://docs.oracle.com/javase/6/docs/technotes/guides/jni/) and [swig](http://www.swig.org/) to bind the shared libraries from [libsodium](https://github.com/jedisct1/libsodium). For a more detailed explanation, please refer to [RbNaCl's documentation](https://github.com/cryptosphere/rbnacl/blob/master/README.md).
+Please install docker and then run the [copy script](https://github.com/joshjdevl/docker-libsodium/blob/master/copy-files-to-host.sh)
 
-OS X users can get libsodium via [homebrew](http://mxcl.github.com/homebrew/) with: 
+This will then pull the docker container from [docker-libsodium](https://registry.hub.docker.com/u/joshjdevl/docker-libsodium/) which is a Trusted Build.
 
-    brew install libsodium 
+### Manual compilation and installation
 
-### kalium-jni installation
+Please refer to the [installation instructions](INSTALL.md) for more details or the (docker build)[https://github.com/joshjdevl/docker-libsodium/blob/master/Dockerfile]
+   
+#### Add kalium-jni to your Android project
 
-    git clone https://github.com/joshjdevl/kalium-jni && cd kalium-jni
-    cd jni
-    ./installswig.sh
-    ./compile.sh
-    cd ../
-    mvn clean install
-    
+Add the generated .jar file (~/.m2/repository/org/abstractj/kalium/kalium-jni/x.x.x-SNAPSHOT.jar) in your android project or add as a maven dependency:
+
 Add as a Maven dependency at your project:
 
     <dependency>
@@ -35,8 +32,9 @@ Add as a Maven dependency at your project:
         <version>1.0.0-SNAPSHOT</version>
         <scope>compile</scope>
     </dependency>
-        
-    
+
+Add libtest.so that you'll find inside libs folder(kalium-jni/libs) in jniLibs (src/main/jniLibs) folder of your project.
+ 
 ### Notes
 
 kalium-jni is a work in progress, feedback, bug reports and patches are always welcome.
