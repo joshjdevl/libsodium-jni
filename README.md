@@ -18,7 +18,7 @@ This will then pull the docker container from [docker-libsodium](https://registr
 
 ### Manual compilation and installation
 
-Please refer to the [installation instructions](INSTALL.md) for more details or the (docker build)[https://github.com/joshjdevl/docker-libsodium/blob/master/Dockerfile]
+Please refer to the [installation instructions](INSTALL.md) for more details or the [docker build](https://github.com/joshjdevl/docker-libsodium/blob/master/Dockerfile)
    
 #### Add kalium-jni to your Android project
 
