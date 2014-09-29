@@ -28,6 +28,10 @@ echo $jnilib
 echo $destlib
 
 sudo cp /usr/local/lib/libsodium.* /usr/lib
+
+#In order to compile for arm/armv7/x86/mips you should build your own standalone android-toolchain as in libsodium:android-build.sh
+#https://github.com/jedisct1/libsodium/blob/master/dist-build/android-build.sh
+#And then use gcc binary from there.
 gcc -I${JAVA_HOME}/include -I${JAVA_HOME}/include/linux sodium_wrap.c -shared -fPIC -L/usr/lib -lsodium -o $jnilib
 sudo rm -f /usr/lib/libkaliumjni.so 
 sudo cp libkaliumjni.so $destlib
