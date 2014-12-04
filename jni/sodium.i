@@ -97,6 +97,14 @@ int crypto_generichash_blake2b(unsigned char *out, size_t outlen,
                                const unsigned char *in,
                                unsigned long long inlen,
                                const unsigned char *key, size_t keylen);
+                           
+int crypto_pwhash_scryptsalsa208sha256(unsigned char * const out,
+                                    unsigned long long outlen,
+                                    const char * const passwd,
+                                    unsigned long long passwdlen,
+                                    const unsigned char * const salt,
+                                    unsigned long long opslimit,
+                                    size_t memlimit);
 
 int crypto_box_curve25519xsalsa20poly1305_keypair(unsigned char *pk,
                                                   unsigned char *sk);
@@ -125,9 +133,6 @@ int crypto_scalarmult_curve25519(unsigned char *q, const unsigned char *n,
                                  const unsigned char *p);
 
 
-
-
-
 int crypto_secretbox_xsalsa20poly1305(unsigned char *c,
                                       const unsigned char *m,
                                       unsigned long long mlen,
@@ -150,3 +155,12 @@ int crypto_sign_ed25519(unsigned char *sm, unsigned long long *smlen,
 int crypto_sign_ed25519_open(unsigned char *m, unsigned long long *mlen,
                              const unsigned char *sm, unsigned long long smlen,
                              const unsigned char *pk);
+                             
+                             
+int crypto_stream_xsalsa20(unsigned char *c, unsigned long long clen,
+              const unsigned char *n, const unsigned char *k);
+
+
+int crypto_stream_xsalsa20_xor(unsigned char *c, const unsigned char *m,
+                  unsigned long long mlen, const unsigned char *n,
+                  const unsigned char *k);
