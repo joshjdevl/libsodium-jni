@@ -25,6 +25,8 @@ import static org.abstractj.kalium.NaCl.sodium;
 
 public class Hash {
 
+    private static final int KEY_LEN = 64;
+    private static final int SALTBYTES = 32;
     private static byte[] buffer;
 
     public byte[] sha256(byte[] message) {
@@ -38,7 +40,7 @@ public class Hash {
         sodium().crypto_hash_sha512(buffer, message, message.length);
         return buffer;
     }
-
+    
     public String sha256(String message, Encoder encoder) {
         byte[] hash = sha256(message.getBytes());
         return encoder.encode(hash);
@@ -47,6 +49,12 @@ public class Hash {
     public String sha512(String message, Encoder encoder) {
         byte[] hash = sha512(message.getBytes());
         return encoder.encode(hash);
+    }
+
+    public String pwhash_scryptsalsa208sha256(String passwd, Encoder encoder, byte[] salt, int opslimit, long memlimit) {
+        buffer = new byte[KEY_LEN];
+        sodium().crypto_pwhash_scryptsalsa208sha256(buffer, buffer.length, passwd, passwd.length(), salt, opslimit, memlimit);
+        return encoder.encode(buffer);
     }
 
     /*

@@ -33,6 +33,10 @@ public class Sodium {
     return SodiumJNI.crypto_generichash_blake2b(out, outlen, in, inlen, key, keylen);
   }
 
+  public static int crypto_pwhash_scryptsalsa208sha256(byte[] out, int outlen, String passwd, int passwdlen, byte[] salt, int opslimit, long memlimit) {
+    return SodiumJNI.crypto_pwhash_scryptsalsa208sha256(out, outlen, passwd, passwdlen, salt, opslimit, memlimit);
+  }
+
   public static int crypto_box_curve25519xsalsa20poly1305_keypair(byte[] pk, byte[] sk) {
     return SodiumJNI.crypto_box_curve25519xsalsa20poly1305_keypair(pk, sk);
   }
@@ -71,6 +75,14 @@ public class Sodium {
 
   public static int crypto_sign_ed25519_open(byte[] m, int[] mlen, byte[] sm, int smlen, byte[] pk) {
     return SodiumJNI.crypto_sign_ed25519_open(m, mlen, sm, smlen, pk);
+  }
+
+  public static int crypto_stream_xsalsa20(byte[] c, int clen, byte[] n, byte[] k) {
+    return SodiumJNI.crypto_stream_xsalsa20(c, clen, n, k);
+  }
+
+  public static int crypto_stream_xsalsa20_xor(byte[] c, byte[] m, int mlen, byte[] n, byte[] k) {
+    return SodiumJNI.crypto_stream_xsalsa20_xor(c, m, mlen, n, k);
   }
 
 }
