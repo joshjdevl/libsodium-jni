@@ -26,7 +26,7 @@ public class Random {
      * Generate random bytes
      *
      * @param n number or random bytes
-     * @return
+     * @return Byte array with random bytes
      */
     public byte[] randomBytes(int n) {
         byte[] buffer = new byte[n];
