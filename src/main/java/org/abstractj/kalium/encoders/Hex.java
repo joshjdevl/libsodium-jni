@@ -19,7 +19,6 @@ package org.abstractj.kalium.encoders;
 
 /**
  * Converts hexadecimal Strings.
- * <p/>
  * This class is thread-safe.
  *
  * @version $Id$
