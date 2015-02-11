@@ -10,3 +10,4 @@ hs_err*
 jni/swig*
 libs
 obj
+build/
