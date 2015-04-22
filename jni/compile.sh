@@ -23,9 +23,13 @@ destlib=/usr/lib
 if uname -a | grep -q -i darwin; then
   jnilib=libkaliumjni.jnilib
   destlib=/usr/lib/java
+  if [ ! -d $destlib ]; then
+      sudo mkdir $destlib
+  fi
 fi
 echo $jnilib
 echo $destlib
+echo $destlib/$jnilib 
 
 sudo cp /usr/local/lib/libsodium.* /usr/lib
 
@@ -41,6 +45,6 @@ sudo cp /usr/local/lib/libsodium.* /usr/lib
 #Example(x86):
 #/installs/libsodium/android-toolchain-x86/i686-linux-android/bin/gcc -I${JAVA_HOME}/include -I${JAVA_HOME}/include/linux -I/installs/libsodium/libsodium-android-x86/include sodium_wrap.c -shared -fPIC -L/installs/libsodium/libsodium-android-x86/lib -lsodium -o $jnilib
 gcc -I${JAVA_HOME}/include -I${JAVA_HOME}/include/linux sodium_wrap.c -shared -fPIC -L/usr/lib -lsodium -o $jnilib
-sudo rm -f /usr/lib/libkaliumjni.so 
-sudo cp libkaliumjni.so $destlib
+sudo rm -f $destlib/$jnilib  
+sudo cp $jnilib $destlib
 
