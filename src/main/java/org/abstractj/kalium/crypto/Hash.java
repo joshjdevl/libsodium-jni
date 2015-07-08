@@ -18,23 +18,20 @@ package org.abstractj.kalium.crypto;
 
 import org.abstractj.kalium.encoders.Encoder;
 
-import static org.abstractj.kalium.SodiumConstants.BLAKE2B_OUTBYTES;
+import static org.abstractj.kalium.NaCl.sodium;
 import static org.abstractj.kalium.SodiumConstants.SHA256BYTES;
 import static org.abstractj.kalium.SodiumConstants.SHA512BYTES;
-import static org.abstractj.kalium.NaCl.sodium;
 
 public class Hash {
 
-    private static byte[] buffer;
-
     public byte[] sha256(byte[] message) {
-        buffer = new byte[SHA256BYTES];
+        byte[] buffer = new byte[SHA256BYTES];
         sodium().crypto_hash_sha256(buffer, message, message.length);
         return buffer;
     }
 
     public byte[] sha512(byte[] message) {
-        buffer = new byte[SHA512BYTES];
+        byte[] buffer = new byte[SHA512BYTES];
         sodium().crypto_hash_sha512(buffer, message, message.length);
         return buffer;
     }
