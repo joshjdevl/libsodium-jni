@@ -5,10 +5,11 @@ set -ev
 . ./setenv.sh
 
 rm -rf libsodium
+
 git submodule init
 git submodule update
 
-pushd libsodium 
+pushd libsodium
 
 git fetch && git checkout stable
 ./autogen.sh
