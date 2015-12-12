@@ -27,7 +27,7 @@ public class Hash {
 
     private static final int KEY_LEN = 64;
     private static final int SALTBYTES = 32;
-    private static byte[] buffer;
+    private byte[] buffer;
 
     public byte[] sha256(byte[] message) {
         buffer = new byte[SHA256BYTES];
