@@ -1,2 +1,3 @@
 kalium-jni:
   build: .
+  command: tail -f /dev/null
