@@ -1,24 +1,25 @@
-#!/usr/bin/bash`
+#!/bin/bash
 
 set -ev
 
 . ./setenv.sh
 
-pushd /installs
-
 rm -rf libsodium
 git submodule init
 git submodule update
-pushd libsodium 
-./autogen.sh
-./configure && make && make check && make install
 
-pushd dist-build 
-./android-arm.sh
-./android-build.sh
-./android-arm.sh
-./android-x86.sh
-popd
+pushd libsodium 
+
+git fetch && git checkout stable
+./autogen.sh
+./configure 
+make && make check 
+make install
+
+./dist-build/android-arm.sh
+./dist-build/android-armv7-a.sh
+./dist-build/android-mips32.sh
+./dist-build/android-x86.sh
 
 popd
 

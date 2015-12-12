@@ -1,3 +1,5 @@
+#!/bin/bash
+
 set -e
 
 wget http://prdownloads.sourceforge.net/swig/swig-2.0.10.tar.gz

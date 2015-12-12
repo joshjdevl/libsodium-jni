@@ -14,9 +14,24 @@
 #
 LOCAL_PATH := $(call my-dir)
 
+# Bugfix for arm, which should refer to the armv6 folder
+# Bugfix for x86, which should refer to the i686 folder
+# Bugfix for mips, which should refer to the mips32 folder
+MY_ARCH_FOLDER := $(TARGET_ARCH)
+ifeq ($(MY_ARCH_FOLDER),arm)
+    MY_ARCH_FOLDER = armv6
+endif
+ifeq ($(MY_ARCH_FOLDER),x86)
+    MY_ARCH_FOLDER = i686
+endif
+ifeq ($(MY_ARCH_FOLDER),mips)
+    MY_ARCH_FOLDER = mips32
+endif
+
+
 include $(CLEAR_VARS)
 LOCAL_MODULE := sodium
-LOCAL_SRC_FILES := /installs/libsodium/libsodium-android-$(TARGET_ARCH)/lib/libsodium.a #/installs/libsodium/libsodium-android-(x86|arm|mips)/lib/libsodium.a
+LOCAL_SRC_FILES := ../libsodium/libsodium-android-$(MY_ARCH_FOLDER)/lib/libsodium.a #/installs/libsodium/libsodium-android-(x86|arm|mips)/lib/libsodium.a
 include $(PREBUILT_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
@@ -27,10 +42,9 @@ sodium_wrap.c
 
 LOCAL_CFLAGS   += -Wall -g -pedantic -std=c99
 
-LOCAL_C_INCLUDES += /installs/libsodium/libsodium-android-$(TARGET_ARCH)/include /installs/libsodium/libsodium-android-$(TARGET_ARCH)/include/sodium
+LOCAL_C_INCLUDES += ../libsodium/libsodium-android-$(MY_ARCH_FOLDER)/include ../libsodium/libsodium-android-$(MY_ARCH_FOLDER)/include/sodium /usr/local/include
 LOCAL_STATIC_LIBRARIES += android_native_app_glue sodium
 #LOCAL_LDLIBS += -llog -lsodium
 
 
 include $(BUILD_SHARED_LIBRARY)
-
