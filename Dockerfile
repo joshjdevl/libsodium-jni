@@ -5,7 +5,11 @@ ENV DEBIAN_FRONTEND noninteractive
 WORKDIR /installs
 ADD dependencies-linux.sh /installs/dependencies-linux.sh
 ADD setenv.sh /installs/setenv.sh
-RUN ./dependencies-linux.sh
+#RUN ./dependencies-linux.sh
 
 ADD build.sh /installs/build.sh
-RUN ./build.sh
+#RUN ./build.sh
+
+ADD build-kaliumjni.sh /installs/build-kaliumjni.sh
+#WORKDIR /installs/kalium-jni
+#RUN ./build-kaliumjni.sh
