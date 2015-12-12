@@ -1,3 +1,5 @@
 kalium-jni:
   build: .
+  volumes:
+    - .:/installs/kalium-jni
   command: tail -f /dev/null
