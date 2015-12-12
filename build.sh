@@ -2,11 +2,15 @@
 
 set -ev
 
+. ./setenv.sh
+
 pushd /installs
 
-git clone https://github.com/jedisct1/libsodium.git
+rm -rf libsodium
+git submodule init
+git submodule update
 pushd libsodium 
-git checkout && ./autogen.sh
+./autogen.sh
 ./configure && make && make check && make install
 
 pushd dist-build 
@@ -17,12 +21,6 @@ pushd dist-build
 popd
 
 popd
-
-rm -rf libsodium
-git submodule init
-git submodule update
-
-#cd /installs && git clone https://github.com/joshjdevl/kalium-jni && cd /installs/kalium-jni && git pull
 
 pushd jni
 ./installswig.sh

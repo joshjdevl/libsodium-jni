@@ -1,39 +1,4 @@
-language: java
-
+sudo: required
 before_script:
-  - wget -c http://download.libsodium.org/libsodium/releases/LATEST.tar.gz
-  - tar xzvf LATEST.tar.gz
-  - ln -s libsodium-1.0.1 LATEST
-  - pushd LATEST && mkdir vendor
-  - ./configure --prefix=`pwd`/vendor
-  - make && make install
-  - popd
-  - wget http://prdownloads.sourceforge.net/swig/swig-2.0.10.tar.gz
-  - tar -xvf swig-2.0.10.tar.gz
-  - pushd swig-2.0.10 && mkdir vendor
-  - ./configure --prefix=`pwd`/vendor
-  - make -j 5 && make install
-  - popd
-  - wget https://raw.github.com/joshjdevl/kalium-jni/master/jni/sodium.i
-  - wget https://raw.github.com/joshjdevl/kalium-jni/master/jni/Path.java
-  - javac Path.java
-  - java Path
-  - find /home/travis/build/joshjdevl/kalium-jni/swig-2.0.10/vendor
-  - sudo cp /home/travis/build/joshjdevl/kalium-jni/LATEST/vendor/lib/libsodium.* /usr/lib
-  - /home/travis/build/joshjdevl/kalium-jni/swig-2.0.10/vendor/bin/swig -java sodium.i
-  - gcc -I/home/travis/build/joshjdevl/kalium-jni/LATEST/vendor/include -I/home/travis/build/joshjdevl/kalium-jni/LATEST/vendor/sodium -I${JAVA_HOME}/include -I${JAVA_HOME}/include/linux sodium_wrap.c -shared -fPIC -L/usr/lib -lsodium -o /home/travis/build/joshjdevl/kalium-jni/LATEST/vendor/lib/libkaliumjni.so
-  - sudo cp /home/travis/build/joshjdevl/kalium-jni/LATEST/vendor/lib/libkaliumjni.so /usr/lib/libkaliumjni.so
-  - ls -ltr /usr/lib
-
-
-script: ./singleTest.sh
-
-env: 
-  - MAVEN_OPTS="-Djava.library.path=/home/travis/build/joshjdevl/kalium-jni/LATEST/vendor/lib" 
-
-jdk:
-  - oraclejdk7
-  - openjdk6
-
-after_success:
-  - rm -rf LATEST*
+  - ./dependencies-linux.sh
+script: ./build.sh
