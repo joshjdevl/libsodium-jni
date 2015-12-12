@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. ./setenv.sh
+
 pushd jni
 ./installswig.sh
 ./compile.sh
