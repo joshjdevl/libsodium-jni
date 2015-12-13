@@ -45,9 +45,7 @@ Add libkaliumjni.so that you'll find inside libs folder(kalium-jni/libs) in jniL
 
 kalium-jni is a work in progress, feedback, bug reports and patches are always welcome.
 
-[Docker build](https://github.com/joshjdevl/docker-libsodium)
-
-[Docker container](https://index.docker.io/u/joshjdevl/docker-libsodium/)
+[Docker container](https://hub.docker.com/r/joshjdevl/kalium-jni/)
 
 
 ### Issues / Improvements / Help Seeked
