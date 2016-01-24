@@ -20,10 +20,9 @@ package org.abstractj.kalium;
 public class NaCl {
 
     public static Sodium sodium() {
+        Sodium.sodium_init();
         return SingletonHolder.SODIUM_INSTANCE;
     }
-    
-    private static final String LIBRARY_NAME = "sodium";
     
     private static final class SingletonHolder {
         public static final Sodium SODIUM_INSTANCE = new Sodium();
@@ -34,5 +33,14 @@ public class NaCl {
 
     static {
         System.loadLibrary("kaliumjni");
+    }
+
+    public static void checkStatus(final int status)
+            throws SecurityException {
+        if (status == 0) {
+            return;
+        }
+        throw new SecurityException(
+                String.format("Stodium: operation returned non-zero status %d", status));
     }
 }

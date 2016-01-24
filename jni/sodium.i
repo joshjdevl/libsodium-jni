@@ -15,9 +15,9 @@
 %apply long {uint64_t};
 
 /* unsigned char */
-%typemap(jni) unsigned char *"jbyteArray"
-%typemap(jtype) unsigned char *"byte[]"
-%typemap(jstype) unsigned char *"byte[]"
+%typemap(jni) unsigned char *       "jbyteArray"
+%typemap(jtype) unsigned char *     "byte[]"
+%typemap(jstype) unsigned char *    "byte[]"
 %typemap(in) unsigned char *{
     $1 = (unsigned char *) JCALL2(GetByteArrayElements, jenv, $input, 0);
 }
