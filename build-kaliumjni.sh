@@ -3,10 +3,10 @@
 . ./setenv.sh
 
 pushd jni
-./installswig.sh
+#./installswig.sh
 ./compile.sh
 popd
 
-mvn -q clean install
-./singleTest.sh
-ndk-build
+#mvn -q clean install
+#./singleTest.sh
+#ndk-build
