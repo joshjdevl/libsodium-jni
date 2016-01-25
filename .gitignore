@@ -9,3 +9,6 @@ libs/armeabi
 obj
 jni
 libs
+.DS_Store
+build
+.gradle/
