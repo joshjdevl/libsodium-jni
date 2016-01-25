@@ -6,6 +6,8 @@
 %include "arrays_java.i"
 %include "carrays.i"
 %include "various.i"
+%include "java.swg"
+%include "typemaps.i"
 
 /* Basic mappings */
 %apply int {unsigned long long};
