@@ -16,12 +16,12 @@ public class SignatureTest {
 
         long publickeylen=Sodium.crypto_box_publickeybytes();
         long privatekeylen=Sodium.crypto_box_secretkeybytes();
-        byte[] public_key=new byte[(int)publickeylen];
-        byte[] private_key=new byte[(int)privatekeylen];
+        final byte[] public_key=new byte[(int)publickeylen+50];
+        final byte[] private_key=new byte[(int)privatekeylen+50];
         System.out.println("Generating keypair");
         Sodium.randombytes(public_key,(int)publickeylen);
         Sodium.randombytes(private_key,(int)privatekeylen);
-        //ret=Sodium.crypto_sign_keypair(public_key,private_key);
+        ret=Sodium.crypto_sign_keypair(public_key,private_key);
         System.out.println(ret);
         System.out.println("Generated keypair");
 
@@ -44,6 +44,6 @@ public class SignatureTest {
         ret=Sodium.crypto_sign_open(message, messageSize, signed_message, signed_message_len[0], public_key);
         System.out.println(ret);
         System.out.println("Recovered message="+new String(message));
-        //Assert.assertEquals(0,ret);
+        Assert.assertEquals(0,ret);
     }
 }
