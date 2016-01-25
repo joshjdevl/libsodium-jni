@@ -1,6 +1,6 @@
 kalium-jni:
-  #build: .
-  image: joshjdevl/kalium-jni:latest
+  build: .
+  #image: joshjdevl/kalium-jni:latest
   volumes:
     - .:/installs/kalium-jni
   command: tail -f /dev/null

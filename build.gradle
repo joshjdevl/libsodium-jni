@@ -1,8 +1,12 @@
 apply plugin: 'com.android.library'
 
+repositories {
+    mavenCentral()
+}
+
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    buildToolsVersion "23.0.2"
 
     // To let the libs be included in other projects
     sourceSets {
@@ -27,6 +31,19 @@ android {
 
 dependencies {
     // TODO are these required in this lib project?
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:23.1.1'
+    //compile fileTree(include: ['*.jar'], dir: 'libs')
+    //compile 'com.android.support:appcompat-v7:23.1.1'
+   testCompile 'junit:junit:4.12'
 }
+
+buildscript {
+    System.properties['com.android.build.gradle.overrideVersionCheck'] = 'true'
+    repositories {
+        mavenCentral()
+	jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.2.3'
+    }
+}
+
