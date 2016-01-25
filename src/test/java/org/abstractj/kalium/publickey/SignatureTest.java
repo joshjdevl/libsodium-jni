@@ -12,12 +12,16 @@ public class SignatureTest {
     @Test
     public void testCombinedSignature() {
         Sodium sodium= NaCl.sodium();
+        int ret=0;
+
         long publickeylen=Sodium.crypto_box_publickeybytes();
         long privatekeylen=Sodium.crypto_box_secretkeybytes();
-        byte[] public_key=new byte[(int)publickeylen+1];
-        byte[] private_key=new byte[(int)privatekeylen+1];
+        byte[] public_key=new byte[(int)publickeylen];
+        byte[] private_key=new byte[(int)privatekeylen];
         System.out.println("Generating keypair");
-        int ret=Sodium.crypto_sign_keypair(public_key,private_key);
+        Sodium.randombytes(public_key,(int)publickeylen);
+        Sodium.randombytes(private_key,(int)privatekeylen);
+        //ret=Sodium.crypto_sign_keypair(public_key,private_key);
         System.out.println(ret);
         System.out.println("Generated keypair");
 
@@ -27,7 +31,6 @@ public class SignatureTest {
         byte[] signed_message=new byte[(int)signaturelen+originalmessage.length];
         final int[] signed_message_len = new int[1];
         System.out.println("Signing message");
-        /*
         ret=Sodium.crypto_sign(signed_message,signed_message_len,originalmessage,originalmessage.length,private_key);
         System.out.println(ret);
         System.out.println("byte length="+signed_message.length);
@@ -41,7 +44,6 @@ public class SignatureTest {
         ret=Sodium.crypto_sign_open(message, messageSize, signed_message, signed_message_len[0], public_key);
         System.out.println(ret);
         System.out.println("Recovered message="+new String(message));
-        Assert.assertEquals(0,ret);
-        */
+        //Assert.assertEquals(0,ret);
     }
 }
