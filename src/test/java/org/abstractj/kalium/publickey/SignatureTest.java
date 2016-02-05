@@ -14,10 +14,12 @@ public class SignatureTest {
         Sodium sodium= NaCl.sodium();
         int ret=0;
 
-        long publickeylen=Sodium.crypto_box_publickeybytes();
-        long privatekeylen=Sodium.crypto_box_secretkeybytes();
-        final byte[] public_key=new byte[(int)publickeylen+50];
-        final byte[] private_key=new byte[(int)privatekeylen+50];
+        long publickeylen=Sodium.crypto_sign_publickeybytes();
+        long privatekeylen=Sodium.crypto_sign_secretkeybytes();
+        System.out.println("PublicKeyLen="+publickeylen);
+        System.out.println("PrivateKeyLen="+privatekeylen);
+        final byte[] public_key=new byte[(int)publickeylen];
+        final byte[] private_key=new byte[(int)privatekeylen];
         System.out.println("Generating keypair");
         Sodium.randombytes(public_key,(int)publickeylen);
         Sodium.randombytes(private_key,(int)privatekeylen);
