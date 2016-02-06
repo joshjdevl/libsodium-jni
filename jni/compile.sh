@@ -15,13 +15,13 @@ rm -f *.c
 rm -f *.so
 
 #swig -java sodium.i
-swig -java -package org.libsodium.kaliumjni -outdir ../src/main/java/org/libsodium/kaliumjni sodium.i
+swig -java -package org.libsodium.jni -outdir ../src/main/java/org/libsodium/jni sodium.i
 
 
-jnilib=libkaliumjni.so
+jnilib=libsodiumjni.so
 destlib=/usr/lib
 if uname -a | grep -q -i darwin; then
-  jnilib=libkaliumjni.jnilib
+  jnilib=libsodiumjni.jnilib
   destlib=/usr/lib/java
   if [ ! -d $destlib ]; then
       sudo mkdir $destlib

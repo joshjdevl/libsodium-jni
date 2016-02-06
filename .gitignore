@@ -12,3 +12,4 @@ libs
 .DS_Store
 build
 .gradle/
+*.key

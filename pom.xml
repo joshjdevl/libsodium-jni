@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.libsodium.kalium</groupId>
-    <artifactId>kalium-jni</artifactId>
+    <groupId>org.libsodium.jni</groupId>
+    <artifactId>libsodium-jni</artifactId>
     <version>1.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>kalium-jni</name>
-    <url>https://github.com/joshjdevl/kalium-jni</url>
+    <name>libsodium-jni</name>
+    <url>https://github.com/joshjdevl/libsodium-jni</url>
 
     <parent>
         <groupId>org.sonatype.oss</groupId>
@@ -23,9 +23,9 @@
     </properties>
 
     <scm>
-        <connection>scm:git:git@bitbucket.org:joshjdevl/kalium-jni.git</connection>
-        <developerConnection>scm:git:git@bitbucket.org:joshjdevl/kalium-jni.git</developerConnection>
-        <url>https://github.com/joshjdevl/kalium-jni</url>
+        <connection>scm:git:git@bitbucket.org:joshjdevl/libsodium-jni.git</connection>
+        <developerConnection>scm:git:git@bitbucket.org:joshjdevl/libsodium-jni.git</developerConnection>
+        <url>https://github.com/joshjdevl/libsodium-jni</url>
         <tag>HEAD</tag>
     </scm>
 
