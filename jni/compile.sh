@@ -32,9 +32,9 @@ echo $jnilib
 echo $destlib
 echo $destlib/$jnilib 
 
-sudo cp /usr/local/lib/libsodium.* /usr/lib
+#sudo cp /usr/local/lib/libsodium.* /usr/lib
 
-gcc -I${JAVA_HOME}/include -I${JAVA_HOME}/include/linux sodium_wrap.c -shared -fPIC -L/usr/lib -lsodium -o $jnilib
+gcc -I${JAVA_HOME}/include -I${JAVA_HOME}/include/linux sodium_wrap.c -shared -fPIC -L/usr/local/lib -L/usr/lib -lsodium -o $jnilib
 sudo rm -f $destlib/$jnilib  
 sudo cp $jnilib $destlib
 
