@@ -75,7 +75,7 @@ Add the generated .jar file (~/.m2/repository/org/abstractj/kalium/kalium-jni/x.
 Add as a Maven dependency at your project:
 
     <dependency>
-        <groupId>org.abstractj.kalium</groupId>
+        <groupId>org.abstractj.kaliumjni</groupId>
         <artifactId>kalium-jni</artifactId>
         <version>1.0.0-SNAPSHOT</version>
         <scope>compile</scope>

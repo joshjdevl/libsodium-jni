@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.abstractj.kalium</groupId>
+    <groupId>org.libsodium.kalium</groupId>
     <artifactId>kalium-jni</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>kalium</name>
-    <url>http://github.com/abstractj/kalium</url>
+    <name>kalium-jni</name>
+    <url>https://github.com/joshjdevl/kalium-jni</url>
 
     <parent>
         <groupId>org.sonatype.oss</groupId>
@@ -25,7 +25,7 @@
     <scm>
         <connection>scm:git:git@bitbucket.org:joshjdevl/kalium-jni.git</connection>
         <developerConnection>scm:git:git@bitbucket.org:joshjdevl/kalium-jni.git</developerConnection>
-        <url>https://bitbucket.com/abstractj/kalium</url>
+        <url>https://github.com/joshjdevl/kalium-jni</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -39,26 +39,8 @@
 
     <developers>
         <developer>
-            <id>abstractj</id>
-            <name>Bruno Oliveira</name>
-            <url>http://abstractj.org</url>
-            <email>bruno@abstractj.org</email>
-            <roles>
-                <role>Software Developer</role>
-            </roles>
-        </developer>
-        <developer>
-            <id>qmx</id>
-            <name>Douglas Campos</name>
-            <url>http://github.com/qmx</url>
-            <email>qmx@qmx.me</email>
-            <roles>
-                <role>Software Developer</role>
-            </roles>
-        </developer>
-        <developer>
             <id>joshjdevl</id>
-            <name>joshj</name>
+            <name>josh</name>
             <url>http://github.com/joshjdevl</url>
             <email>joshjdevl@gmail.com</email>
             <roles>
@@ -91,8 +73,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.2</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
