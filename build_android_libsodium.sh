@@ -1,5 +1,10 @@
 #!/bin/sh
 
+rm -rf libsodium
+
+git submodule init
+git submodule update
+
 cd android-ndk-r10d
 export ANDROID_NDK_HOME=`pwd`
 
