@@ -8,6 +8,10 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
 
+    lintOptions {
+        abortOnError false
+    }
+
     // To let the libs be included in other projects
     sourceSets {
         main {
