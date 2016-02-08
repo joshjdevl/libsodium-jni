@@ -3,7 +3,7 @@
 . ./setenv.sh
 
 pushd jni
-#./installswig.sh
+./installswig.sh
 ./compile.sh
 popd
 
