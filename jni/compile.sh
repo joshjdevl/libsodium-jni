@@ -27,6 +27,8 @@ if uname -a | grep -q -i darwin; then
   if [ ! -d $destlib ]; then
       sudo mkdir $destlib
   fi
+else
+  ldconfig
 fi
 echo $jnilib
 echo $destlib
