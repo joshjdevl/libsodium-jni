@@ -11,41 +11,24 @@ Credits to:
 
 ## Requirements
 
-* JDK 6 or [higher](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* JDK 8 or [higher](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Apache Maven](http://maven.apache.org/guides/getting-started/)
 
 ## Installation 
 
 ###Shared Library and Jar File
 
-Please install docker and then run the [copy script](https://github.com/joshjdevl/docker-libsodium/blob/master/copy-files-to-host.sh)
-
-This will then pull the docker container from [docker-libsodium](https://registry.hub.docker.com/u/joshjdevl/docker-libsodium/) which is a Trusted Build.
+The docker container is available from [libsodium-jni](https://hub.docker.com/r/joshjdevl/libsodium-jni/) which is a Automated Build.
 
 ### Manual compilation and installation
 
-Please refer to the [installation instructions](INSTALL.md) for more details or the [docker build](https://github.com/joshjdevl/docker-libsodium/blob/master/Dockerfile)
+Please refer to the [docker build](https://github.com/joshjdevl/libsodium-jni/blob/master/Dockerfile) for the commands used to build.
    
-#### Add kalium-jni to your Android project
-
-Add the generated .jar file (~/.m2/repository/org/abstractj/kalium/kalium-jni/x.x.x-SNAPSHOT.jar) in your android project or add as a maven dependency:
-
-Add as a Maven dependency at your project:
-
-    <dependency>
-        <groupId>org.abstractj.kaliumjni</groupId>
-        <artifactId>kalium-jni</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
-        <scope>compile</scope>
-    </dependency>
-
-Add libkaliumjni.so that you'll find inside libs folder(kalium-jni/libs) in jniLibs (src/main/jniLibs) folder of your project.
- 
 ### Notes
 
-kalium-jni is a work in progress, feedback, bug reports and patches are always welcome.
+libsodium-jni is a work in progress, feedback, bug reports and patches are always welcome.
 
-[Docker container](https://hub.docker.com/r/joshjdevl/kalium-jni/)
+[Docker container](https://hub.docker.com/r/joshjdevl/libsodium-jni/)
 
 
 ### Issues / Improvements / Help Seeked
