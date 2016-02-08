@@ -7,6 +7,6 @@ pushd jni
 ./compile.sh
 popd
 
-#mvn -q clean install
-#./singleTest.sh
+mvn -q clean install
+./singleTest.sh
 #ndk-build
