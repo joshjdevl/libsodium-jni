@@ -1,4 +1,4 @@
-# kalium-jni - Java JNI binding to the Networking and Cryptography (NaCl) library 
+# libsodium-jni - (Android) Java JNI binding to the Networking and Cryptography (NaCl) library 
 
 A Java JNI binding (to allow for Java and Android integration) to [Networking and Cryptography](http://nacl.cr.yp.to/) library by [Daniel J. Bernstein](http://cr.yp.to/djb.html).
 
