@@ -26,14 +26,12 @@ Please refer to the [docker build](https://github.com/joshjdevl/libsodium-jni/bl
    
 ### Notes
 
-libsodium-jni is a work in progress, feedback, bug reports and patches are always welcome.
-
 [Docker container](https://hub.docker.com/r/joshjdevl/libsodium-jni/)
 
 
 ### Issues / Improvements / Help Seeked
 
-the blake tests have been commented out, there were some strange jni errors
+libsodium-jni is a work in progress, feedback, bug reports and patches are always welcome.
 
 Everything has been tested and working on ubuntu 12.04 32bit and 64 bit, macos, and Android
 
