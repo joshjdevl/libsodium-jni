@@ -1,14 +1,14 @@
 package org.libsodium.jni.publickey;
 
-import org.libsodium.jni.NaCl;
-import org.libsodium.jni.Sodium;
+import com.google.common.io.Files;
 import org.junit.Assert;
 import org.junit.Test;
+import org.libsodium.jni.NaCl;
+import org.libsodium.jni.Sodium;
 
+import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.net.URISyntaxException;
 
 /**
  * Created by joshjdevl on 2/5/16.
@@ -38,7 +38,7 @@ public class SealedBoxTest {
     }
 
     @Test
-    public void testSealedBoxFile() throws IOException {
+    public void testSealedBoxFile() throws IOException, URISyntaxException {
         Sodium sodium= NaCl.sodium();
         int ret=0;
 
@@ -49,14 +49,14 @@ public class SealedBoxTest {
 
         Sodium.crypto_box_keypair(public_key,private_key);
 
-        Path public_key_path= Paths.get("box_public.key");
-        Files.write(public_key_path,public_key);
+        File public_key_file=new File("box_public.key");
+        Files.write(public_key,public_key_file);
 
-        Path private_key_path = Paths.get("box_private.key");
-        Files.write(private_key_path,private_key);
+        File private_key_file=new File("box_private.key");
+        Files.write(private_key,private_key_file);
 
-        byte[] public_key_fromfile = Files.readAllBytes(public_key_path);
-        byte[] private_key_fromfile = Files.readAllBytes(private_key_path);
+        byte[] public_key_fromfile = Files.toByteArray(public_key_file);
+        byte[] private_key_fromfile = Files.toByteArray(private_key_file);
 
         String message="testmessage";
 

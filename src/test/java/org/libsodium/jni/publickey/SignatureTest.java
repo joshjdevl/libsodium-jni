@@ -1,14 +1,14 @@
 package org.libsodium.jni.publickey;
 
-import org.libsodium.jni.NaCl;
-import org.libsodium.jni.Sodium;
+import com.google.common.io.Files;
 import org.junit.Assert;
 import org.junit.Test;
+import org.libsodium.jni.NaCl;
+import org.libsodium.jni.Sodium;
 
+import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.net.URISyntaxException;
 
 /**
  * Created by joshjdevl on 1/24/16.
@@ -56,7 +56,7 @@ public class SignatureTest {
     }
 
     @Test
-    public void testSignatureFromFile() throws IOException {
+    public void testSignatureFromFile() throws IOException, URISyntaxException {
         Sodium sodium= NaCl.sodium();
         int ret=0;
 
@@ -73,13 +73,13 @@ public class SignatureTest {
         System.out.println(ret);
         System.out.println("Generated keypair");
 
-        Path public_key_path= Paths.get("public.key");
-        Files.write(public_key_path,public_key);
+        File public_key_file=new File("public.key");
+        Files.write(public_key,public_key_file);
 
-        Path private_key_path = Paths.get("private.key");
-        Files.write(private_key_path,private_key);
+        File private_key_file=new File("private.key");
+        Files.write(private_key,private_key_file);
 
-        byte[] public_key_fromfile = Files.readAllBytes(public_key_path);
+        byte[] public_key_fromfile = Files.toByteArray(public_key_file);
 
         byte[] originalmessage="test".getBytes();
         System.out.println("Original message="+new String(originalmessage));
