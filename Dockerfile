@@ -13,4 +13,3 @@ ENV GRADLE_OPTS -Dorg.gradle.native=false
 
 RUN ./download-gradle.sh
 RUN ./build-kaliumjni.sh
-RUN gradle build
