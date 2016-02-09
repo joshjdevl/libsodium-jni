@@ -16,6 +16,14 @@ Credits to:
 
 ## Installation 
 
+### Android Archive (AAR)
+
+    <dependency>
+        <groupId>com.github.joshjdevl.libsodiumjni</groupId>
+        <artifactId>libsodiumjni</artifactId>
+       <version>1.0.1-SNAPSHOT</version>
+    </dependency>
+
 ###Shared Library and Jar File
 
 The docker container is available from [libsodium-jni](https://hub.docker.com/r/joshjdevl/libsodium-jni/) which is a Automated Build.
