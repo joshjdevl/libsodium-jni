@@ -16,6 +16,8 @@ Credits to:
 
 ## Installation 
 
+* Java package is under org.libsodium.jni
+
 ### Android Archive (AAR)
     <dependency>
         <groupId>com.github.joshjdevl.libsodiumjni</groupId>
