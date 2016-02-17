@@ -26,7 +26,7 @@ Credits to:
         <type>aar</type>
     </dependency>
 
-### Jar Archive
+### Java Archive (JAR)
 
     <dependency>
         <groupId>com.github.joshjdevl.libsodiumjni</groupId>
