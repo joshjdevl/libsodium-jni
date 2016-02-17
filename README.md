@@ -17,11 +17,20 @@ Credits to:
 ## Installation 
 
 ### Android Archive (AAR)
+    <dependency>
+        <groupId>com.github.joshjdevl.libsodiumjni</groupId>
+        <artifactId>libsodium-jni</artifactId>
+        <version>1.0.1-SNAPSHOT</version>
+        <type>aar</type>
+    </dependency>
+
+### Jar Archive
 
     <dependency>
         <groupId>com.github.joshjdevl.libsodiumjni</groupId>
-        <artifactId>libsodiumjni</artifactId>
-       <version>1.0.1-SNAPSHOT</version>
+        <artifactId>libsodium-jni</artifactId>
+        <version>1.0.1-SNAPSHOT</version>
+        <type>jar</type>
     </dependency>
 
 ###Shared Library and Jar File
