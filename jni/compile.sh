@@ -23,7 +23,7 @@ jnilib=libsodiumjni.so
 destlib=/usr/lib
 if uname -a | grep -q -i darwin; then
   jnilib=libsodiumjni.jnilib
-  destlib=/usr/local/lib/java
+  destlib=$HOME/Library/Java/Extensions
   if [ ! -d $destlib ]; then
       sudo mkdir $destlib
   fi
