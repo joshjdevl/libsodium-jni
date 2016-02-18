@@ -40,13 +40,4 @@ public class NaCl {
     
     private NaCl() {
     }
-
-    public static void checkStatus(final int status)
-            throws SecurityException {
-        if (status == 0) {
-            return;
-        }
-        throw new SecurityException(
-                String.format("Stodium: operation returned non-zero status %d", status));
-    }
 }
