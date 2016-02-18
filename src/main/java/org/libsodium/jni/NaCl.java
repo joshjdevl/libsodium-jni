@@ -17,7 +17,17 @@
 package org.libsodium.jni;
 
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class NaCl {
+    private static final Logger LOGGER=Logger.getLogger(NaCl.class.getName());
+
+    static {
+        String librarypath=System.getProperty("java.library.path");
+        LOGGER.log(Level.INFO,"librarypath="+librarypath);
+        System.loadLibrary("sodiumjni");
+    }
 
     public static Sodium sodium() {
         Sodium.sodium_init();
@@ -29,10 +39,6 @@ public class NaCl {
     }
     
     private NaCl() {
-    }
-
-    static {
-        System.loadLibrary("sodiumjni");
     }
 
     public static void checkStatus(final int status)
