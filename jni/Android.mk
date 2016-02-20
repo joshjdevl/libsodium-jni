@@ -36,7 +36,7 @@ include $(PREBUILT_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE    := kaliumjni
+LOCAL_MODULE    := sodiumjni
 LOCAL_SRC_FILES :=  \
 sodium_wrap.c
 
