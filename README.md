@@ -21,7 +21,7 @@ Credits to:
 ### Android Archive (AAR)
     <dependency>
         <groupId>com.github.joshjdevl.libsodiumjni</groupId>
-        <artifactId>libsodium-jni</artifactId>
+        <artifactId>libsodium-jni-aar</artifactId>
         <version>1.0.2-SNAPSHOT</version>
         <type>aar</type>
     </dependency>
