@@ -28,8 +28,8 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode project.VERSION_CODE.toInteger()
+        versionName project.VERSION_NAME
     }
 
     buildTypes {
@@ -76,13 +76,13 @@ uploadArchives {
 
 
       pom.project {
-        //name 'libsodium-jni'
-        //packaging 'jar'
-        //artifactId 'libsodium-jni'
-        //groupId 'com.github.joshjdevl.libsodiumjni'
-        //version '1.0.1-SNAPSHOT'
+        name project.POM_NAME
+        packaging 'jar'
+        artifactId project.POM_ARTIFACT_ID
+        groupId project.GROUP
+        version project.VERSION_NAME
         // optionally artifactId can be defined here 
-        //description 'libsodium-jni'
+        description project.POM_ARTIFACT_ID
         //url 'https://github.com/joshjdevl/libsodium-jni'
 
         scm {
