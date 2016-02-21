@@ -1,7 +1,7 @@
 class Libsodiumjni < Formula
   desc "NaCl networking and cryptography library"
   homepage "https://github.com/joshjdevl/libsodium-jni/"
-  url "https://github.com/joshjdevl/libsodium-jni/archive/bd68e670943b452640221a13462dbedece68a337.zip"
+  url "https://github.com/joshjdevl/libsodium-jni/archive/a36b21fd15660651bfc59168e0f297e007121797.zip"
 
   head do
     url "https://github.com/joshjdevl/libsodium-jni.git"
@@ -14,6 +14,7 @@ class Libsodiumjni < Formula
     depends_on "android-ndk" => :build
     depends_on "gradle" => :build
     depends_on "libsodium" => :build
+    depends_on "maven" => :build
   end
 
   option :universal
@@ -24,6 +25,7 @@ class Libsodiumjni < Formula
     system "cd jni && ./compile.sh"
     system "mvn -q clean install"
     system "./singleTest.sh"
+    system "echo `pwd`"
     system "ndk-build"
     system "gradle build" 
     #system "./autogen.sh" if build.head?

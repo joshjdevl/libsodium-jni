@@ -2,6 +2,7 @@ FROM ubuntu:precise
 MAINTAINER joshjdevl < joshjdevl [at] gmail {dot} com>
 ENV DEBIAN_FRONTEND noninteractive
 
+RUN apt-get install -y sudo
 WORKDIR /installs/kalium-jni
 ADD . /installs/kalium-jni
 RUN ./dependencies-linux.sh

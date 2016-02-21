@@ -1,9 +1,12 @@
 #!/bin/bash
 
-. ./setenv.sh
+if uname -a | grep -q -i darwin; then
+    echo "do nothing"
+else
+    . ./setenv.sh
+fi
 
 pushd jni
-./installswig.sh
 ./compile.sh
 popd
 

@@ -4,8 +4,6 @@ set -ev
 
 . ./setenv.sh
 
-apt-get install -y sudo
-
 sudo apt-get -qq update && sudo apt-get -y -qq install python-software-properties software-properties-common
 sudo add-apt-repository -y "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"
 sudo apt-get update -qq
@@ -31,4 +29,8 @@ chmod 755 android-ndk-r10e-linux-x86_64.bin
 ./android-ndk-r10e-linux-x86_64.bin &> extract.log
 ${NDK_ROOT}/build/tools/make-standalone-toolchain.sh --platform=android-14 --arch=arm --install-dir=/installs/android-toolchain --system=linux-x86_64 --ndk-dir=${NDK_ROOT}
 
+popd
+
+pushd jni
+./installswig.sh
 popd

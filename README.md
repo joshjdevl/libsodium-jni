@@ -35,7 +35,13 @@ Credits to:
         <type>jar</type>
     </dependency>
 
-###Shared Library and Jar File
+### MacOS Installation
+
+Install brew
+
+Run ./build-mac.sh
+
+###Docker Container
 
 The docker container is available from [libsodium-jni](https://hub.docker.com/r/joshjdevl/libsodium-jni/) which is a Automated Build.
 
