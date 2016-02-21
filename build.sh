@@ -15,7 +15,7 @@ git fetch && git checkout stable
 ./autogen.sh
 ./configure 
 make && make check 
-make install
+sudo make install
 
 ./dist-build/android-arm.sh
 ./dist-build/android-armv7-a.sh
