@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/joshjdevl/libsodium-jni.svg)](https://travis-ci.org/joshjdevl/libsodium-jni.svg)
+[![Build Status](https://travis-ci.org/joshjdevl/libsodium-jni.svg)](https://travis-ci.org/joshjdevl/libsodium-jni)
 
 # libsodium-jni - (Android) Java JNI binding to the Networking and Cryptography (NaCl) library 
 
