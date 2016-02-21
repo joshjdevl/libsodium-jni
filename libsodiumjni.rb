@@ -1,7 +1,7 @@
 class Libsodiumjni < Formula
   desc "NaCl networking and cryptography library"
   homepage "https://github.com/joshjdevl/libsodium-jni/"
-  url "https://github.com/joshjdevl/libsodium-jni/archive/a450c85bcb6ee05b5787fc4253443b72a3466767.zip"
+  url "https://github.com/joshjdevl/libsodium-jni/archive/2c0cc0011aef567432b67a9d904eee0882c86291.zip"
 
   head do
     url "https://github.com/joshjdevl/libsodium-jni.git"
@@ -19,8 +19,9 @@ class Libsodiumjni < Formula
 
   def install
     ENV.universal_binary if build.universal?
-    
-    system "./build.sh" if build.head?
+
+    system "whoami"    
+    system "./build.sh"
     system "cd jni && ./compile.sh"
     system "mvn -q clean install"
     system "./singleTest.sh"
