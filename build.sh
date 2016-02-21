@@ -3,7 +3,7 @@
 set -ev
 
 if uname -a | grep -q -i darwin; then
-    #do nothing
+    echo "do nothing"
 else
     . ./setenv.sh
 fi
