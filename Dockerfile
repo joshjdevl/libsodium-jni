@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND noninteractive
 #ENV GRADLE_OPTS -Dorg.gradle.native=false
 
 RUN apt-get install -y sudo
-WORKDIR /installs/libsodiumjni-jni
+WORKDIR /installs/libsodium-jni
 ADD . /installs/libsodium-jni
 
 RUN ./build-linux.sh
