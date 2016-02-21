@@ -2,11 +2,7 @@
 
 set -ev
 
-if uname -a | grep -q -i darwin; then
-    echo "do nothing"
-else
-    . ./setenv.sh
-fi
+. ./setenv.sh
 
 rm -rf libsodium
 
