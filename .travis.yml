@@ -1,3 +1,4 @@
-sudo: required
-before_script: git submodule init && git submodule update
-script: ./install_software.sh > /dev/null 2>&1; ./download_ndk.sh > /dev/null 2>&1; ./build_android_libsodium.sh && ./build_jni.sh
+os:
+  - osx
+script:
+  - ./build-mac.sh 

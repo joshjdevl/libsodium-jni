@@ -1,10 +1,6 @@
 #!/bin/bash -ev
 
-if uname -a | grep -q -i darwin; then
-    echo "do nothing"
-else
-    . ./setenv.sh
-fi
+. ./setenv.sh
 
 ndk-build
 rm -rf src/main/jniLibs/

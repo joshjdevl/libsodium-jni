@@ -1,10 +1,6 @@
 #!/bin/bash
 
-if uname -a | grep -q -i darwin; then
-    echo "do nothing"
-else
-    . ./setenv.sh
-fi
+. ./setenv.sh
 
 pushd jni
 ./compile.sh
