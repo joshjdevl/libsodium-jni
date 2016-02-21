@@ -19,7 +19,7 @@ sudo apt-fast install -y -qq wget git autoconf autoconf automake build-essential
 sudo apt-fast install -y -qq gcc-multilib lib32z1
 sudo add-apt-repository ppa:webupd8team/java -y 
 sudo apt-fast update -qq
-echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
+echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
 sudo apt-fast install -y -qq oracle-java8-installer maven
 
 mkdir -p ./installs
