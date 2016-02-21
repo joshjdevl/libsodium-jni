@@ -34,3 +34,7 @@ popd
 pushd jni
 ./installswig.sh
 popd
+
+./download-gradle.sh 
+
+./update-android.sh
