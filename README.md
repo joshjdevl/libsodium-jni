@@ -11,11 +11,6 @@ Credits to:
 * [**libstodium**](https://github.com/ArteMisc/libstodium): author [ArteMisc](https://github.com/ArteMisc)
 
 
-## Requirements
-
-* JDK 8 or [higher](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [Apache Maven](http://maven.apache.org/guides/getting-started/)
-
 ## Installation 
 
 * Java package is under org.libsodium.jni
