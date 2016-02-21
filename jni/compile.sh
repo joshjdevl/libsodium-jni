@@ -2,15 +2,12 @@
 
 set -e
 
+. ./setenv.sh
 
 if [ -z "$JAVA_HOME" ]; then
-    if uname -a | grep -q -i darwin; then
-        export JAVA_HOME=$(/usr/libexec/java_home)
-    else
-        echo "ERROR You should set JAVA_HOME"
-        echo "Exiting!"
-        exit 1
-    fi
+    echo "ERROR You should set JAVA_HOME"
+    echo "Exiting!"
+    exit 1
 fi
 
 echo "${JAVA_HOME}"

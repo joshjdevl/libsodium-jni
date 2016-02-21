@@ -22,12 +22,12 @@ sudo apt-fast update -qq
 echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
 sudo apt-fast install -y -qq oracle-java8-installer maven
 
-mkdir -p /installs
-pushd /installs
+mkdir -p ./installs
+pushd ./installs
 wget --quiet https://dl.google.com/android/ndk/android-ndk-r10e-linux-x86_64.bin
 chmod 755 android-ndk-r10e-linux-x86_64.bin
 ./android-ndk-r10e-linux-x86_64.bin &> extract.log
-${NDK_ROOT}/build/tools/make-standalone-toolchain.sh --platform=android-14 --arch=arm --install-dir=/installs/android-toolchain --system=linux-x86_64 --ndk-dir=${NDK_ROOT}
+${NDK_ROOT}/build/tools/make-standalone-toolchain.sh --platform=android-14 --arch=arm --install-dir=`pwd`/installs/android-toolchain --system=linux-x86_64 --ndk-dir=${NDK_ROOT}
 
 popd
 
