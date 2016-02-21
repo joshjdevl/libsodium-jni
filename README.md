@@ -39,7 +39,7 @@ Credits to:
 
 Install brew
 
-Run ./build-mac.sh
+Run [./build-mac.sh](build-mac.sh)
 
 ###Docker Container
 
