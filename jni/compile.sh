@@ -2,7 +2,7 @@
 
 set -e
 
-. ./setenv.sh
+. ../setenv.sh
 
 if [ -z "$JAVA_HOME" ]; then
     echo "ERROR You should set JAVA_HOME"
