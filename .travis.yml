@@ -1,4 +1,5 @@
 os:
   - osx
+  - linux
 script:
-  - ./build-mac.sh 
+  - ./travis.sh
