@@ -14,3 +14,4 @@ build
 .gradle/
 *.key
 *.swp
+src/main/jniLibs/
