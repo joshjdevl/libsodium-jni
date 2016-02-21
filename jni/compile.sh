@@ -21,7 +21,9 @@ rm -f *.java
 rm -f *.c
 rm -f *.so
 
-`which swig` -java -package org.libsodium.jni -outdir ../src/main/java/org/libsodium/jni sodium.i
+export PATH=/usr/local/bin:$PATH
+
+swig -java -package org.libsodium.jni -outdir ../src/main/java/org/libsodium/jni sodium.i
 
 
 jnilib=libsodiumjni.so
