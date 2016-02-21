@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export GRADLE_OPTS=-Dorg.gradle.native=false
+
 if uname -a | grep -q -i darwin; then
     export JAVA_HOME=$(/usr/libexec/java_home)
     export ANDROID_NDK=/usr/local/opt/android-ndk
@@ -13,6 +15,5 @@ else
     export JAVA_HOME=/usr/lib/jvm/java-8-oracle
     export ANDROID_NDK_HOME=${NDK_ROOT}
     export ANDROID_HOME=`pwd`/installs/android-sdk-linux
-    export GRADLE_OPTS=-Dorg.gradle.native=false
 fi
 
