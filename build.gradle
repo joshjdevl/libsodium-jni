@@ -3,6 +3,7 @@ apply plugin: 'com.android.library'
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 android {
@@ -52,6 +53,7 @@ buildscript {
     repositories {
         mavenCentral()
     	jcenter()
+        mavenLocal()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:1.2.3'
