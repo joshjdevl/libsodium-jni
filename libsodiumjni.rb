@@ -1,7 +1,7 @@
-class Libsodium < Formula
+class Libsodiumjni < Formula
   desc "NaCl networking and cryptography library"
   homepage "https://github.com/joshjdevl/libsodium-jni/"
-  url "https://github.com/joshjdevl/libsodium-jni/archive/master.zip"
+  url "https://github.com/joshjdevl/libsodium-jni/archive/1602943feeb268bf4518fcdda8b2ed94c5669347.zip"
 
   head do
     url "https://github.com/joshjdevl/libsodium-jni.git"

@@ -2,10 +2,15 @@
 
 set -e
 
+
 if [ -z "$JAVA_HOME" ]; then
-    echo "ERROR You should set JAVA_HOME"
-    echo "Exiting!"
-    exit 1
+    if uname -a | grep -q -i darwin; then
+        export JAVA_HOME=$(/usr/libexec/java_home)
+    else
+        echo "ERROR You should set JAVA_HOME"
+        echo "Exiting!"
+        exit 1
+    fi
 fi
 
 
@@ -16,7 +21,7 @@ rm -f *.java
 rm -f *.c
 rm -f *.so
 
-swig -java -package org.libsodium.jni -outdir ../src/main/java/org/libsodium/jni sodium.i
+`which swig` -java -package org.libsodium.jni -outdir ../src/main/java/org/libsodium/jni sodium.i
 
 
 jnilib=libsodiumjni.so
