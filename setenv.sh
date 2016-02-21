@@ -8,5 +8,7 @@ else
     export PATH=${NDK_ROOT}:$PATH
     export JAVA_HOME=/usr/lib/jvm/java-8-oracle
     export ANDROID_NDK_HOME=${NDK_ROOT}
+    export ANDROID_HOME=`pwd`/installs/android-sdk-linux
+    export GRADLE_OPTS=-Dorg.gradle.native=false
 fi
 

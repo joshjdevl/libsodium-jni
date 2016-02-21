@@ -1,6 +1,6 @@
-kalium-jni:
+libsodium-jni:
   build: .
   #image: joshjdevl/kalium-jni:latest
   volumes:
-    - .:/installs/kalium-jni
+    - .:/installs/libsodium-jni
   command: tail -f /dev/null
