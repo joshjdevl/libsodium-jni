@@ -1,6 +1,7 @@
 class Libsodium < Formula
   desc "NaCl networking and cryptography library"
   homepage "https://github.com/joshjdevl/libsodium-jni/"
+  url "https://github.com/joshjdevl/libsodium-jni/archive/master.zip"
 
   head do
     url "https://github.com/joshjdevl/libsodium-jni.git"
@@ -8,10 +9,10 @@ class Libsodium < Formula
     depends_on "libtool" => :build
     depends_on "autoconf" => :build
     depends_on "automake" => :build
-    depends_on "swig" ==> :build
-    depends_on "android-sdk" ==> :build
-    depends_on "android-ndk" ==> :build
-    depends_on "gradle" ==> :build
+    depends_on "swig" => :build
+    depends_on "android-sdk" => :build
+    depends_on "android-ndk" => :build
+    depends_on "gradle" => :build
   end
 
   option :universal
