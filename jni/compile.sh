@@ -34,7 +34,7 @@ if uname -a | grep -q -i darwin; then
       sudo mkdir $destlib
   fi
 else
-  ldconfig
+  sudo ldconfig
 fi
 echo $jnilib
 echo $destlib
