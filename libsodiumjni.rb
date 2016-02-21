@@ -1,7 +1,7 @@
 class Libsodiumjni < Formula
   desc "NaCl networking and cryptography library"
   homepage "https://github.com/joshjdevl/libsodium-jni/"
-  url "https://github.com/joshjdevl/libsodium-jni/archive/b6fd191d4cf35b95ad211d2038310daa91507176.zip"
+  url "https://github.com/joshjdevl/libsodium-jni/archive/a6b4060412c9906f0ccbdabb5c5ce316e930bb42.zip"
 
   head do
     url "https://github.com/joshjdevl/libsodium-jni.git"
@@ -13,6 +13,7 @@ class Libsodiumjni < Formula
     depends_on "android-sdk" => :build
     depends_on "android-ndk" => :build
     depends_on "gradle" => :build
+    depends_on "libsodium" => :build
   end
 
   option :universal
@@ -20,8 +21,6 @@ class Libsodiumjni < Formula
   def install
     ENV.universal_binary if build.universal?
 
-    system "whoami"    
-    system "./build.sh"
     system "cd jni && ./compile.sh"
     system "mvn -q clean install"
     system "./singleTest.sh"
