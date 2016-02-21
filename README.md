@@ -41,6 +41,10 @@ Install brew
 
 Run [./build-mac.sh](build-mac.sh)
 
+### Linux Installation
+
+Run [./build-linux.sh](build-linux.sh)
+
 ###Docker Container
 
 The docker container is available from [libsodium-jni](https://hub.docker.com/r/joshjdevl/libsodium-jni/) which is a Automated Build.
