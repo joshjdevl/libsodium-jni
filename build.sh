@@ -6,8 +6,7 @@ set -ev
 
 rm -rf libsodium
 
-git submodule init
-git submodule update
+git clone git@github.com:alexkeramidas/libsodium.git
 
 pushd libsodium
 
@@ -19,11 +18,11 @@ sudo make install
 
 ./dist-build/android-arm.sh
 ./dist-build/android-armv7-a.sh
-#./dist-build/android-armv8-a.sh
+./dist-build/android-armv8-a.sh
 ./dist-build/android-mips32.sh
-#./dist-build/android-mips64.sh
+./dist-build/android-mips64.sh
 ./dist-build/android-x86.sh
-#./dist-build/android-x86-64.sh
+./dist-build/android-x86-64.sh
 
 popd
 

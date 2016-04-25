@@ -21,11 +21,20 @@ MY_ARCH_FOLDER := $(TARGET_ARCH)
 ifeq ($(MY_ARCH_FOLDER),arm)
     MY_ARCH_FOLDER = armv6
 endif
+ifeq ($(MY_ARCH_FOLDER),arm64)
+    MY_ARCH_FOLDER = armv8-a
+endif
 ifeq ($(MY_ARCH_FOLDER),x86)
     MY_ARCH_FOLDER = i686
 endif
+ifeq ($(MY_ARCH_FOLDER),x86_64)
+    MY_ARCH_FOLDER = x86-64
+endif
 ifeq ($(MY_ARCH_FOLDER),mips)
     MY_ARCH_FOLDER = mips32
+endif
+ifeq ($(MY_ARCH_FOLDER),mips64)
+    MY_ARCH_FOLDER = mips64r6
 endif
 
 

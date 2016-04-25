@@ -24,10 +24,10 @@ sudo apt-fast install -y -qq oracle-java8-installer maven
 
 mkdir -p ./installs
 pushd ./installs
-wget --quiet https://dl.google.com/android/ndk/android-ndk-r10e-linux-x86_64.bin
-chmod 755 android-ndk-r10e-linux-x86_64.bin
-./android-ndk-r10e-linux-x86_64.bin &> extract.log
-${NDK_ROOT}/build/tools/make-standalone-toolchain.sh --platform=android-14 --arch=arm --install-dir=`pwd`/installs/android-toolchain --system=linux-x86_64 --ndk-dir=${NDK_ROOT}
+wget http://dl.google.com/android/repository/android-ndk-r11c-linux-x86_64.zip
+chmod 755 android-ndk-r11c-linux-x86_64.zip
+unzip android-ndk-r11c-linux-x86_64.zip
+${NDK_ROOT}/build/tools/make-standalone-toolchain.sh --platform=android-14 --arch=arm --install-dir=`pwd`/installs/android-toolchain --ndk-dir=${NDK_ROOT}
 
 popd
 
