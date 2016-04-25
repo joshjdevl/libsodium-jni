@@ -6,7 +6,7 @@ set -ev
 
 rm -rf libsodium
 
-git clone git@github.com:alexkeramidas/libsodium.git
+git clone -b Androidx64 https://github.com/alexkeramidas/libsodium.git
 
 pushd libsodium
 
