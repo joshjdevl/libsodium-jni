@@ -10,7 +10,6 @@ git clone -b Androidx64 https://github.com/alexkeramidas/libsodium.git
 
 pushd libsodium
 
-git fetch && git checkout stable
 ./autogen.sh
 ./configure 
 make && make check 
