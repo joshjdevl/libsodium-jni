@@ -16,7 +16,6 @@
 
 package org.libsodium.jni.keys;
 
-import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 import org.junit.Test;
 import org.libsodium.jni.SodiumConstants;
 import org.libsodium.jni.crypto.Random;
