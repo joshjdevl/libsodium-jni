@@ -22,7 +22,6 @@ import org.libsodium.jni.SodiumConstants;
 import org.libsodium.jni.crypto.Random;
 import org.libsodium.jni.encoders.Hex;
 
-import javax.xml.bind.DatatypeConverter;
 import java.util.Arrays;
 
 import static org.libsodium.jni.encoders.Encoder.HEX;
