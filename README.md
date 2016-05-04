@@ -61,3 +61,6 @@ libsodium-jni is a work in progress, feedback, bug reports and patches are alway
 
 Everything has been tested and working on ubuntu 12.04 32bit and 64 bit, macos, and Android
 
+### To use the example app
+Clone the repo and import project from folder example/Sodium in Android studio (Android studio 2.1). Android studio will handle the rest.
+Compile and run. Tested to emulators down to Android Version 16.
