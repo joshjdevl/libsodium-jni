@@ -42,6 +42,19 @@ Run [./build-mac.sh](build-mac.sh)
 
 Run [./build-linux.sh](build-linux.sh)
 
+### To use the example app
+Clone the repo and import project from folder example/Sodium in Android studio (Android studio 2.1). Android studio will handle the rest.
+Compile and run. Tested to emulators down to Android Version 16.
+
+### AAR usage
+To use the AAR project as is (No .SO file imports needed).
+After building the library (I strongly suggest you do the compilation yourself) open module settings and add the libsodium-jni-release.aar and/or libsodium-jni-debug.aar as a dependency.
+
+### Custom code usage
+To use the library with your own custom code, skip the aar file and add
+1. The native .SO libraries in your project (Create jnilibs folder and make the required changes to the gradle file)
+2. Add the source code from the src folder and add your own additional code.
+
 ###Docker Container
 
 The docker container is available from [libsodium-jni](https://hub.docker.com/r/joshjdevl/libsodium-jni/) which is a Automated Build.
@@ -60,4 +73,3 @@ Please refer to the [docker build](https://github.com/joshjdevl/libsodium-jni/bl
 libsodium-jni is a work in progress, feedback, bug reports and patches are always welcome.
 
 Everything has been tested and working on ubuntu 12.04 32bit and 64 bit, macos, and Android
-
