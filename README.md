@@ -16,6 +16,7 @@ Credits to:
 ## Installation 
 
 * Java package is under org.libsodium.jni
+* Maven coordinates are in the Sonatype OSS repository [Snapshots](https://oss.sonatype.org/content/repositories/snapshots/) [Viewer](https://oss.sonatype.org/#nexus-search;quick%7Ecom.github.joshjdevl.libsodiumjni)
 
 ### Android Archive (AAR)
     <dependency>
