@@ -1,6 +1,7 @@
 #!/bin/bash
 
 export GRADLE_OPTS=-Dorg.gradle.native=false
+export NDK_VERSION=r12b
 
 if uname -a | grep -q -i darwin; then
     export JAVA_HOME=$(/usr/libexec/java_home)
@@ -9,7 +10,7 @@ if uname -a | grep -q -i darwin; then
     export ANDROID_SDK=/usr/local/opt/android-sdk
     export ANDROID_HOME=/usr/local/opt/android-sdk
 else
-    export NDK_ROOT=`pwd`/installs/android-ndk-r11c
+    export NDK_ROOT=`pwd`/installs/android-ndk-${NDK_VERSION}
     export PATH=`pwd`/installs/gradle-2.10/bin:`pwd`/installs/android-sdk-linux/tools:`pwd`/installs/android-toolchain/bin:${NDK_ROOT}:$PATH
     export PATH=${NDK_ROOT}:$PATH
     export JAVA_HOME=/usr/lib/jvm/java-8-oracle
