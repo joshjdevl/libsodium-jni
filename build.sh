@@ -17,8 +17,8 @@ git fetch && git checkout stable
 git reset --hard origin/stable
 git pull
 ./autogen.sh
-./configure 
-make && make check 
+./configure --quiet
+make --quiet && make check 
 sudo make install
 
 ./dist-build/android-arm.sh

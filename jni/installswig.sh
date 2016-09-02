@@ -10,8 +10,8 @@ else
     wget --quiet http://prdownloads.sourceforge.net/swig/swig-${VERSION}.tar.gz
     tar -xf swig-${VERSION}.tar.gz
     cd swig-${VERSION}
-    ./configure
-    make -j 5
+    ./configure --quiet
+    make --quiet -j 5
     sudo make install
 fi
 
