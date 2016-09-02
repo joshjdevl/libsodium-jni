@@ -22,19 +22,19 @@ make --quiet && make --quiet check
 sudo make --quiet install
 
 date
-./dist-build/android-arm.sh
+./dist-build/android-arm.sh > /dev/null
 date
-./dist-build/android-armv7-a.sh
+./dist-build/android-armv7-a.sh > /dev/null
 date
-./dist-build/android-armv8-a.sh
+./dist-build/android-armv8-a.sh > /dev/null 
 date
-./dist-build/android-mips32.sh
+./dist-build/android-mips32.sh > /dev/null
 date
-./dist-build/android-mips64.sh
+./dist-build/android-mips64.sh > /dev/null
 date
-./dist-build/android-x86.sh
+./dist-build/android-x86.sh > /dev/null
 date
-./dist-build/android-x86_64.sh
+./dist-build/android-x86_64.sh > /dev/null
 date
 #folder is being named westmere for the x86-64 architecture
 mv libsodium-android-westmere libsodium-android-x86-64
