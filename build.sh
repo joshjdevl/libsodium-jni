@@ -28,6 +28,8 @@ sudo make install
 ./dist-build/android-mips64.sh
 ./dist-build/android-x86.sh
 ./dist-build/android-x86_64.sh
+#folder is being named westmere for the x86-64 architecture
+mv libsodium-android-westmere libsodium-android-x86-64
 
 popd
 
