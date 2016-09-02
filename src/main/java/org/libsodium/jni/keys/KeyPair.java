@@ -17,6 +17,7 @@
 package org.libsodium.jni.keys;
 
 import org.libsodium.jni.crypto.Point;
+import org.libsodium.jni.crypto.Util;
 import org.libsodium.jni.encoders.Encoder;
 
 import static org.libsodium.jni.SodiumConstants.PUBLICKEY_BYTES;
@@ -28,6 +29,7 @@ import static org.libsodium.jni.crypto.Util.zeros;
 public class KeyPair {
 
     private byte[] publicKey;
+    private byte[] seed;
     private final byte[] secretKey;
 
     public KeyPair() {
@@ -36,10 +38,19 @@ public class KeyPair {
         sodium().crypto_box_curve25519xsalsa20poly1305_keypair(publicKey, secretKey);
     }
 
-    public KeyPair(byte[] secretKey) {
-        this.secretKey = secretKey;
-        checkLength(this.secretKey, SECRETKEY_BYTES);
+
+    public KeyPair(byte[] seed){
+        Util.checkLength(seed, SECRETKEY_BYTES);
+        this.seed = seed;
+        this.secretKey = zeros(SECRETKEY_BYTES);
+        this.publicKey = zeros(PUBLICKEY_BYTES);
+        Util.isValid(sodium().crypto_box_curve25519xsalsa20poly1305_seed_keypair(publicKey, secretKey, seed), "Failed to generate a key pair");
     }
+
+//    public KeyPair(byte[] secretKey) {
+//        this.secretKey = secretKey;
+//        checkLength(this.secretKey, SECRETKEY_BYTES);
+//    }
 
     public KeyPair(String secretKey, Encoder encoder) {
         this(encoder.decode(secretKey));

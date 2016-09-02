@@ -80,4 +80,34 @@ public class TestVectors {
     public static final String SIGN_SIGNATURE = "6bd710a368c1249923fc7a1610747403040f0cc30815a00f9ff548a896bbda0b" +
             "4eb2ca19ebcf917f0f34200a9edbad3901b64ab09cc5ef7b9bcc3c40c0ff7509";
     public static final String SIGN_PUBLIC = "77f48b59caeda77751ed138b0ec667ff50f8768c25d48309a8f386a2bad187fb";
+
+    public static final String BOB_SEED = "87b0a3092d7c7d08ca8c0e83be0fe0c102ba7cc297f0ce0a2e2e3d2925a4dd3b";
+    public static final String BOB_ENCRYPTION_PRIVATE_KEY = "16785df23e2f298c38143a47477013c88226f562ec5a8a6c564fee3862e92e09";
+    public static final String BOB_ENCRYPTION_PUBLIC_KEY = "37e971b2eecd2438fc53292c4ae2a762cead9355616434e762e2e1ea64bd1d10";
+    public static final String BOB_SIGNING_KEY = "87b0a3092d7c7d08ca8c0e83be0fe0c102ba7cc297f0ce0a2e2e3d2925a4dd3b3c0c551d3e50597116c9812290d436a616023d86bf6e4a2a8ff46fd86819d5f9";
+    public static final String BOB_VERIFY_KEY = "3c0c551d3e50597116c9812290d436a616023d86bf6e4a2a8ff46fd86819d5f9";
+
+/**
+ *
+ seed
+ BASE64: h7CjCS18fQjKjA6Dvg_gwQK6fMKX8M4KLi49KSWk3Ts
+ HEX: 87b0a3092d7c7d08ca8c0e83be0fe0c102ba7cc297f0ce0a2e2e3d2925a4dd3b
+
+ PrivateKey encryptionKeyPair.secretKey
+ BASE64: Fnhd8j4vKYw4FDpHR3ATyIIm9WLsWopsVk_uOGLpLgk
+ HEX: 16785df23e2f298c38143a47477013c88226f562ec5a8a6c564fee3862e92e09
+
+ PublicKey encryptionKeyPair.publicKey
+ BASE64: N-lxsu7NJDj8UyksSuKnYs6tk1VhZDTnYuLh6mS9HRA
+ HEX: 37e971b2eecd2438fc53292c4ae2a762cead9355616434e762e2e1ea64bd1d10
+
+ SigningKey signKeyPair.secretKey
+ BASE64: h7CjCS18fQjKjA6Dvg_gwQK6fMKX8M4KLi49KSWk3Ts8DFUdPlBZcRbJgSKQ1DamFgI9hr9uSiqP9G_YaBnV-Q
+ HEX: 87b0a3092d7c7d08ca8c0e83be0fe0c102ba7cc297f0ce0a2e2e3d2925a4dd3b3c0c551d3e50597116c9812290d436a616023d86bf6e4a2a8ff46fd86819d5f9
+
+ VerifyKey signKeyPair.publicKey
+ BASE64: PAxVHT5QWXEWyYEikNQ2phYCPYa_bkoqj_Rv2GgZ1fk
+ HEX: 3c0c551d3e50597116c9812290d436a616023d86bf6e4a2a8ff46fd86819d5f9
+ */
+
 }

@@ -17,22 +17,25 @@
 package org.libsodium.jni.keys;
 
 import org.junit.Test;
+import org.libsodium.jni.SodiumConstants;
+import org.libsodium.jni.crypto.Random;
+import org.libsodium.jni.encoders.Hex;
 
 import java.util.Arrays;
 
 import static org.libsodium.jni.encoders.Encoder.HEX;
-import static org.libsodium.jni.fixture.TestVectors.BOB_PRIVATE_KEY;
-import static org.libsodium.jni.fixture.TestVectors.BOB_PUBLIC_KEY;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
+import static org.libsodium.jni.fixture.TestVectors.*;
 
 public class KeyPairTest {
 
     @Test
     public void testGenerateKeyPair() {
         try {
-            KeyPair key = new KeyPair();
+            byte[] seed = new Random().randomBytes(SodiumConstants.SECRETKEY_BYTES);
+            KeyPair key = new KeyPair(seed);
             assertTrue(key.getPrivateKey() != null);
             assertTrue(key.getPublicKey() != null);
         } catch (Exception e) {
@@ -85,20 +88,22 @@ public class KeyPairTest {
     }
 
     @Test
+    //failing
     public void testPrivateKeyToString() throws Exception {
         try {
-            KeyPair key = new KeyPair(BOB_PRIVATE_KEY, HEX);
-            assertEquals("Correct private key expected", BOB_PRIVATE_KEY, key.getPrivateKey().toString());
+            KeyPair key = new KeyPair(HEX.decode(BOB_SEED));
+            assertEquals("Correct private key expected", BOB_ENCRYPTION_PRIVATE_KEY, key.getPrivateKey().toString());
         } catch (Exception e) {
             fail("Should return a valid key size");
         }
     }
 
     @Test
+    //
     public void testPrivateKeyToBytes() throws Exception {
         try {
-            KeyPair key = new KeyPair(BOB_PRIVATE_KEY, HEX);
-            assertTrue("Correct private key expected", Arrays.equals(HEX.decode(BOB_PUBLIC_KEY),
+            KeyPair key = new KeyPair(HEX.decode(BOB_SEED));
+            assertTrue("Correct private key expected", Arrays.equals(HEX.decode(BOB_ENCRYPTION_PUBLIC_KEY),
                     key.getPublicKey().toBytes()));
         } catch (Exception e) {
             fail("Should return a valid key size");
@@ -106,20 +111,22 @@ public class KeyPairTest {
     }
 
     @Test
+    //failing
     public void testPublicKeyToString() throws Exception {
         try {
-            KeyPair key = new KeyPair(BOB_PRIVATE_KEY, HEX);
-            assertEquals("Correct public key expected", BOB_PUBLIC_KEY, key.getPublicKey().toString());
+            KeyPair key = new KeyPair(HEX.decode(BOB_SEED));
+            assertEquals("Correct public key expected", BOB_ENCRYPTION_PUBLIC_KEY, key.getPublicKey().toString());
         } catch (Exception e) {
             fail("Should return a valid key size");
         }
     }
 
     @Test
+    //failing
     public void testPublicKeyToBytes() throws Exception {
         try {
-            KeyPair key = new KeyPair(BOB_PRIVATE_KEY, HEX);
-            assertTrue("Correct public key expected", Arrays.equals(HEX.decode(BOB_PUBLIC_KEY),
+            KeyPair key = new KeyPair(HEX.decode(BOB_SEED));
+            assertTrue("Correct public key expected", Arrays.equals(HEX.decode(BOB_ENCRYPTION_PUBLIC_KEY),
                     key.getPublicKey().toBytes()));
         } catch (Exception e) {
             fail("Should return a valid key size");
