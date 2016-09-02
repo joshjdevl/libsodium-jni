@@ -5,4 +5,4 @@
 ndk-build
 rm -rf src/main/jniLibs/
 cp -R libs src/main/jniLibs
-gradle build
+gradle build --quiet --full-stacktrace
