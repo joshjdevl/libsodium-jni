@@ -9,7 +9,7 @@ rm -rf libsodium
 git submodule init
 git submodule sync
 #git submodule update --remote --merge
-#git submodule update
+git submodule update
 
 pushd libsodium
 
