@@ -12,6 +12,6 @@ else
     cd swig-${VERSION}
     ./configure --quiet
     make --quiet -j 5
-    sudo make install
+    sudo make --quiet install
 fi
 

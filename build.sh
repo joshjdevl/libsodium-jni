@@ -18,8 +18,8 @@ git reset --hard origin/stable
 git pull
 ./autogen.sh
 ./configure --quiet
-make --quiet && make check 
-sudo make install
+make --quiet && make --quiet check 
+sudo make --quiet install
 
 date
 ./dist-build/android-arm.sh
