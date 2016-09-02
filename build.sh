@@ -27,7 +27,7 @@ sudo make install
 ./dist-build/android-mips32.sh
 ./dist-build/android-mips64.sh
 ./dist-build/android-x86.sh
-./dist-build/android-x86-64.sh
+./dist-build/android-x86_64.sh
 
 popd
 
