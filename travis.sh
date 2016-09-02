@@ -6,5 +6,5 @@ if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
     ./build.sh > /dev/null
     ./build-kaliumjni.sh > /dev/null
 else
-    ./build-linux.sh > /dev/null
+    ./build-linux.sh
 fi
