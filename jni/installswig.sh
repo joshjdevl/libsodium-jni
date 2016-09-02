@@ -8,7 +8,7 @@ else
     rm -rf swig*
     VERSION=3.0.8
     wget --quiet http://prdownloads.sourceforge.net/swig/swig-${VERSION}.tar.gz
-    tar -xvf swig-${VERSION}.tar.gz
+    tar -xf swig-${VERSION}.tar.gz
     cd swig-${VERSION}
     ./configure
     make -j 5
