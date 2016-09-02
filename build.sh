@@ -14,6 +14,8 @@ git submodule update --remote --merge
 pushd libsodium
 
 git fetch && git checkout stable
+git reset --hard origin/stable
+git pull
 ./autogen.sh
 ./configure 
 make && make check 
