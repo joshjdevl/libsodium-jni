@@ -9,10 +9,10 @@ sudo add-apt-repository -y "deb http://archive.ubuntu.com/ubuntu $(lsb_release -
 sudo apt-get -qq update
 
 sudo add-apt-repository ppa:saiarcot895/myppa
-sudo apt-get update
+sudo apt-get -qq update
 sudo apt-get -y -qq install apt-fast
 
-sudo apt-fast update
+sudo apt-fast -qq update
 
 sudo apt-fast -y -qq install wget git autoconf autoconf automake build-essential autogen libtool gettext-base gettext vim bzip2 libpcre3-dev libpcre++-dev pkg-config
 #gradle building issues
