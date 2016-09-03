@@ -2,4 +2,4 @@ os:
   - osx
   - linux
 script:
-  - travis_wait 20 ./travis.sh
+  - travis_wait 30 ./travis.sh
