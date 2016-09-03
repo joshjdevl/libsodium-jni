@@ -51,10 +51,13 @@ Compile and run. Tested to emulators down to Android Version 16.
 
 ### AAR usage
 To use the AAR project as is (No .SO file imports needed).
-After building the library (I strongly suggest you do the compilation yourself) open module settings and add the libsodium-jni-release.aar and/or libsodium-jni-debug.aar as a dependency.
+
+
+It is also possible to build the AAR library yourself using the provided scripts [linux](build-linux.sh) or [mac](build-mac.sh). After building the library open module settings and add the libsodium-jni-release.aar and/or libsodium-jni-debug.aar as a dependency.
 
 ### Custom code usage
 To use the library with your own custom code, skip the aar file and add
+
 1. The native .SO libraries in your project (Create jnilibs folder and make the required changes to the gradle file)
 2. Add the source code from the src folder and add your own additional code.
 
