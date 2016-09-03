@@ -35,13 +35,13 @@ Credits to:
         <type>jar</type>
     </dependency>
 
-### MacOS Installation
+### MacOS Manual Compilation and Installation
 
 Install brew
 
 Run [./build-mac.sh](build-mac.sh)
 
-### Linux Installation
+### Linux Manual Compilation and Installation
 
 Run [./build-linux.sh](build-linux.sh)
 
