@@ -41,10 +41,6 @@ android {
 }
 
 dependencies {
-    // TODO are these required in this lib project?
-    //compile fileTree(include: ['*.jar'], dir: 'libs')
-   //compile 'com.android.support:appcompat-v7:23.1.1'
-   compile group: 'com.google.guava', name: 'guava', version: '19.0'
    testCompile 'junit:junit:4.12'
 }
 
