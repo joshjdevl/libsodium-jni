@@ -22,7 +22,7 @@ Credits to:
     <dependency>
         <groupId>com.github.joshjdevl.libsodiumjni</groupId>
         <artifactId>libsodium-jni-aar</artifactId>
-        <version>1.0.2-SNAPSHOT</version>
+        <version>1.0.3-SNAPSHOT</version>
         <type>aar</type>
     </dependency>
 
@@ -31,7 +31,7 @@ Credits to:
     <dependency>
         <groupId>com.github.joshjdevl.libsodiumjni</groupId>
         <artifactId>libsodium-jni</artifactId>
-        <version>1.0.2-SNAPSHOT</version>
+        <version>1.0.3-SNAPSHOT</version>
         <type>jar</type>
     </dependency>
 
