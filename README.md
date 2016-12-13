@@ -76,6 +76,6 @@ Please refer to the [docker build](https://github.com/joshjdevl/libsodium-jni/bl
 
 ### Issues / Improvements / Help Seeked
 
-libsodium-jni is a work in progress, feedback, bug reports and patches are always welcome.
+libsodium-jni is currently being used in production. Feedback, bug reports and patches are always welcome.
 
 Everything has been tested and working on ubuntu 12.04 32bit and 64 bit, macos, and Android
