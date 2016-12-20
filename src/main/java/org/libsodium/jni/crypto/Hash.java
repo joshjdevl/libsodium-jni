@@ -50,20 +50,17 @@ public class Hash {
 
     public String pwhash_scryptsalsa208sha256(String passwd, Encoder encoder, byte[] salt, int opslimit, long memlimit) {
         buffer = new byte[KEY_LEN];
-        //FIXME
-        //sodium().crypto_pwhash_scryptsalsa208sha256(buffer, buffer.length, passwd, passwd.length(), salt, opslimit, memlimit);
+        NaCl.sodium().crypto_pwhash_scryptsalsa208sha256(buffer, buffer.length, passwd, passwd.length(), salt, opslimit, memlimit);
         return encoder.encode(buffer);
     }
 
-    /*
     public byte[] blake2(byte[] message) throws UnsupportedOperationException {
         if (!blakeSupportedVersion()) throw new UnsupportedOperationException();
 
-        buffer = new byte[BLAKE2B_OUTBYTES];
-        sodium().crypto_generichash_blake2b(buffer, BLAKE2B_OUTBYTES, message, message.length, null, 0);
+        buffer = new byte[SodiumConstants.BLAKE2B_OUTBYTES];
+        NaCl.sodium().crypto_generichash_blake2b(buffer, SodiumConstants.BLAKE2B_OUTBYTES, message, message.length, null, 0);
         return buffer;
     }
-
 
     public String blake2(String message, Encoder encoder) throws UnsupportedOperationException {
         if (!blakeSupportedVersion()) throw new UnsupportedOperationException();
@@ -72,7 +69,8 @@ public class Hash {
     }
 
     private boolean blakeSupportedVersion(){
-        return sodium().sodium_version_string().compareTo("0.4.0") >= 0 ;
+	String sodiumversion=new String(NaCl.sodium().sodium_version_string());
+        return sodiumversion.compareTo("0.4.0") >= 0 ;
     }
-    */
+
 }
