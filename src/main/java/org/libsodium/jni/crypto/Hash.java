@@ -17,8 +17,8 @@
 package org.libsodium.jni.crypto;
 
 import org.libsodium.jni.encoders.Encoder;
-import org.libsodium.jni.NaCl;
 import org.libsodium.jni.SodiumConstants;
+import static org.libsodium.jni.NaCl.sodium;
 
 public class Hash {
 
@@ -28,13 +28,13 @@ public class Hash {
 
     public byte[] sha256(byte[] message) {
         buffer = new byte[SodiumConstants.SHA256BYTES];
-        NaCl.sodium().crypto_hash_sha256(buffer, message, message.length);
+        sodium().crypto_hash_sha256(buffer, message, message.length);
         return buffer;
     }
 
     public byte[] sha512(byte[] message) {
         buffer = new byte[SodiumConstants.SHA512BYTES];
-        NaCl.sodium().crypto_hash_sha512(buffer, message, message.length);
+        sodium().crypto_hash_sha512(buffer, message, message.length);
         return buffer;
     }
     
@@ -48,9 +48,9 @@ public class Hash {
         return encoder.encode(hash);
     }
 
-    public String pwhash_scryptsalsa208sha256(String passwd, Encoder encoder, byte[] salt, int opslimit, long memlimit) {
+    public String pwhash_scryptsalsa208sha256(String passwd, Encoder encoder, byte[] salt, int opslimit, int memlimit) {
         buffer = new byte[KEY_LEN];
-        NaCl.sodium().crypto_pwhash_scryptsalsa208sha256(buffer, buffer.length, passwd.getBytes(), passwd.length(), salt, opslimit, memlimit);
+        sodium().crypto_pwhash_scryptsalsa208sha256(buffer, buffer.length, passwd.getBytes(), passwd.length(), salt, opslimit, memlimit);
         return encoder.encode(buffer);
     }
 
@@ -58,7 +58,7 @@ public class Hash {
         if (!blakeSupportedVersion()) throw new UnsupportedOperationException();
 
         buffer = new byte[SodiumConstants.BLAKE2B_OUTBYTES];
-        NaCl.sodium().crypto_generichash_blake2b(buffer, SodiumConstants.BLAKE2B_OUTBYTES, message, message.length, null, 0);
+        sodium().crypto_generichash_blake2b(buffer, SodiumConstants.BLAKE2B_OUTBYTES, message, message.length, new byte[0], 0);
         return buffer;
     }
 
@@ -69,7 +69,7 @@ public class Hash {
     }
 
     private boolean blakeSupportedVersion(){
-	String sodiumversion=new String(NaCl.sodium().sodium_version_string());
+	String sodiumversion=new String("0.4.1");
         return sodiumversion.compareTo("0.4.0") >= 0 ;
     }
 
