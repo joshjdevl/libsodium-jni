@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export GRADLE_OPTS=-Dorg.gradle.native=false
-export NDK_VERSION=r12b
+export NDK_VERSION=r13b
 
 if uname -a | grep -q -i darwin; then
     export JAVA_HOME=$(/usr/libexec/java_home)
