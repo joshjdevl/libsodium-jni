@@ -27,7 +27,7 @@ pushd ./installs
 wget --quiet http://dl.google.com/android/repository/android-ndk-${NDK_VERSION}-linux-x86_64.zip
 chmod 755 android-ndk-${NDK_VERSION}-linux-x86_64.zip
 unzip -qq android-ndk-${NDK_VERSION}-linux-x86_64.zip
-${NDK_ROOT}/build/tools/make-standalone-toolchain.py --verbose --platform=${NDK_TOOLCHAIN_PLATFORM} --arch=${NDK_TOOLCHAIN_ARCHITECTURE} --install-dir=`pwd`/installs/android-toolchain #--install-dir=${NDK_ROOT}
+${NDK_ROOT}/build/tools/make_standalone_toolchain.py --verbose --platform=${NDK_TOOLCHAIN_PLATFORM} --arch=${NDK_TOOLCHAIN_ARCHITECTURE} --install-dir=`pwd`/installs/android-toolchain #--install-dir=${NDK_ROOT}
 
 popd
 
