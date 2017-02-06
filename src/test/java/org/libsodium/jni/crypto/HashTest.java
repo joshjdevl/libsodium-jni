@@ -16,6 +16,9 @@
 
 package org.libsodium.jni.crypto;
 
+import org.libsodium.jni.Sodium;
+import org.libsodium.jni.NaCl;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.libsodium.jni.fixture.TestVectors;
@@ -49,6 +52,20 @@ public class HashTest {
     public static final String HASH_ERR = "Hash is invalid";
 
     private final Hash hash = new Hash();
+
+    @Test
+    public void testGenericHashInit() {
+        Sodium sodium= NaCl.sodium();
+        byte[] state = new byte[Sodium.crypto_generichash_statebytes()];
+        byte[] hash = new byte[Sodium.crypto_generichash_bytes()];
+        byte[] key = new byte[Sodium.crypto_generichash_keybytes()];
+        Sodium.randombytes(key, key.length);
+        if (0 == Sodium.crypto_generichash_init(state, key, key.length, hash.length)) {
+                System.out.println("init success");
+        } else {
+                System.out.println("init failed");
+        }
+    }
 
     @Test
     public void testSha256() throws Exception {
