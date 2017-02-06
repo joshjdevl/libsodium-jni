@@ -42,6 +42,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := sodium
 LOCAL_SRC_FILES := ../libsodium/libsodium-android-$(MY_ARCH_FOLDER)/lib/libsodium.a #/installs/libsodium/libsodium-android-(x86|arm|mips)/lib/libsodium.a
 LOCAL_LDFLAGS  += -fPIC
+LOCAL_LDLIBS   += -Wl,--no-warn-shared-textrel
 include $(PREBUILT_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
@@ -50,6 +51,7 @@ LOCAL_MODULE    := sodiumjni
 LOCAL_SRC_FILES :=  \
 sodium_wrap.c
 LOCAL_LDFLAGS  += -fPIC
+LOCAL_LDLIBS   += -Wl,--no-warn-shared-textrel
 LOCAL_CFLAGS   += -Wall -g -pedantic -std=c99
 
 LOCAL_C_INCLUDES += ../libsodium/libsodium-android-$(MY_ARCH_FOLDER)/include ../libsodium/libsodium-android-$(MY_ARCH_FOLDER)/include/sodium /usr/local/include
