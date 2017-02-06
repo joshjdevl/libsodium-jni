@@ -11,7 +11,7 @@ if uname -a | grep -q -i darwin; then
     export ANDROID_HOME=/usr/local/opt/android-sdk
 else
     export GRADLE_VERSION=2.14.1
-    export NDK_TOOLCHAIN_PLATFORM=android-14
+    export NDK_TOOLCHAIN_PLATFORM=14
     export NDK_TOOLCHAIN_ARCHITECTURE=arm
     export NDK_ROOT=`pwd`/installs/android-ndk-${NDK_VERSION}
     export PATH=`pwd`/installs/gradle-${GRADLE_VERSION}/bin:`pwd`/installs/android-sdk-linux/tools:`pwd`/installs/android-toolchain/bin:${NDK_ROOT}:$PATH
