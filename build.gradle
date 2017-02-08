@@ -129,6 +129,11 @@ model {
   }
 }
 
+tasks.withType(Test) { task ->
+  systemProperty "java.library.path", "${projectDir}/build/libs/sodiumjni/shared"
+  task.dependsOn('sodiumjniSharedLibrary')
+}
+
 task('generateSWIGsource') {
   inputs.dir   fileTree(dir: 'jni/sodium.i')
   outputs.dir  fileTree(dir: 'src/main/java/org/libsodium/jni')
