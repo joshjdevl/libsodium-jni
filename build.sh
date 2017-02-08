@@ -37,7 +37,7 @@ date
 ./dist-build/android-x86_64.sh > /dev/null
 date
 #folder is being named westmere for the x86-64 architecture
-mv libsodium-android-westmere libsodium-android-x86-64
+ln -sn libsodium-android-westmere libsodium-android-x86-64
 
 popd
 

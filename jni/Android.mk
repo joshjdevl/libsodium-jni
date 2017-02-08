@@ -29,7 +29,8 @@ ifeq ($(MY_ARCH_FOLDER),x86)
     MY_ARCH_FOLDER = i686
 endif
 ifeq ($(MY_ARCH_FOLDER),x86_64)
-    MY_ARCH_FOLDER = x86-64
+    MY_ARCH_FOLDER = westmere
+    LIB_FOLDER     = lib64
 endif
 ifeq ($(MY_ARCH_FOLDER),mips)
     MY_ARCH_FOLDER = mips32
