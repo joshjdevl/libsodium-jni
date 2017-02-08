@@ -105,6 +105,30 @@ buildscript {
   }
 }
 
+apply plugin: "c"
+
+model {
+  flavors {
+    host // Also compile the native library for the host OS to allow running tests which access the library on the host OS.
+  }
+  components {
+    sodiumjni(NativeLibrarySpec) {
+      sources {
+        c {
+          source {
+            srcDir "jni"
+            include "sodium_wrap.c"
+          }
+        }
+        binaries.all {
+          linker.args "-L${projectDir}/libsodium/libsodium-host"
+          linker.args "-lsodium"
+        }
+      }
+    }
+  }
+}
+
 task('generateSWIGsource') {
   inputs.dir   fileTree(dir: 'jni/sodium.i')
   outputs.dir  fileTree(dir: 'src/main/java/org/libsodium/jni')
