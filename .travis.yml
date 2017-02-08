@@ -2,4 +2,6 @@ os:
   - linux
 sudo: required
 script:
+  - ./dependencies-linux.sh
+  - gradle build --full-stacktrace
   - travis_wait 30 ./travis.sh
