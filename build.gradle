@@ -20,9 +20,9 @@ android {
     }
 
     // To let the libs be included in other projects
-    sourceSets {
-        main {
-            jniLibs.srcDirs = ['libs']
+    externalNativeBuild {
+        ndkBuild {
+            path "jni/Android.mk"
         }
     }
 
@@ -84,8 +84,8 @@ buildscript {
   }
   
   gradle.projectsEvaluated {
-    compileDebugNdk.dependsOn   taskname
-    compileReleaseNdk.dependsOn taskname
+    externalNativeBuildDebug.dependsOn   taskname
+    externalNativeBuildRelease.dependsOn taskname
   }
 }
 
