@@ -60,6 +60,36 @@ buildscript {
     }
 }
 
+[
+  [input_arch: 'arm',     output_arch: 'android-armv6'   ],
+  [input_arch: 'armv7-a', output_arch: 'android-armv7-a' ],
+  [input_arch: 'armv8-a', output_arch: 'android-armv8-a' ],
+  [input_arch: 'mips32',  output_arch: 'android-mips32'  ],
+  [input_arch: 'mips64',  output_arch: 'android-mips64r6'],
+  [input_arch: 'x86',     output_arch: 'android-i686'    ],
+  [input_arch: 'x86_64',  output_arch: 'android-westmere'],
+].each { opts -> 
+
+  def taskname = "compileNative_${opts['output_arch']}"
+  
+  task(taskname) {
+    inputs.dir  fileTree(dir: 'libsodium/src', exclude: ['libsodium/**/.libs', 'libsodium/*.la', 'libsodium/**/*.lo', 'libsodium/**/*.o', 'libsodium/**/*.Plo', '**/Makefile'])
+    outputs.dir fileTree(dir: "libsodium/libsodium-${opts['output_arch']}")
+    doFirst {
+      exec {
+        workingDir 'libsodium'
+        executable "dist-build/android-${opts['input_arch']}.sh"
+      }
+    }
+  }
+  
+  gradle.projectsEvaluated {
+    compileDebugNdk.dependsOn   taskname
+    compileReleaseNdk.dependsOn taskname
+  }
+}
+
+
 uploadArchives {
   repositories {
     mavenDeployer {
