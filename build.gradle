@@ -85,7 +85,7 @@ buildscript {
       } else {                  // We build for the host OS and architecture
         exec {
           workingDir 'libsodium'
-          commandLine './configure','--disable-soname-versions','--enable-minimal',"--prefix=${projectDir}/libsodium/libsodium-${opts['output_arch']}"
+          commandLine './configure','--disable-soname-versions','--enable-minimal',"--prefix=${projectDir}/libsodium/libsodium-${opts['output_arch']}","--libdir=${projectDir}/libsodium/libsodium-${opts['output_arch']}/lib"
         }
         exec {
           workingDir 'libsodium'
