@@ -88,6 +88,7 @@ buildscript {
         exec {
           workingDir 'libsodium'
           executable "dist-build/android-${opts['input_arch']}.sh"
+          environment 'CONFIG_SITE', '' // This makes ./configure load information about the host and guess this is information valid for the target. However, the target is Android here, the host information does not apply. 
         }
       } else {                  // We build for the host OS and architecture
         exec {
