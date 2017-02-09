@@ -124,7 +124,7 @@ model {
       sources {
         c {
           source {
-            srcDir "jni"
+            srcDir "${projectDir}/jni"
             include "sodium_wrap.c"
           }
         }
