@@ -125,6 +125,12 @@ model {
         headers.srcDir "${System.getenv("JAVA_HOME")}/include"
         headers.srcDir "${System.getenv("JAVA_HOME")}/include/linux" // this seems to be host OS dependent, but should be host OS independent
       }
+      sodium {
+        headers.srcDir "${projectDir}/libsodium/libsodium-host/include"
+        binaries.withType(StaticLibraryBinary) { binary ->
+          staticLibraryFile = file("${projectDir}/libsodium/libsodium-host/lib/libsodium.a")
+        }       
+      }
     }
   }
   components {
@@ -136,11 +142,11 @@ model {
             include "sodium_wrap.c"
             include "dummy.c"
           }
-          lib library: 'jdk', linkage: 'api'
+          lib library: 'jdk',    linkage: 'api'
+          lib library: 'sodium', linkage: 'static'
         }
         binaries.all {
-          linker.args "-L${projectDir}/libsodium/libsodium-host"
-          linker.args "-lsodium"
+          linker.args "-Wl,-Bsymbolic" // to work around error "shared library text segment is not shareable"
         }
       }
     }
