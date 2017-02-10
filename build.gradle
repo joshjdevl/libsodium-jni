@@ -152,12 +152,12 @@ tasks.withType(Test) { task ->
 }
 
 task('generateSWIGsource') {
-  inputs.dir   fileTree(dir: 'jni/sodium.i')
-  outputs.dir  fileTree(dir: 'src/main/java/org/libsodium/jni')
+  inputs.dir   fileTree(dir: "${projectDir}/jni/sodium.i")
+  outputs.dir  fileTree(dir: "${projectDir}/src/main/java/org/libsodium/jni")
   outputs.file "${projectDir}/jni/sodium_wrap.c"
   doFirst {
     exec {
-      workingDir 'jni'
+      workingDir "${projectDir}/jni"
       commandLine 'swig','-java','-package','org.libsodium.jni','-outdir','../src/main/java/org/libsodium/jni','sodium.i'
     }
   }
