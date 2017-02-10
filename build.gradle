@@ -134,6 +134,7 @@ model {
           source {
             srcDir "${projectDir}/jni"
             include "sodium_wrap.c"
+            include "dummy.c"
           }
           lib library: 'jdk', linkage: 'api'
         }
