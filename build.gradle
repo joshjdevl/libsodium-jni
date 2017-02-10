@@ -119,6 +119,14 @@ model {
   flavors {
     host // Also compile the native library for the host OS to allow running tests which access the library on the host OS.
   }
+  repositories {
+    libs(PrebuiltLibraries) {
+      jdk {
+        headers.srcDir "${System.getenv("JAVA_HOME")}/include"
+        headers.srcDir "${System.getenv("JAVA_HOME")}/include/linux" // this seems to be host OS dependent, but should be host OS independent
+      }
+    }
+  }
   components {
     sodiumjni(NativeLibrarySpec) {
       sources {
@@ -127,6 +135,7 @@ model {
             srcDir "${projectDir}/jni"
             include "sodium_wrap.c"
           }
+          lib library: 'jdk', linkage: 'api'
         }
         binaries.all {
           linker.args "-L${projectDir}/libsodium/libsodium-host"
