@@ -7,8 +7,12 @@ repositories {
 }
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
@@ -20,9 +24,9 @@ android {
     }
 
     // To let the libs be included in other projects
-    sourceSets {
-        main {
-            jniLibs.srcDirs = ['libs']
+    externalNativeBuild {
+        ndkBuild {
+            path "jni/Android.mk"
         }
     }
 
@@ -46,6 +50,9 @@ dependencies {
    //compile 'com.android.support:appcompat-v7:23.1.1'
    testCompile group: 'com.google.guava', name: 'guava', version: '19.0'
    testCompile 'junit:junit:4.12'
+   androidTestCompile group: 'com.google.guava', name: 'guava', version: '19.0'
+   androidTestCompile 'junit:junit:4.12'
+   androidTestCompile 'com.android.support.test:runner:0.4.1'
 }
 
 buildscript {
@@ -56,9 +63,118 @@ buildscript {
         mavenLocal()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.0'
+        classpath 'com.android.tools.build:gradle:2.2.3'
     }
 }
+
+[
+  [input_arch: 'arm',     output_arch: 'android-armv6'   ],
+  [input_arch: 'armv7-a', output_arch: 'android-armv7-a' ],
+  [input_arch: 'armv8-a', output_arch: 'android-armv8-a' ],
+  [input_arch: 'mips32',  output_arch: 'android-mips32'  ],
+  [input_arch: 'mips64',  output_arch: 'android-mips64r6'],
+  [input_arch: 'x86',     output_arch: 'android-i686'    ],
+  [input_arch: 'x86_64',  output_arch: 'android-westmere'],
+  [                       output_arch: 'host'            ],
+].each { opts -> 
+
+  def taskname = "compileNative_${opts['output_arch']}"
+  
+  task(taskname) {
+    inputs.dir  fileTree(dir: 'libsodium/src', exclude: ['libsodium/**/.libs', 'libsodium/*.la', 'libsodium/**/*.lo', 'libsodium/**/*.o', 'libsodium/**/*.Plo', '**/Makefile'])
+    outputs.dir fileTree(dir: "libsodium/libsodium-${opts['output_arch']}")
+    doFirst {
+      if (opts['input_arch']) { // We build for an explicit OS and architecture
+        exec {
+          workingDir 'libsodium'
+          executable "dist-build/android-${opts['input_arch']}.sh"
+          environment 'CONFIG_SITE', '' // This makes ./configure load information about the host and guess this is information valid for the target. However, the target is Android here, the host information does not apply. 
+        }
+      } else {                  // We build for the host OS and architecture
+        exec {
+          workingDir 'libsodium'
+          commandLine './configure','--disable-soname-versions','--enable-minimal',"--prefix=${projectDir}/libsodium/libsodium-${opts['output_arch']}","--libdir=${projectDir}/libsodium/libsodium-${opts['output_arch']}/lib"
+        }
+        exec {
+          workingDir 'libsodium'
+          commandLine 'make','clean'
+        }
+        exec {
+          workingDir 'libsodium'
+          commandLine 'make','-j3','install'
+        }
+      }
+    }
+  }
+  
+  gradle.projectsEvaluated {
+    externalNativeBuildDebug.dependsOn   taskname
+    externalNativeBuildRelease.dependsOn taskname
+  }
+}
+
+apply plugin: "c"
+
+model {
+  flavors {
+    host // Also compile the native library for the host OS to allow running tests which access the library on the host OS.
+  }
+  repositories {
+    libs(PrebuiltLibraries) {
+      jdk {
+        headers.srcDir "${System.getenv("JAVA_HOME")}/include"
+        headers.srcDir "${System.getenv("JAVA_HOME")}/include/linux" // this seems to be host OS dependent, but should be host OS independent
+      }
+      sodium {
+        headers.srcDir "${projectDir}/libsodium/libsodium-host/include"
+        binaries.withType(StaticLibraryBinary) { binary ->
+          staticLibraryFile = file("${projectDir}/libsodium/libsodium-host/lib/libsodium.a")
+        }       
+      }
+    }
+  }
+  components {
+    sodiumjni(NativeLibrarySpec) {
+      sources {
+        c {
+          source {
+            srcDir "${projectDir}/jni"
+            include "sodium_wrap.c"
+            include "dummy.c"
+          }
+          lib library: 'jdk',    linkage: 'api'
+          lib library: 'sodium', linkage: 'static'
+        }
+        binaries.all {
+          linker.args "-Wl,-Bsymbolic" // to work around error "shared library text segment is not shareable"
+        }
+      }
+    }
+  }
+}
+
+tasks.withType(Test) { task ->
+  systemProperty "java.library.path", "${projectDir}/build/libs/sodiumjni/shared"
+  task.dependsOn('sodiumjniSharedLibrary')
+}
+
+task('generateSWIGsource') {
+  inputs.dir   fileTree(dir: "${projectDir}/jni/sodium.i")
+  outputs.dir  fileTree(dir: "${projectDir}/src/main/java/org/libsodium/jni")
+  outputs.file "${projectDir}/jni/sodium_wrap.c"
+  doFirst {
+    exec {
+      workingDir "${projectDir}/jni"
+      commandLine 'swig','-java','-package','org.libsodium.jni','-outdir','../src/main/java/org/libsodium/jni','sodium.i'
+    }
+  }
+}
+
+gradle.projectsEvaluated {
+  generateJsonModelDebug.dependsOn   'generateSWIGsource'
+  generateJsonModelRelease.dependsOn 'generateSWIGsource'
+}
+
 
 uploadArchives {
   repositories {

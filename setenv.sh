@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export GRADLE_OPTS=-Dorg.gradle.native=false
-export NDK_VERSION=r12b
+export NDK_VERSION=r13b
 
 if uname -a | grep -q -i darwin; then
     export JAVA_HOME=$(/usr/libexec/java_home)
@@ -12,7 +12,7 @@ if uname -a | grep -q -i darwin; then
 else
     export MAVEN_VERSION=3.3.9
     export GRADLE_VERSION=2.14.1
-    export NDK_TOOLCHAIN_PLATFORM=android-14
+    export NDK_TOOLCHAIN_PLATFORM=14
     export NDK_TOOLCHAIN_ARCHITECTURE=arm
     export NDK_ROOT=`pwd`/installs/android-ndk-${NDK_VERSION}
     export PATH=`pwd`/installs/apache-maven-${MAVEN_VERSION}:`pwd`/installs/gradle-${GRADLE_VERSION}/bin:`pwd`/installs/android-sdk-linux/tools:`pwd`/installs/android-toolchain/bin:${NDK_ROOT}:$PATH

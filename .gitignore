@@ -11,6 +11,7 @@ jni
 libs
 .DS_Store
 build
+.externalNativeBuild
 .gradle/
 *.key
 *.swp
