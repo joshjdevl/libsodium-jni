@@ -73,10 +73,12 @@ public class SignatureTest {
         System.out.println(ret);
         System.out.println("Generated keypair");
 
-        File public_key_file=new File("public.key");
+        File public_key_file=File.createTempFile("SignatureTest","public.key");
+        public_key_file.deleteOnExit();
         Files.write(public_key,public_key_file);
 
-        File private_key_file=new File("private.key");
+        File private_key_file=File.createTempFile("SignatureTest","private.key");
+        private_key_file.deleteOnExit();
         Files.write(private_key,private_key_file);
 
         byte[] public_key_fromfile = Files.toByteArray(public_key_file);
