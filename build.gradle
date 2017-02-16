@@ -52,7 +52,7 @@ dependencies {
    testCompile 'junit:junit:4.12'
    androidTestCompile group: 'com.google.guava', name: 'guava', version: '19.0'
    androidTestCompile 'junit:junit:4.12'
-   androidTestCompile 'com.android.support.test:runner:0.4.1'
+   androidTestCompile 'com.android.support.test:runner:0.5'
 }
 
 buildscript {
