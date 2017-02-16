@@ -5,7 +5,8 @@ env:
   - ANDROID_NDK_HOME: "\"$(pwd)/installs/android-ndk-r13b\""
     ANDROID_HOME:     "\"$(pwd)/installs/android-sdk-linux\""
     ANDROID_SDK:      "\"$(pwd)/installs/android-sdk-linux\""
-script:
+before_install:
   - ./dependencies-linux.sh
+script:
   - installs/gradle-2.14.1/bin/gradle build --full-stacktrace
   - travis_wait 30 ./travis.sh
