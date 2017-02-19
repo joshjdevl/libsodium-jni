@@ -6,5 +6,5 @@ if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
     ./build.sh
     ./build-kaliumjni.sh
 else
-    ./build-linux.sh
+    # Building for Linux is now fully implemented by "gradle build". 
 fi
