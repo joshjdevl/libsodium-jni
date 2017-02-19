@@ -8,3 +8,4 @@ if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
 else
     true # Building for Linux is now fully implemented by "gradle build". 
 fi
+
