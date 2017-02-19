@@ -9,3 +9,6 @@ echo y | android update sdk --all --filter android-21 --no-ui
 echo y | android update sdk --all --filter android-23 --no-ui
 echo y | android update sdk --all --filter android-24 --no-ui
 echo y | android update sdk --all --filter android-25 --no-ui
+echo y | android update sdk --all --filter platform-tools --no-ui
+echo y | android update sdk --all --filter tools --no-ui
+
