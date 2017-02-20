@@ -251,3 +251,7 @@ artifacts {
 signing {
 //    sign configurations.archives
 }
+
+nexusStaging {
+//    packageGroup = "com.github.joshjdevl"
+}
