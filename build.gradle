@@ -1,6 +1,7 @@
 apply plugin: 'maven'
 apply plugin: 'com.android.library'
 apply plugin: 'signing'
+apply plugin: 'io.codearte.nexus-staging'
 
 repositories {
     mavenCentral()
@@ -254,5 +255,5 @@ signing {
 }
 
 nexusStaging {
-//    packageGroup = "com.github.joshjdevl"
+    packageGroup = "com.github.joshjdevl"
 }
