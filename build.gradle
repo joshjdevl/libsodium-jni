@@ -83,7 +83,7 @@ buildscript {
   
   task(taskname) {
     inputs.dir  fileTree(dir: 'libsodium/src', exclude: ['libsodium/**/.libs', 'libsodium/*.la', 'libsodium/**/*.lo', 'libsodium/**/*.o', 'libsodium/**/*.Plo', '**/Makefile'])
-    outputs.dir fileTree(dir: "libsodium/libsodium-${opts['output_arch']}")
+    outputs.dir("libsodium/libsodium-${opts['output_arch']}")
     doFirst {
       if (opts['input_arch']) { // We build for an explicit OS and architecture
         exec {
