@@ -202,7 +202,7 @@ uploadArchives {
         version project.VERSION_NAME
         // optionally artifactId can be defined here 
         description project.POM_ARTIFACT_ID
-        url 'https://github.com/joshjdevl/libsodium-jni'
+        url project.POM_URL
 
         scm {
           connection 'scm:git@github.com:joshjdevl/libsodium-jni.git'
