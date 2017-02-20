@@ -83,7 +83,7 @@ buildscript {
   
   task(taskname) {
     inputs.dir  fileTree(dir: 'libsodium/src', exclude: ['libsodium/**/.libs', 'libsodium/*.la', 'libsodium/**/*.lo', 'libsodium/**/*.o', 'libsodium/**/*.Plo', '**/Makefile'])
-    outputs.dir fileTree(dir: "libsodium/libsodium-${opts['output_arch']}")
+    outputs.dir("libsodium/libsodium-${opts['output_arch']}")
     doFirst {
       if (opts['input_arch']) { // We build for an explicit OS and architecture
         exec {
@@ -161,7 +161,7 @@ tasks.withType(Test) { task ->
 
 task('generateSWIGsource') {
   inputs.dir   fileTree(dir: "${projectDir}/jni/sodium.i")
-  outputs.dir  fileTree(dir: "${projectDir}/src/main/java/org/libsodium/jni")
+  outputs.dir("${projectDir}/src/main/java/org/libsodium/jni")
   outputs.file "${projectDir}/jni/sodium_wrap.c"
   doFirst {
     exec {
