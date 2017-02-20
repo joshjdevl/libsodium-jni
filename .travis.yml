@@ -3,5 +3,5 @@ os:
 sudo: required
 script:
   - ./dependencies-linux.sh
-  - travis_wait 30 . ./setenv.sh && gradle build --full-stacktrace
+  - . ./setenv.sh && gradle build --full-stacktrace
   - travis_wait 30 ./travis.sh
