@@ -79,3 +79,5 @@ Please refer to the [docker build](https://github.com/joshjdevl/libsodium-jni/bl
 libsodium-jni is currently being used in production. Feedback, bug reports and patches are always welcome.
 
 Everything has been tested and working on ubuntu 12.04 32bit and 64 bit, macos, and Android
+
+gpg2 --keyserver hkp://pool.sks-keyservers.net --recv-keys 4524D716
