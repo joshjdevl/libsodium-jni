@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export GRADLE_OPTS=-Dorg.gradle.native=false
+export GRADLE_OPTS="-Dorg.gradle.native=false -Dorg.gradle.daemon=true"
 export NDK_VERSION=r13b
 
 if uname -a | grep -q -i darwin; then
