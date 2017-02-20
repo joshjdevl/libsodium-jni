@@ -11,7 +11,7 @@ if uname -a | grep -q -i darwin; then
     export ANDROID_HOME=/usr/local/opt/android-sdk
 else
     export MAVEN_VERSION=3.3.9
-    export GRADLE_VERSION=2.14.1
+    export GRADLE_VERSION=3.3
     export NDK_TOOLCHAIN_PLATFORM=14
     export NDK_TOOLCHAIN_ARCHITECTURE=arm
     export NDK_ROOT=`pwd`/installs/android-ndk-${NDK_VERSION}
