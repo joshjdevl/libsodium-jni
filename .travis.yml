@@ -8,12 +8,14 @@ env:
     ANDROID_SDK:      "\"$(pwd)/installs/android-sdk-linux\""
     PATH:             "$ANDROID_SDK/tools:$ANDROID_SDK/tools/bin:$ANDROID_SDK/platform-tools:$PATH"
 before_install:
+  - cat "$(which android-wait-for-emulator)"
   - ./dependencies-linux.sh
   - echo y | sdkmanager 'system-images;android-10;default;armeabi-v7a' 'platforms;android-10'
   - android list targets
   - echo no | android create avd --force -n test -t android-10 --abi armeabi-v7a
   - emulator -avd test -no-window -memory 512 -wipe-data 2>&1 | tee emulator.log &
   - adb logcat 2>&1 | tee logcat.log &
+  - bash -x "$(which android-wait-for-emulator)"
   - android-wait-for-emulator
 script:
   - installs/gradle-2.14.1/bin/gradle build --full-stacktrace
