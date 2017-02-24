@@ -2,6 +2,10 @@ language: android
 os:
   - linux
 sudo: required
+env:
+  - ANDROID_HOME:     "\"$(pwd)/installs/android-sdk-linux\""
+    ANDROID_SDK:      "\"$(pwd)/installs/android-sdk-linux\""
+    PATH:             "$ANDROID_SDK/tools:$ANDROID_SDK/tools/bin:$ANDROID_SDK/platform-tools:$PATH"
 before_install:
   - . ./setenv.sh
   - cat "$(which android-wait-for-emulator)"
@@ -13,8 +17,11 @@ before_install:
   - adb logcat 2>&1 | tee logcat.log &
   - bash -x "$(which android-wait-for-emulator)"
   - android-wait-for-emulator
+before_script:
+  - . ./setenv.sh
 script:
-  - . ./setenv.sh && gradle build --full-stacktrace && gradle connectedCheck --full-stacktrace
+  - gradle build --full-stacktrace 
+  - gradle connectedCheck --full-stacktrace
   - travis_wait 30 ./travis.sh
 after_failure:
   - cat emulator.log
