@@ -2,6 +2,7 @@
 
 export GRADLE_OPTS="-Dorg.gradle.native=false -Dorg.gradle.daemon=true"
 export NDK_VERSION=r13b
+export ANDROID_SDK_VERSION=r24.4.1
 
 if uname -a | grep -q -i darwin; then
     export JAVA_HOME=$(/usr/libexec/java_home)
