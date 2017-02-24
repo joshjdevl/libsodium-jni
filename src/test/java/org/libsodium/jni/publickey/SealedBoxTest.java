@@ -49,11 +49,11 @@ public class SealedBoxTest {
 
         Sodium.crypto_box_keypair(public_key,private_key);
 
-        File public_key_file=File.createTempFile("SealedBoxTest","box_public.key");
+        File public_key_file=File.createTempFile("SealedBoxTest","box_public.key",TemporaryFile.temporaryFileDirectory());
         public_key_file.deleteOnExit();
         Files.write(public_key,public_key_file);
 
-        File private_key_file=File.createTempFile("SealedBoxTest","box_private.key");
+        File private_key_file=File.createTempFile("SealedBoxTest","box_private.key",TemporaryFile.temporaryFileDirectory());
         private_key_file.deleteOnExit();
         Files.write(private_key,private_key_file);
 
