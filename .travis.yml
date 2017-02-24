@@ -1,7 +1,21 @@
+language: android
 os:
   - linux
 sudo: required
-script:
+before_install:
+  - . ./setenv.sh
+  - cat "$(which android-wait-for-emulator)"
   - ./dependencies-linux.sh
-  - . ./setenv.sh && gradle build --full-stacktrace
+  - echo y | sdkmanager 'system-images;android-10;default;armeabi-v7a' 'platforms;android-10'
+  - android list targets
+  - echo no | android create avd --force -n test -t android-10 --abi armeabi-v7a
+  - emulator -avd test -no-window -memory 512 -wipe-data 2>&1 | tee emulator.log &
+  - adb logcat 2>&1 | tee logcat.log &
+  - bash -x "$(which android-wait-for-emulator)"
+  - android-wait-for-emulator
+script:
+  - . ./setenv.sh && gradle build --full-stacktrace && gradle connectedCheck --full-stacktrace
   - travis_wait 30 ./travis.sh
+after_failure:
+  - cat emulator.log
+  - cat logcat.log
