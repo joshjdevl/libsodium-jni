@@ -1,5 +1,7 @@
 apply plugin: 'maven'
 apply plugin: 'com.android.library'
+apply plugin: 'signing'
+apply plugin: 'io.codearte.nexus-staging'
 
 repositories {
     mavenCentral()
@@ -64,6 +66,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.5.3"
     }
 }
 
@@ -82,7 +85,7 @@ buildscript {
   
   task(taskname) {
     inputs.dir  fileTree(dir: 'libsodium/src', exclude: ['libsodium/**/.libs', 'libsodium/*.la', 'libsodium/**/*.lo', 'libsodium/**/*.o', 'libsodium/**/*.Plo', '**/Makefile'])
-    outputs.dir fileTree(dir: "libsodium/libsodium-${opts['output_arch']}")
+    outputs.dir("libsodium/libsodium-${opts['output_arch']}")
     doFirst {
       if (opts['input_arch']) { // We build for an explicit OS and architecture
         exec {
@@ -161,7 +164,7 @@ tasks.withType(Test) { task ->
 
 task('generateSWIGsource') {
   inputs.dir   fileTree(dir: "${projectDir}/jni/sodium.i")
-  outputs.dir  fileTree(dir: "${projectDir}/src/main/java/org/libsodium/jni")
+  outputs.dir("${projectDir}/src/main/java/org/libsodium/jni")
   outputs.file "${projectDir}/jni/sodium_wrap.c"
   doFirst {
     exec {
@@ -202,7 +205,7 @@ uploadArchives {
         version project.VERSION_NAME
         // optionally artifactId can be defined here 
         description project.POM_ARTIFACT_ID
-        //url 'https://github.com/joshjdevl/libsodium-jni'
+        url project.POM_URL
 
         scm {
           connection 'scm:git@github.com:joshjdevl/libsodium-jni.git'
@@ -248,3 +251,10 @@ artifacts {
     archives javadocJar, sourcesJar
 }
 
+signing {
+//    sign configurations.archives
+}
+
+nexusStaging {
+    packageGroup = "com.github.joshjdevl"
+}

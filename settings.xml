@@ -5,6 +5,10 @@
       <username>username</username>
       <password>password</password>
     </server>
+    <server>
+      <id>gpg.passphrase</id>
+      <passphrase>passphrase</passphrase>
+    </server>
   </servers>
 </settings>
 

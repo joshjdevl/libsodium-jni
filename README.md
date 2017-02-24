@@ -16,13 +16,13 @@ Credits to:
 ## Installation 
 
 * Java package is under org.libsodium.jni
-* Maven coordinates are in the Sonatype OSS [snapshot repository](https://oss.sonatype.org/content/repositories/snapshots/). View all artifacts [here](https://oss.sonatype.org/#nexus-search;quick%7Ecom.github.joshjdevl.libsodiumjni)
+* Maven coordinates are in the Sonatype OSS [repository](https://oss.sonatype.org/#nexus-search;quick~libsodium)
 
 ### Android Archive (AAR)
     <dependency>
         <groupId>com.github.joshjdevl.libsodiumjni</groupId>
         <artifactId>libsodium-jni-aar</artifactId>
-        <version>1.0.3-SNAPSHOT</version>
+        <version>1.0.6</version>
         <type>aar</type>
     </dependency>
 
@@ -31,7 +31,7 @@ Credits to:
     <dependency>
         <groupId>com.github.joshjdevl.libsodiumjni</groupId>
         <artifactId>libsodium-jni</artifactId>
-        <version>1.0.3-SNAPSHOT</version>
+        <version>1.0.6</version>
         <type>jar</type>
     </dependency>
 
@@ -79,3 +79,5 @@ Please refer to the [docker build](https://github.com/joshjdevl/libsodium-jni/bl
 libsodium-jni is currently being used in production. Feedback, bug reports and patches are always welcome.
 
 Everything has been tested and working on ubuntu 12.04 32bit and 64 bit, macos, and Android
+
+gpg2 --keyserver hkp://pool.sks-keyservers.net --recv-keys 4524D716
