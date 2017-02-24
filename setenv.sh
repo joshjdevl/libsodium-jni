@@ -16,10 +16,11 @@ else
     export NDK_TOOLCHAIN_PLATFORM=14
     export NDK_TOOLCHAIN_ARCHITECTURE=arm
     export NDK_ROOT=`pwd`/installs/android-ndk-${NDK_VERSION}
-    export PATH=`pwd`/installs/apache-maven-${MAVEN_VERSION}:`pwd`/installs/gradle-${GRADLE_VERSION}/bin:`pwd`/installs/android-sdk-linux/tools:`pwd`/installs/android-toolchain/bin:${NDK_ROOT}:$PATH
     export PATH=${NDK_ROOT}:$PATH
     export JAVA_HOME=/usr/lib/jvm/java-8-oracle
     export ANDROID_NDK_HOME=${NDK_ROOT}
     export ANDROID_HOME=`pwd`/installs/android-sdk-linux
+    export ANDROID_SDK=`pwd`)/installs/android-sdk-linux
+    export PATH=$ANDROID_SDK/tools:$ANDROID_SDK/tools/bin:$ANDROID_SDK/platform-tools:`pwd`/installs/apache-maven-${MAVEN_VERSION}:`pwd`/installs/gradle-${GRADLE_VERSION}/bin:`pwd`/installs/android-sdk-linux/tools:`pwd`/installs/android-toolchain/bin:${NDK_ROOT}:$PATH
 fi
 
