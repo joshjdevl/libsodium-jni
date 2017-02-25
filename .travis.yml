@@ -5,12 +5,12 @@ sudo: required
 before_install:
   - . ./setenv.sh
   - ./dependencies-linux.sh
-#  - ./android-emulator.sh
+  - ./android-emulator.sh
 before_script:
   - . ./setenv.sh
 script:
   - gradle build --full-stacktrace 
-#  - gradle connectedCheck --full-stacktrace
+  - gradle connectedCheck --full-stacktrace
   - travis_wait 30 ./travis.sh
 after_failure:
   - cat emulator.log
