@@ -2,10 +2,13 @@
 
 . ./setenv.sh
 
+ANDROID_API="${ANDROID_API:-android-10}"
+ANDROID_ABI="${ANDROID_ABI:-armeabi-v7a}"
+
 cat "$(which android-wait-for-emulator)"
-echo y | sdkmanager 'system-images;android-10;default;armeabi-v7a' 'platforms;android-10'
+echo y | sdkmanager "system-images;${ANDROID_API};default;${ANDROID_ABI}" "platforms;${ANDROID_API}"
 android list targets
-echo no | android create avd --force -n test -t android-10 --abi armeabi-v7a
+echo no | android create avd --force -n test -t "${ANDROID_API}" --abi "${ANDROID_ABI}"
 emulator -avd test -no-window -memory 512 -wipe-data 2>&1 | tee emulator.log &
 adb logcat 2>&1 | tee logcat.log &
 
