@@ -19,7 +19,6 @@ env:
 # - ANDROID_API=android-24 ANDROID_ABI=mips64
 matrix:
   allow_failures:
-    - env: ANDROID_API=android-10 ANDROID_ABI=armeabi-v7a # Allow ANDROID_API=android-10 ANDROID_ABI=armeabi-v7a to fail, because as of bug https://code.google.com/p/android/issues/detail?id=10255           , the ADB Server often hangs, even with workaround.
     - env: ANDROID_API=android-21 ANDROID_ABI=x86_64      # Allow ANDROID_ABI=x86_64                             to fail, because as of https://android.googlesource.com/platform/external/qemu/+/4a88987%5E!/ , x86_64 emulation currently requires KVM, and Travis does not provide KVM.
     - env: ANDROID_API=android-24 ANDROID_ABI=x86_64
 os:
