@@ -26,9 +26,7 @@ os:
   - osx
 sudo: required
 before_install:
-  - . ./setenv.sh
-  - ./dependencies-linux.sh
-  - ./android-emulator.sh
+  - ./dependencies.sh
 before_script:
   - . ./setenv.sh
 script:
