@@ -23,6 +23,7 @@ matrix:
     - env: ANDROID_API=android-24 ANDROID_ABI=x86_64
 os:
   - linux
+  - osx
 sudo: required
 before_install:
   - . ./setenv.sh
@@ -31,8 +32,6 @@ before_install:
 before_script:
   - . ./setenv.sh
 script:
-  - gradle build --full-stacktrace 
-  - gradle connectedCheck --full-stacktrace
   - travis_wait 30 ./travis.sh
 after_failure:
   - cat emulator.log
