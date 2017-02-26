@@ -20,3 +20,9 @@ while true; do
 done &
 
 android-wait-for-emulator
+
+# Replace /dev/random by /dev/urandom in order to make accessing /dev/random not block during testing.
+# This is only to augment the synthetic testing environment.
+# Do not use this in production, as that this makes the perceived randomness actually non-random. 
+adb -e shell 'rm /dev/random; ln -s /dev/urandom /dev/random' || true # This may fail for Android-25, but it is not needed for Android-25
+
