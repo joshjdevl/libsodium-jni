@@ -12,14 +12,11 @@ echo no | android create avd --force -n test -t "${ANDROID_API}" --abi "${ANDROI
 emulator -avd test -no-window -no-accel -memory 512 -wipe-data 2>&1 | tee emulator.log &
 adb logcat 2>&1 | tee logcat.log &
 
-# Workaround from https://code.google.com/p/android/issues/detail?id=10255#c31 to prevent the hanging of "adb shell"
-while true; do 
-#	echo "Pinging ADB server."
-	adb -e shell echo ping || true
-	sleep 10
-done &
-
-android-wait-for-emulator
+if [ "$ANDROID_API" = "android-10" ] && [ "$ANDROID_ABI" = "armeabi-v7a" ]; then
+	sleep 240 # android-wait-for-emulator hangs for ANDROID_API=android-10 ANDROID_ABI=armeabi-v7a, so we wait and hope the emulator has started during that time.
+else
+	android-wait-for-emulator
+fi
 
 # Replace /dev/random by /dev/urandom in order to make accessing /dev/random not block during testing.
 # This is only to augment the synthetic testing environment.
