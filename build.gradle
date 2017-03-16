@@ -90,6 +90,10 @@ buildscript {
       if (opts['input_arch']) { // We build for an explicit OS and architecture
         exec {
           workingDir 'libsodium'
+          commandLine './autogen.sh'
+        }
+        exec {
+          workingDir 'libsodium'
           executable "dist-build/android-${opts['input_arch']}.sh"
           environment 'CONFIG_SITE', '' // This makes ./configure load information about the host and guess this is information valid for the target. However, the target is Android here, the host information does not apply. 
           environment 'NDK_PLATFORM', opts['ndk_platform'] // The lowest possible value is android-9 here. Certain Android API levels below android-16 do not have posix_memalign. This should not make a difference in practice, as android-9 has MAP_ANONYMOUS and HAVE_MMAP and posix_memalign is only used as fallback in the current libsodium code if MAP_ANONYMOUS or HAVE_MMAP are unavailable.
