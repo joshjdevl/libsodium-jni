@@ -7,5 +7,5 @@ wget --quiet https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-
 test -e "gradle-${GRADLE_VERSION}" || unzip -qq "gradle-${GRADLE_VERSION}"-bin.zip
 
 wget --quiet https://dl.google.com/android/repository/tools_${ANDROID_SDK_VERSION}-linux.zip
-test -e "tools" || tar -xf tools_${ANDROID_SDK_VERSION}-linux.zip # Do not overwrite an installed Android SDK, because overwriting it may corrupt it.
+test -e "tools" || unzip -qq tools_${ANDROID_SDK_VERSION}-linux.zip # Do not overwrite an installed Android SDK, because overwriting it may corrupt it.
 popd
