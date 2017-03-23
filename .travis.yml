@@ -23,10 +23,10 @@ matrix:
     - env: ANDROID_API=android-24 ANDROID_ABI=x86_64
 os:
   - linux
-  - osx
+#  - osx
 sudo: required
 before_install:
-  - travis_wait 30 ./dependencies.sh
+  - travis_wait 60 ./dependencies.sh
 before_script:
   - . ./setenv.sh
 script:
