@@ -1,5 +1,7 @@
 #!/bin/bash -ev
 
+. ./setenv.sh
+
 echo y | sdkmanager "platform-tools"
 echo y | sdkmanager "tools"
 
