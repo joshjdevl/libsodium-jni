@@ -1,4 +1,4 @@
-FROM ubuntu:precise
+FROM ubuntu:xenial
 MAINTAINER joshjdevl < joshjdevl [at] gmail {dot} com>
 ENV DEBIAN_FRONTEND noninteractive
 
