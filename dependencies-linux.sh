@@ -24,9 +24,10 @@ sudo apt-fast -y -qq install oracle-java8-installer maven
 
 #http://apt.llvm.org/
 wget -O - http://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
-sudo apt-add-repository "deb http://apt.llvm.org/$(lsb_release -sc)/ llvm-toolchain-$(lsb_release -sc)-4.0 main"
+sudo apt-add-repository "deb http://apt.llvm.org/$(lsb_release -sc)/ llvm-toolchain-$(lsb_release -sc)-${CLANG_VERSION} main"
+sudo apt-add-repository "deb-src http://apt.llvm.org/$(lsb_release -sc)/ llvm-toolchain-$(lsb_release -sc)-${CLANG_VERSION} main"
 sudo apt-fast -qq update
-sudo apt-fast -y install clang-4.0
+sudo apt-fast -y install clang-${CLANG_VERSION} lldb-${CLANG_VERSION}
 
 mkdir -p ./installs
 pushd ./installs
