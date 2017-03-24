@@ -1,14 +1,22 @@
 #!/bin/bash -ev
 
-echo y | android update sdk --all --filter extra-android-m2repository --no-ui
-echo y | android update sdk --all --filter build-tools-23.0.2 --no-ui
-echo y | android update sdk --all --filter build-tools-23.0.3 --no-ui
-echo y | android update sdk --all --filter build-tools-25.0.2 --no-ui
-echo y | android update sdk --all --filter android-16 --no-ui
-echo y | android update sdk --all --filter android-21 --no-ui
-echo y | android update sdk --all --filter android-23 --no-ui
-echo y | android update sdk --all --filter android-24 --no-ui
-echo y | android update sdk --all --filter android-25 --no-ui
-echo y | android update sdk --all --filter platform-tools --no-ui
-echo y | android update sdk --all --filter tools --no-ui
+. ./setenv.sh
+
+echo y | sdkmanager "platform-tools"
+echo y | sdkmanager "tools"
+
+
+echo y | sdkmanager "extras;android;m2repository"
+echo y | sdkmanager "extras;google;m2repository"
+
+echo y | sdkmanager "build-tools;23.0.2"
+echo y | sdkmanager "build-tools;23.0.3" 
+echo y | sdkmanager "build-tools;25.0.2" 
+
+echo y | sdkmanager "platforms;android-16" 
+echo y | sdkmanager "platforms;android-21" 
+echo y | sdkmanager "platforms;android-23" 
+echo y | sdkmanager "platforms;android-24" 
+echo y | sdkmanager "platforms;android-25" 
+
 
