@@ -183,7 +183,7 @@ task('generateSWIGsource') {
 }
 
 gradle.projectsEvaluated {
-  generateJsonModelDebug.dependsOn   'generateSWIGsource'
+  //generateJsonModelDebug.dependsOn   'generateSWIGsource'
   generateJsonModelRelease.dependsOn 'generateSWIGsource'
 }
 
