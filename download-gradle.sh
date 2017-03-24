@@ -7,7 +7,8 @@ wget --quiet https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-
 test -e "gradle-${GRADLE_VERSION}" || unzip -qq "gradle-${GRADLE_VERSION}"-bin.zip
 
 wget --quiet https://dl.google.com/android/repository/tools_${ANDROID_SDK_VERSION}-linux.zip
-test -e "tools" || unzip -qq tools_${ANDROID_SDK_VERSION}-linux.zip # Do not overwrite an installed Android SDK, because overwriting it may corrupt it.
+#must unzip to android-sdk directory and place tools inside
+test -e "android-sdk" || unzip -qq tools_${ANDROID_SDK_VERSION}-linux.zip -d android-sdk # Do not overwrite an installed Android SDK, because overwriting it may corrupt it.
 popd
 
 mkdir -p ${ANDROID_HOME}/licenses
