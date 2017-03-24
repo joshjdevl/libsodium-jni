@@ -14,7 +14,7 @@ sudo apt-get -y -qq install apt-fast
 
 sudo apt-fast -qq update
 
-sudo apt-fast -y -qq install wget git autoconf autoconf automake build-essential autogen libtool gettext-base gettext vim bzip2 libpcre3-dev libpcre++-dev pkg-config
+sudo apt-fast -y -qq install wget git autoconf autoconf automake build-essential autogen libtool gettext-base gettext vim bzip2 libpcre3-dev libpcre++-dev pkg-config unzip
 #gradle building issues
 sudo apt-fast -y -qq install gcc-multilib lib32z1
 sudo add-apt-repository ppa:webupd8team/java -y 
