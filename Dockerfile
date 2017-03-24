@@ -8,4 +8,4 @@ WORKDIR /installs/libsodium-jni
 ADD . /installs/libsodium-jni
 ADD settings.xml ~/.m2/settings.xml
 
-RUN ./build-linux.sh
+#RUN ./build-linux.sh
