@@ -19,7 +19,7 @@ else
     export PATH=${NDK_ROOT}:$PATH
     export JAVA_HOME=/usr/lib/jvm/java-8-oracle
     export ANDROID_NDK_HOME=${NDK_ROOT}
-    export ANDROID_HOME=`pwd`/installs/tools
+    export ANDROID_HOME=`pwd`/installs/android-sdk
     export PATH=`pwd`/installs/apache-maven-${MAVEN_VERSION}:`pwd`/installs/gradle-${GRADLE_VERSION}/bin:`pwd`/installs/android-toolchain/bin:$PATH
 fi
 
