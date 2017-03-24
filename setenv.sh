@@ -23,5 +23,5 @@ else
     export PATH=`pwd`/installs/apache-maven-${MAVEN_VERSION}:`pwd`/installs/gradle-${GRADLE_VERSION}/bin:`pwd`/installs/android-toolchain/bin:$PATH
 fi
 
-export PATH=$ANDROID_HOME/bin:${ANDROID_NDK_HOME}:$PATH
+export PATH=$ANDROID_HOME/bin:${ANDROID_HOME}/tools/bin:${ANDROID_NDK_HOME}:$PATH
 
