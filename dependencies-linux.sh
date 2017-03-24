@@ -20,7 +20,7 @@ sudo apt-fast -y -qq install gcc-multilib lib32z1
 sudo add-apt-repository ppa:webupd8team/java -y 
 sudo apt-fast -qq update 
 echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
-sudo apt-fast -y -qq install oracle-java8-installer maven
+sudo apt-fast -y -qq install oracle-java8-installer maven clang
 
 mkdir -p ./installs
 pushd ./installs
