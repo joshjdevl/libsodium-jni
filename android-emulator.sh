@@ -10,7 +10,7 @@ which android
 which sdkmanager
 while true; do echo y; sleep 3; done | sdkmanager "system-images;${ANDROID_API};default;${ANDROID_ABI}" "platforms;${ANDROID_API}"
 android list targets
-echo no | android create avd --force -n test -t "system-images;${ANDROID_API};default;${ANDROID_ABI}" --abi "${ANDROID_ABI}"
+echo no | android create avd --force -n test -t "${ANDROID_API}" --abi "${ANDROID_ABI}"
 emulator -avd test -no-window -no-accel -memory 512 -wipe-data 2>&1 | tee emulator.log &
 adb logcat 2>&1 | tee logcat.log &
 
