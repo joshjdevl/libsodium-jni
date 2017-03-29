@@ -1,6 +1,6 @@
 language: android
 env:
-  - ANDROID_API="android-10" ANDROID_ABI=armeabi-v7a
+  - ANDROID_API=android-10 ANDROID_ABI=armeabi-v7a
   - ANDROID_API=android-16 ANDROID_ABI=armeabi-v7a
 #  - ANDROID_API=android-24 ANDROID_ABI=armeabi-v7a
   - ANDROID_API=android-10 ANDROID_ABI=x86
