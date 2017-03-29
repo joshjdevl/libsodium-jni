@@ -19,4 +19,4 @@ echo y | sdkmanager "platforms;android-23"
 echo y | sdkmanager "platforms;android-24" 
 echo y | sdkmanager "platforms;android-25" 
 
-
+sdkmanager --update
