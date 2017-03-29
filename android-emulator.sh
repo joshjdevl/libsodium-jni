@@ -7,6 +7,7 @@ ANDROID_ABI="${ANDROID_ABI:-armeabi-v7a}"
 
 cat "$(which android-wait-for-emulator)"
 which android
+which sdkmanager
 while true; do echo y; sleep 3; done | sdkmanager "system-images;${ANDROID_API};default;${ANDROID_ABI}" "platforms;${ANDROID_API}"
 android list targets
 echo no | android create avd --force -n test -k "system-images;${ANDROID_API};default;${ANDROID_ABI}" --abi "${ANDROID_ABI}"
