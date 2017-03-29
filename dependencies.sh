@@ -5,5 +5,5 @@ if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
 else
     . ./setenv.sh
     ./dependencies-linux.sh    
-    #./android-emulator.sh
+    ./android-emulator.sh
 fi
