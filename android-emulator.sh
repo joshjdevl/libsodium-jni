@@ -16,6 +16,7 @@ android list target
 echo no | android create avd --force -n test -k "system-images;${ANDROID_API};default;${ANDROID_ABI}"
 #http://stackoverflow.com/questions/26494305/error-32-bit-linux-android-emulator-binaries-are-deprecated
 #http://askubuntu.com/questions/534044/error-32-bit-linux-android-emulator-binaries-are-deprecated-when-attemping-to-r
+#eventually need to move to emulator64-x86
 export ANDROID_EMULATOR_FORCE_32BIT=true
 emulator -avd test -no-window -no-accel -memory 512 -wipe-data 2>&1 | tee emulator.log &
 adb logcat 2>&1 | tee logcat.log &
