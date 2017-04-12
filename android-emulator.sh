@@ -6,6 +6,7 @@ ANDROID_API="${ANDROID_API:-android-10}"
 ANDROID_ABI="${ANDROID_ABI:-armeabi-v7a}"
 
 cat "$(which android-wait-for-emulator)"
+which adb
 which android
 which sdkmanager
 sdkmanager --list --verbose
