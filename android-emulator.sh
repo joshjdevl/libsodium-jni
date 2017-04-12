@@ -8,6 +8,7 @@ ANDROID_ABI="${ANDROID_ABI:-armeabi-v7a}"
 cat "$(which android-wait-for-emulator)"
 which adb
 which android
+which emulator
 which sdkmanager
 sdkmanager --list --verbose
 echo ${PATH}
