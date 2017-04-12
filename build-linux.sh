@@ -1,5 +1,7 @@
 #!/bin/bash -ev
 
+. ./setenv.sh
+
 ./dependencies-linux.sh
 ./submodule-update.sh
 #./build.sh
