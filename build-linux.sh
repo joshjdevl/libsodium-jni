@@ -1,9 +1,10 @@
 #!/bin/bash -ev
 
 ./dependencies-linux.sh
-./build.sh
+./submodule-update.sh
+#./build.sh
 
-./build-kaliumjni.sh
-./build-libsodiumjni.sh
+#./build-kaliumjni.sh
+#./build-libsodiumjni.sh
 
 gradle build --full-stacktrace
