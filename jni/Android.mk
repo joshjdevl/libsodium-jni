@@ -58,7 +58,8 @@ LOCAL_DISABLE_FATAL_LINKER_WARNINGS := true
 LOCAL_CFLAGS   += -Wall -g -pedantic -std=c99
 
 LOCAL_C_INCLUDES += $(abspath $(LOCAL_PATH))/../libsodium/libsodium-android-$(MY_ARCH_FOLDER)/include ../libsodium/libsodium-android-$(MY_ARCH_FOLDER)/include/sodium /usr/local/include
-LOCAL_STATIC_LIBRARIES += android_native_app_glue sodium
+#LOCAL_STATIC_LIBRARIES += android_native_app_glue sodium
+LOCAL_STATIC_LIBRARIES += sodium
 LOCAL_DISABLE_FATAL_LINKER_WARNINGS := true
 LOCAL_LDFLAGS := -Wl,-Bsymbolic # to work around error "shared library text segment is not shareable"
 #LOCAL_LDLIBS += -Wl,--no-warn-shared-textrel

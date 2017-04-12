@@ -995,11 +995,13 @@ int crypto_onetimeauth_poly1305_verify(const unsigned char *h,
 
 /* this method does not exist because it is a constant value, included for ease
    of implementation */
+/*
 %inline %{
 size_t crypto_onetimeauth_poly1305_statebytes(void) {
     return 256U;
 }
 %}
+*/
 
 int crypto_onetimeauth_poly1305_init(crypto_onetimeauth_poly1305_state *state,
                                      const unsigned char *key);
