@@ -2,6 +2,8 @@
 
 . ./setenv.sh
 
+cp ./libsodium/libsodium-host/lib/libsodium.so /usr/local/lib
+
 pushd jni
 ./compile.sh
 popd

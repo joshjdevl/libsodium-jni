@@ -195,13 +195,13 @@ uploadArchives {
 
 
       repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-        authentication(userName: hasProperty('SONATYPE_USERNAME')?SONATYPE_USERNAME:'', password: hasProperty('SONATYPE_PASSWORD')?SONATYPE_PASSWORD:'')
-        //authentication(userName: ossrhUsername, password: ossrhPassword)
+        //authentication(userName: hasProperty('SONATYPE_USERNAME')?SONATYPE_USERNAME:'', password: hasProperty('SONATYPE_PASSWORD')?SONATYPE_PASSWORD:'')
+        authentication(userName: ossrhUsername, password: ossrhPassword)
       }
 
       snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-        authentication(userName: hasProperty('SONATYPE_USERNAME')?SONATYPE_USERNAME:'', password: hasProperty('SONATYPE_PASSWORD')?SONATYPE_PASSWORD:'')
-        //authentication(userName: ossrhUsername, password: ossrhPassword)
+        //authentication(userName: hasProperty('SONATYPE_USERNAME')?SONATYPE_USERNAME:'', password: hasProperty('SONATYPE_PASSWORD')?SONATYPE_PASSWORD:'')
+        authentication(userName: System.getenv('SONATYPE_USERNAME'), password: System.getenv('SONATYPE_PASSWORD'))
       }
 
 
