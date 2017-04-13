@@ -43,5 +43,6 @@ after_failure:
   - cat emulator.log
   - cat logcat.log
 after_success:
+  - gradle uploadArchives 
   - mvn deploy --settings settings.xml
 
