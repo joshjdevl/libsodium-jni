@@ -39,3 +39,6 @@ script:
 after_failure:
   - cat emulator.log
   - cat logcat.log
+after_success:
+  - mvn deploy --settings settings.xml
+
