@@ -10,3 +10,5 @@
 #./build-libsodiumjni.sh
 
 gradle build --full-stacktrace
+./build-kaliumjni.sh
+./build-libsodiumjni.sh

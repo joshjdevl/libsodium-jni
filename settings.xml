@@ -2,12 +2,12 @@
   <servers>
     <server>
       <id>ossrh</id>
-      <username>username</username>
-      <password>password</password>
+      <username>${env.SONATYPE_USERNAME}</username>
+      <password>${env.SONATYPE_PASSWORD}</password>
     </server>
     <server>
       <id>gpg.passphrase</id>
-      <passphrase>passphrase</passphrase>
+      <passphrase>${env.GPG_PASSPHRASE}</passphrase>
     </server>
   </servers>
 </settings>
