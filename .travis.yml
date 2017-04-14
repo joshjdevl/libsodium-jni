@@ -1,10 +1,6 @@
 language: android
 env:
-  global:
-    - secure: "HaMdPacb/4gv+7ovqKlCcI38/VtZxxRuLqpJmumdv7JWV8VFCGFkvVwyv4C8C7JvotX2FFmfY5rnAq52sMgNY6GaZrsvj1bJxqyMOSo5DFj66r5pDbFuwhjY2Cxk6b/lO6BpdUSbQsVjYlaIo2xkHZ3wST+T+pI/7G6N6w8+c2Y="
-    - secure: "ojszLzJ2nPBh9piksndLdO7Fy9GPymtlJ4BckLgpF+PXcU0sJhHx5ygAKU0RpBbrVnxmR2ZnodhbexU2zDuw38xzqYLfkUmYcSiC3qzBk+84Xd4k484sX2rCFV8gh+GxQ2txdqhgwpMBWrrA7gDSi5jpj80g5+oAqowsUUyQqtw="
-    - secure: "WN7dZk0sUCLKEUieb3NBoIZq6uSZX9jL5He3TjizxHuFyxMBMn1of+oTU0hfGcNcdNt5FCne67uxl87yM2HtGSiDM//aXXJS4YZTnSWAhIFSlR398rtuuDervka9ovLE3DAV70k9xot/oAd36zfxFGb8a/otRIHbOQSYy9kJS+Y="
-env:
+  matrix:
   - ANDROID_API=android-10 ANDROID_ABI=armeabi-v7a
   - ANDROID_API=android-15 ANDROID_ABI=armeabi-v7a
   - ANDROID_API=android-16 ANDROID_ABI=armeabi-v7a
@@ -12,39 +8,26 @@ env:
   - ANDROID_API=android-18 ANDROID_ABI=armeabi-v7a
   - ANDROID_API=android-19 ANDROID_ABI=armeabi-v7a
   - ANDROID_API=android-21 ANDROID_ABI=armeabi-v7a
-#  - ANDROID_API=android-24 ANDROID_ABI=armeabi-v7a
-#  - ANDROID_API=android-10 ANDROID_ABI=x86
-#  - ANDROID_API=android-16 ANDROID_ABI=x86
-#  - ANDROID_API=android-24 ANDROID_ABI=x86
-# - ANDROID_API=android-10 ANDROID_ABI=mips
-#  - ANDROID_API=android-15 ANDROID_ABI=mips
-#  - ANDROID_API=android-16 ANDROID_ABI=mips
-#  - ANDROID_API=android-17 ANDROID_ABI=mips
-# - ANDROID_API=android-24 ANDROID_ABI=mips
-# - ANDROID_API=android-21 ANDROID_ABI=arm64-v8a
-#  - ANDROID_API=android-24 ANDROID_ABI=arm64-v8a
-#  - ANDROID_API=android-21 ANDROID_ABI=x86_64
-#  - ANDROID_API=android-24 ANDROID_ABI=x86_64
-# - ANDROID_API=android-21 ANDROID_ABI=mips64
-# - ANDROID_API=android-24 ANDROID_ABI=mips64
+  global:
+  - secure: gV/l8tket121k0Um4nJmvfChezXCQH80AV+cxdBZcp1q/zAcwOwceAMJCzTIho7NlZvr9TEAoUvJpglGhdv/xr59S62OLjooXXwGIWzcs5vJGiAurPiH/XJwGw/2tusMLp5PH7zxo1/3kNu97ate/nlqa/CMuTYwwxVpn/4dJMw=
+  - secure: zcbQlAhYrhHm+/9pmROQHFGfFXSGx8tWrBO0qTEe1D1AId8JhtDwY9I3uXCcX5y4l4d1eg4G6G2q0Nic6SyqKXNFF88HeLiazRmeajaAvTLfU7dEWIzWKwyFCK1VchXkI2al1ApDKXtoaC4m13Em0GzhIxb74gShYmIhEvzANiM=
+  - secure: bqDnpaF/lMp4esJpYU68zzybn3urG/1T6fyzOgxo/RFYtiaYkV3a1Kf79wnABDgDfZHQ4rvkO2ceRdANAGySpfkazRV5zSJIri3X2FpsTPo5wVtC9PFtGSWI6skGxVwdI2C2zMdstm8+Lmiv/vBkg8Q8Gd2b2ofkBmKnUxTHtMk=
 matrix:
   allow_failures:
-    - env: ANDROID_API=android-21 ANDROID_ABI=x86_64      # Allow ANDROID_ABI=x86_64                             to fail, because as of https://android.googlesource.com/platform/external/qemu/+/4a88987%5E!/ , x86_64 emulation currently requires KVM, and Travis does not provide KVM.
-    - env: ANDROID_API=android-24 ANDROID_ABI=x86_64
+  - env: ANDROID_API=android-21 ANDROID_ABI=x86_64
+  - env: ANDROID_API=android-24 ANDROID_ABI=x86_64
 os:
-  - linux
-#  - osx
+- linux
 sudo: required
 before_install:
-  - travis_wait 60 ./dependencies.sh
+- travis_wait 60 ./dependencies.sh
 before_script:
-  - . ./setenv.sh
+- . ./setenv.sh
 script:
-  - travis_wait 30 ./travis.sh
+- travis_wait 30 ./travis.sh
 after_failure:
-  - cat emulator.log
-  - cat logcat.log
+- cat emulator.log
+- cat logcat.log
 after_success:
-  - gradle uploadArchives 
-  - mvn deploy --settings settings.xml
-
+- gradle uploadArchives
+- mvn deploy --settings settings.xml
