@@ -9,10 +9,10 @@ env:
   - ANDROID_API=android-19 ANDROID_ABI=armeabi-v7a
   - ANDROID_API=android-21 ANDROID_ABI=armeabi-v7a
   global:
-  - secure: gV/l8tket121k0Um4nJmvfChezXCQH80AV+cxdBZcp1q/zAcwOwceAMJCzTIho7NlZvr9TEAoUvJpglGhdv/xr59S62OLjooXXwGIWzcs5vJGiAurPiH/XJwGw/2tusMLp5PH7zxo1/3kNu97ate/nlqa/CMuTYwwxVpn/4dJMw=
-  - secure: zcbQlAhYrhHm+/9pmROQHFGfFXSGx8tWrBO0qTEe1D1AId8JhtDwY9I3uXCcX5y4l4d1eg4G6G2q0Nic6SyqKXNFF88HeLiazRmeajaAvTLfU7dEWIzWKwyFCK1VchXkI2al1ApDKXtoaC4m13Em0GzhIxb74gShYmIhEvzANiM=
-  - secure: bqDnpaF/lMp4esJpYU68zzybn3urG/1T6fyzOgxo/RFYtiaYkV3a1Kf79wnABDgDfZHQ4rvkO2ceRdANAGySpfkazRV5zSJIri3X2FpsTPo5wVtC9PFtGSWI6skGxVwdI2C2zMdstm8+Lmiv/vBkg8Q8Gd2b2ofkBmKnUxTHtMk=
-  - secure: 0GM+2wBdoZJA84N0BICH6Y0ReE+STFx1D109VK70yN0bdJ5rau2FXWK6jseeFIciXRraTNyl4V5Y84yOzKK3YXxLesk8mwcFFksE6bZlkPcJ55wrEwjbWR9gsi3t6GWzZ24URD0B2SMKyPbSxPX8SD/U4t2UWsjB2TGTglRRuV8=
+  - secure: "gV/l8tket121k0Um4nJmvfChezXCQH80AV+cxdBZcp1q/zAcwOwceAMJCzTIho7NlZvr9TEAoUvJpglGhdv/xr59S62OLjooXXwGIWzcs5vJGiAurPiH/XJwGw/2tusMLp5PH7zxo1/3kNu97ate/nlqa/CMuTYwwxVpn/4dJMw="
+  - secure: "zcbQlAhYrhHm+/9pmROQHFGfFXSGx8tWrBO0qTEe1D1AId8JhtDwY9I3uXCcX5y4l4d1eg4G6G2q0Nic6SyqKXNFF88HeLiazRmeajaAvTLfU7dEWIzWKwyFCK1VchXkI2al1ApDKXtoaC4m13Em0GzhIxb74gShYmIhEvzANiM="
+  - secure: "bqDnpaF/lMp4esJpYU68zzybn3urG/1T6fyzOgxo/RFYtiaYkV3a1Kf79wnABDgDfZHQ4rvkO2ceRdANAGySpfkazRV5zSJIri3X2FpsTPo5wVtC9PFtGSWI6skGxVwdI2C2zMdstm8+Lmiv/vBkg8Q8Gd2b2ofkBmKnUxTHtMk="
+  - secure: "0GM+2wBdoZJA84N0BICH6Y0ReE+STFx1D109VK70yN0bdJ5rau2FXWK6jseeFIciXRraTNyl4V5Y84yOzKK3YXxLesk8mwcFFksE6bZlkPcJ55wrEwjbWR9gsi3t6GWzZ24URD0B2SMKyPbSxPX8SD/U4t2UWsjB2TGTglRRuV8="
 matrix:
   allow_failures:
   - env: ANDROID_API=android-21 ANDROID_ABI=x86_64
