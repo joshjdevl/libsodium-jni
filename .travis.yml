@@ -1,8 +1,9 @@
 language: android
 env:
-  - secure: "HaMdPacb/4gv+7ovqKlCcI38/VtZxxRuLqpJmumdv7JWV8VFCGFkvVwyv4C8C7JvotX2FFmfY5rnAq52sMgNY6GaZrsvj1bJxqyMOSo5DFj66r5pDbFuwhjY2Cxk6b/lO6BpdUSbQsVjYlaIo2xkHZ3wST+T+pI/7G6N6w8+c2Y="
-  - secure: "ojszLzJ2nPBh9piksndLdO7Fy9GPymtlJ4BckLgpF+PXcU0sJhHx5ygAKU0RpBbrVnxmR2ZnodhbexU2zDuw38xzqYLfkUmYcSiC3qzBk+84Xd4k484sX2rCFV8gh+GxQ2txdqhgwpMBWrrA7gDSi5jpj80g5+oAqowsUUyQqtw="
-  - secure: "WN7dZk0sUCLKEUieb3NBoIZq6uSZX9jL5He3TjizxHuFyxMBMn1of+oTU0hfGcNcdNt5FCne67uxl87yM2HtGSiDM//aXXJS4YZTnSWAhIFSlR398rtuuDervka9ovLE3DAV70k9xot/oAd36zfxFGb8a/otRIHbOQSYy9kJS+Y="
+  global:
+    - secure: "HaMdPacb/4gv+7ovqKlCcI38/VtZxxRuLqpJmumdv7JWV8VFCGFkvVwyv4C8C7JvotX2FFmfY5rnAq52sMgNY6GaZrsvj1bJxqyMOSo5DFj66r5pDbFuwhjY2Cxk6b/lO6BpdUSbQsVjYlaIo2xkHZ3wST+T+pI/7G6N6w8+c2Y="
+    - secure: "ojszLzJ2nPBh9piksndLdO7Fy9GPymtlJ4BckLgpF+PXcU0sJhHx5ygAKU0RpBbrVnxmR2ZnodhbexU2zDuw38xzqYLfkUmYcSiC3qzBk+84Xd4k484sX2rCFV8gh+GxQ2txdqhgwpMBWrrA7gDSi5jpj80g5+oAqowsUUyQqtw="
+    - secure: "WN7dZk0sUCLKEUieb3NBoIZq6uSZX9jL5He3TjizxHuFyxMBMn1of+oTU0hfGcNcdNt5FCne67uxl87yM2HtGSiDM//aXXJS4YZTnSWAhIFSlR398rtuuDervka9ovLE3DAV70k9xot/oAd36zfxFGb8a/otRIHbOQSYy9kJS+Y="
   - ANDROID_API=android-10 ANDROID_ABI=armeabi-v7a
   - ANDROID_API=android-15 ANDROID_ABI=armeabi-v7a
   - ANDROID_API=android-16 ANDROID_ABI=armeabi-v7a
