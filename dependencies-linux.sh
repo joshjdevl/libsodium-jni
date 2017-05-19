@@ -4,6 +4,8 @@ set -ev
 
 . ./setenv.sh
 
+lsb_release -a
+
 sudo apt-get -qq update && sudo apt-get -y -qq install python-software-properties software-properties-common
 sudo add-apt-repository -y "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"
 sudo apt-get -qq update
