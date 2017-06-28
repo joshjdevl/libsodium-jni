@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -ev
 
 set -ev
 
