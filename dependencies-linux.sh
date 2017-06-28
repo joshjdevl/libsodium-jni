@@ -4,7 +4,7 @@ set -ev
 
 . ./setenv.sh
 
-sudo apt-get --qq update
+sudo apt-get -qq update
 sudo apt-get -y -qq install lsb-release
 
 lsb_release -a
