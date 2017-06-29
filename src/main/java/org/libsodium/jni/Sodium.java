@@ -753,6 +753,98 @@ public class Sodium {
     return SodiumJNI.crypto_onetimeauth_poly1305_final(state, out);
   }
 
+  public static int crypto_pwhash_alg_argon2i13() {
+    return SodiumJNI.crypto_pwhash_alg_argon2i13();
+  }
+
+  public static int crypto_pwhash_alg_default() {
+    return SodiumJNI.crypto_pwhash_alg_default();
+  }
+
+  public static int crypto_pwhash_bytes_min() {
+    return SodiumJNI.crypto_pwhash_bytes_min();
+  }
+
+  public static int crypto_pwhash_bytes_max() {
+    return SodiumJNI.crypto_pwhash_bytes_max();
+  }
+
+  public static int crypto_pwhash_passwd_min() {
+    return SodiumJNI.crypto_pwhash_passwd_min();
+  }
+
+  public static int crypto_pwhash_passwd_max() {
+    return SodiumJNI.crypto_pwhash_passwd_max();
+  }
+
+  public static int crypto_pwhash_saltbytes() {
+    return SodiumJNI.crypto_pwhash_saltbytes();
+  }
+
+  public static int crypto_pwhash_strbytes() {
+    return SodiumJNI.crypto_pwhash_strbytes();
+  }
+
+  public static byte[] crypto_pwhash_strprefix() {
+    return SodiumJNI.crypto_pwhash_strprefix();
+  }
+
+  public static int crypto_pwhash_opslimit_min() {
+    return SodiumJNI.crypto_pwhash_opslimit_min();
+  }
+
+  public static int crypto_pwhash_opslimit_max() {
+    return SodiumJNI.crypto_pwhash_opslimit_max();
+  }
+
+  public static int crypto_pwhash_memlimit_min() {
+    return SodiumJNI.crypto_pwhash_memlimit_min();
+  }
+
+  public static int crypto_pwhash_memlimit_max() {
+    return SodiumJNI.crypto_pwhash_memlimit_max();
+  }
+
+  public static int crypto_pwhash_opslimit_interactive() {
+    return SodiumJNI.crypto_pwhash_opslimit_interactive();
+  }
+
+  public static int crypto_pwhash_memlimit_interactive() {
+    return SodiumJNI.crypto_pwhash_memlimit_interactive();
+  }
+
+  public static int crypto_pwhash_opslimit_moderate() {
+    return SodiumJNI.crypto_pwhash_opslimit_moderate();
+  }
+
+  public static int crypto_pwhash_memlimit_moderate() {
+    return SodiumJNI.crypto_pwhash_memlimit_moderate();
+  }
+
+  public static int crypto_pwhash_opslimit_sensitive() {
+    return SodiumJNI.crypto_pwhash_opslimit_sensitive();
+  }
+
+  public static int crypto_pwhash_memlimit_sensitive() {
+    return SodiumJNI.crypto_pwhash_memlimit_sensitive();
+  }
+
+  public static int crypto_pwhash(byte[] out, int outlen, byte[] passwd, int passwdlen, byte[] salt, int opslimit, int memlimit, int alg) {
+    return SodiumJNI.crypto_pwhash(out, outlen, passwd, passwdlen, salt, opslimit, memlimit, alg);
+  }
+
+  public static int crypto_pwhash_str(byte[] out, byte[] passwd, int passwdlen, int opslimit, int memlimit) {
+    return SodiumJNI.crypto_pwhash_str(out, passwd, passwdlen, opslimit, memlimit);
+  }
+
+  public static int crypto_pwhash_str_verify(byte[] str, byte[] passwd, int passwdlen) {
+    return SodiumJNI.crypto_pwhash_str_verify(str, passwd, passwdlen);
+  }
+
+  public static byte[] crypto_pwhash_primitive() {
+    return SodiumJNI.crypto_pwhash_primitive();
+  }
+
   public static int crypto_pwhash_scryptsalsa208sha256_saltbytes() {
     return SodiumJNI.crypto_pwhash_scryptsalsa208sha256_saltbytes();
   }
