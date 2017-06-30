@@ -11,7 +11,7 @@ repositories {
 android {
     compileSdkVersion 25
     //https://developer.android.com/studio/releases/build-tools.html
-    buildToolsVersion "26.0.0"
+    buildToolsVersion "25.0.2"
 
     defaultConfig {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
