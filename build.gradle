@@ -10,6 +10,7 @@ repositories {
 
 android {
     compileSdkVersion 25
+    //https://developer.android.com/studio/releases/build-tools.html
     buildToolsVersion "26.0.0"
 
     defaultConfig {
