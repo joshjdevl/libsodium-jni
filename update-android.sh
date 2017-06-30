@@ -2,6 +2,7 @@
 
 . ./setenv.sh
 
+sdkmanager --update
 sdkmanager --list
 
 echo y | sdkmanager "platform-tools"
