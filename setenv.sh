@@ -5,6 +5,8 @@ export GRADLE_OPTS="-Dorg.gradle.native=false -Dorg.gradle.daemon=true"
 export NDK_VERSION=r15b
 #https://developer.android.com/studio/releases/sdk-tools.html
 export ANDROID_SDK_VERSION=r26.0.2
+#https://developer.android.com/studio/index.html?hl=sk#downloads
+export ANDROID_SDK_TOOLS_VERSION=3859397
 export CLANG_VERSION=3.9
 
 if uname -a | grep -q -i darwin; then
