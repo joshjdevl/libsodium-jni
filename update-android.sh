@@ -2,6 +2,8 @@
 
 . ./setenv.sh
 
+sdkmanager --list
+
 echo y | sdkmanager "platform-tools"
 echo y | sdkmanager "tools"
 
@@ -19,5 +21,6 @@ echo y | sdkmanager "platforms;android-21"
 echo y | sdkmanager "platforms;android-23" 
 echo y | sdkmanager "platforms;android-24" 
 echo y | sdkmanager "platforms;android-25" 
+echo y | sdkmanager "platforms;android-26"
 
 sdkmanager --update
