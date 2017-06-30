@@ -1,4 +1,4 @@
-#!/bin/bash -ev
+#!/bin/bash -v
 
 if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
     ./dependencies-mac.sh
