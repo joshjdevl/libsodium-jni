@@ -24,9 +24,9 @@ sudo: required
 before_install:
 # to bypass not being able to use apt-get.
 #https://github.com/travis-ci/travis-ci/issues/7332
-- sudo sed -i s/us.archive.ubuntu/old-releases.ubuntu/g /etc/apt/sources.list
-- sudo sed -i s/security.ubuntu/old-releases.ubuntu/g /etc/apt/sources.list
-- sudo apt-get update
+#- sudo sed -i s/us.archive.ubuntu/old-releases.ubuntu/g /etc/apt/sources.list
+#- sudo sed -i s/security.ubuntu/old-releases.ubuntu/g /etc/apt/sources.list
+#- sudo apt-get update
 - travis_wait 60 ./dependencies.sh
 before_script:
 - . ./setenv.sh
