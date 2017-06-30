@@ -1,4 +1,4 @@
-#!/bin/bash -ev
+#!/bin/bash -v
 
 . ./setenv.sh
 
