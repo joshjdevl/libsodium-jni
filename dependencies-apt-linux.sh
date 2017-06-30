@@ -1,7 +1,5 @@
 #!/bin/bash -ev
 
-set -ev
-
 . ./setenv.sh
 
 sudo apt-get -qq update
