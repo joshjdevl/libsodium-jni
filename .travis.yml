@@ -26,7 +26,7 @@ before_install:
 before_script:
 - . ./setenv.sh
 script:
-- travis_wait 30 ./travis.sh
+- travis_wait 60 ./travis.sh
 after_failure:
 - cat emulator.log
 - cat logcat.log
