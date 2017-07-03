@@ -4,6 +4,6 @@
 
 ./submodule-update.sh
 
-gradle build --full-stacktrace
+gradle build --full-stacktrace --debug
 ./build-kaliumjni.sh
 ./build-libsodiumjni.sh
