@@ -19,7 +19,7 @@ matrix:
   - env: ANDROID_API=android-24 ANDROID_ABI=x86_64
 os:
 - linux
-dist: precise
+dist: trusty
 sudo: required
 before_install:
 - travis_wait 60 ./dependencies.sh
