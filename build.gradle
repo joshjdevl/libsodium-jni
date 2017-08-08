@@ -105,7 +105,7 @@ buildscript {
         }
         exec {
           workingDir 'libsodium'
-          commandLine './configure','--disable-soname-versions','--enable-minimal',"--prefix=${projectDir}/libsodium/libsodium-${opts['output_arch']}","--libdir=${projectDir}/libsodium/libsodium-${opts['output_arch']}/lib"
+          commandLine './configure','--disable-soname-versions',"--prefix=${projectDir}/libsodium/libsodium-${opts['output_arch']}","--libdir=${projectDir}/libsodium/libsodium-${opts['output_arch']}/lib"
         }
         exec {
           workingDir 'libsodium'
