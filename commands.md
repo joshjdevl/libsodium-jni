@@ -7,6 +7,6 @@ gradle build
 gradle uploadArchives
 
 mvn clean install -P release-sign-artifacts
-mvn clean deploy  -P release-sign-artifacts
+mvn clean deploy  -P release-sign-artifacts --settings settings.xml
 
 mvn scm:tag
