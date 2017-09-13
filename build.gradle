@@ -66,7 +66,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.0'
-        classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.5.3"
+        classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.11.0"
     }
 }
 
@@ -191,19 +191,15 @@ gradle.projectsEvaluated {
 uploadArchives {
   repositories {
     mavenDeployer {
-      //beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
+      beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
       repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-        //authentication(userName: hasProperty('SONATYPE_USERNAME')?SONATYPE_USERNAME:'', password: hasProperty('SONATYPE_PASSWORD')?SONATYPE_PASSWORD:'')
         authentication(userName: System.getenv('SONATYPE_USERNAME'), password: System.getenv('SONATYPE_PASSWORD'))
       }
 
       snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-        //authentication(userName: hasProperty('SONATYPE_USERNAME')?SONATYPE_USERNAME:'', password: hasProperty('SONATYPE_PASSWORD')?SONATYPE_PASSWORD:'')
         authentication(userName: System.getenv('SONATYPE_USERNAME'), password: System.getenv('SONATYPE_PASSWORD'))
       }
-
 
       pom.project {
         name project.POM_NAME
@@ -260,7 +256,7 @@ artifacts {
 }
 
 signing {
-//    sign configurations.archives
+    sign configurations.archives
 }
 
 nexusStaging {
