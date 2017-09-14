@@ -32,5 +32,5 @@ after_failure:
 - cat logcat.log
 after_success:
 - echo ${TEST_VAR}
-- gradle uploadArchives
+- gradle uploadArchives -Psigning.password=${GPG_PASSPHRASE}
 - mvn deploy --settings settings.xml

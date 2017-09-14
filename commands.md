@@ -11,7 +11,7 @@ export SONATYPE_PASSWORD=
 export GPG_PASSPHRASE=
 
 gradle build
-gradle uploadArchives closeAndPromoteRepository
+gradle uploadArchives closeAndPromoteRepository -Psigning.password=${GPG_PASSPHRASE}
 
 mvn clean install -P release-sign-artifacts
 mvn clean deploy  -P release-sign-artifacts --settings settings.xml
