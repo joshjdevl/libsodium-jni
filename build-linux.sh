@@ -1,9 +1,10 @@
 #!/bin/bash -ev
 
-./dependencies-linux.sh
-./build.sh
+. ./setenv.sh
 
+./submodule-update.sh
+
+gradle generateSWIGsource --full-stacktrace
+gradle build --full-stacktrace
 ./build-kaliumjni.sh
 ./build-libsodiumjni.sh
-
-gradle build --full-stacktrace

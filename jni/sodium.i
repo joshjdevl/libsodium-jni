@@ -995,11 +995,13 @@ int crypto_onetimeauth_poly1305_verify(const unsigned char *h,
 
 /* this method does not exist because it is a constant value, included for ease
    of implementation */
+/*
 %inline %{
 size_t crypto_onetimeauth_poly1305_statebytes(void) {
     return 256U;
 }
 %}
+*/
 
 int crypto_onetimeauth_poly1305_init(crypto_onetimeauth_poly1305_state *state,
                                      const unsigned char *key);
@@ -1012,8 +1014,53 @@ int crypto_onetimeauth_poly1305_final(crypto_onetimeauth_poly1305_state *state,
                                       unsigned char *out);
 
 /*
+    PW-Hash argon2
+*/
+int crypto_pwhash_alg_argon2i13(void);
+int crypto_pwhash_alg_default(void);
+size_t crypto_pwhash_bytes_min(void);
+size_t crypto_pwhash_bytes_max(void);
+size_t crypto_pwhash_passwd_min(void);
+size_t crypto_pwhash_passwd_max(void);
+size_t crypto_pwhash_saltbytes(void);
+size_t crypto_pwhash_strbytes(void);
+const char * crypto_pwhash_strprefix(void);
+size_t crypto_pwhash_opslimit_min(void);
+size_t crypto_pwhash_opslimit_max(void);
+size_t crypto_pwhash_memlimit_min(void);
+size_t crypto_pwhash_memlimit_max(void);
+size_t crypto_pwhash_opslimit_interactive(void);
+size_t crypto_pwhash_memlimit_interactive(void);
+size_t crypto_pwhash_opslimit_moderate(void);
+size_t crypto_pwhash_memlimit_moderate(void);
+size_t crypto_pwhash_opslimit_sensitive(void);
+size_t crypto_pwhash_memlimit_sensitive(void);
+int crypto_pwhash(unsigned char * const out,
+                  unsigned long long outlen,
+                  const char * const passwd,
+                  unsigned long long passwdlen,
+                  const unsigned char * const salt,
+                  unsigned long long opslimit,
+                  size_t memlimit,
+                  int alg);
+
+int crypto_pwhash_str(char out[crypto_pwhash_STRBYTES],
+                      const char * const passwd,
+                      unsigned long long passwdlen,
+                      unsigned long long opslimit,
+                      size_t memlimit);
+
+int crypto_pwhash_str_verify(const char str[crypto_pwhash_STRBYTES],
+                             const char * const passwd,
+                             unsigned long long passwdlen);
+
+const char * crypto_pwhash_primitive(void);
+
+
+/*
     PW-Hash scryptsalsa208sha256
 */
+/*
 size_t crypto_pwhash_scryptsalsa208sha256_saltbytes(void);
 
 size_t crypto_pwhash_scryptsalsa208sha256_strbytes(void);
@@ -1051,6 +1098,7 @@ int crypto_pwhash_scryptsalsa208sha256_ll(const uint8_t * passwd,
                                           uint32_t p,
                                           uint8_t * buf,
                                           size_t buflen);
+*/
 
 /*
     ScalarMult Curve25519

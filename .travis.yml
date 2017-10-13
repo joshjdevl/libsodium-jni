@@ -1,6 +1,8 @@
 language: android
 env:
+  matrix:
   - ANDROID_API=android-10 ANDROID_ABI=armeabi-v7a
+  - ANDROID_API=android-15 ANDROID_ABI=armeabi-v7a
   - ANDROID_API=android-16 ANDROID_ABI=armeabi-v7a
 #  - ANDROID_API=android-24 ANDROID_ABI=armeabi-v7a
   - ANDROID_API=android-10 ANDROID_ABI=x86
@@ -19,18 +21,22 @@ env:
 # - ANDROID_API=android-24 ANDROID_ABI=mips64
 matrix:
   allow_failures:
-    - env: ANDROID_API=android-21 ANDROID_ABI=x86_64      # Allow ANDROID_ABI=x86_64                             to fail, because as of https://android.googlesource.com/platform/external/qemu/+/4a88987%5E!/ , x86_64 emulation currently requires KVM, and Travis does not provide KVM.
-    - env: ANDROID_API=android-24 ANDROID_ABI=x86_64
+  - env: ANDROID_API=android-21 ANDROID_ABI=x86_64
+  - env: ANDROID_API=android-24 ANDROID_ABI=x86_64
 os:
-  - linux
-#  - osx
+- linux
+dist: trusty
 sudo: required
 before_install:
-  - travis_wait 60 ./dependencies.sh
+- travis_wait 60 ./dependencies.sh
 before_script:
-  - . ./setenv.sh
+- . ./setenv.sh
 script:
-  - travis_wait 30 ./travis.sh
+- travis_wait 30 ./travis.sh
 after_failure:
-  - cat emulator.log
-  - cat logcat.log
+- cat emulator.log
+- cat logcat.log
+after_success:
+- echo ${TEST_VAR}
+- gradle uploadArchives -Psigning.password=${GPG_PASSPHRASE}
+- mvn deploy --settings settings.xml

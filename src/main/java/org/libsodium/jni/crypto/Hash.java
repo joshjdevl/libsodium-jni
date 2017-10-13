@@ -50,7 +50,7 @@ public class Hash {
 
     public String pwhash_scryptsalsa208sha256(String passwd, Encoder encoder, byte[] salt, int opslimit, int memlimit) {
         buffer = new byte[KEY_LEN];
-        sodium().crypto_pwhash_scryptsalsa208sha256(buffer, buffer.length, passwd.getBytes(), passwd.length(), salt, opslimit, memlimit);
+        sodium().crypto_pwhash(buffer, buffer.length, passwd.getBytes(), passwd.length(), salt, opslimit, memlimit,sodium().crypto_pwhash_alg_default());
         return encoder.encode(buffer);
     }
 
