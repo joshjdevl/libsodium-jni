@@ -17,3 +17,9 @@ build
 *.swp
 src/main/jniLibs/
 src/main/gen/
+
+/installs/
+
+
+/.vagrant/
+/ubuntu-xenial-16.04-cloudimg-console.log
