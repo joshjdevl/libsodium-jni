@@ -1,6 +1,6 @@
 This project is entirely maintained in my spare time. Donations are appreciated.
 
-Bitcoin address: L1jNHtjadR71Y7egQHg7vzwHY2H2iDSvQ6S8n5QTFCL7QRxdtzTN.
+Bitcoin address: 1EC6j1f2sDGy9L8ma8FFfQyxt9mb9a6Xxy
 
 [![Build Status](https://travis-ci.org/joshjdevl/libsodium-jni.svg)](https://travis-ci.org/joshjdevl/libsodium-jni)
 
