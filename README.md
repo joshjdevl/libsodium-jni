@@ -1,3 +1,7 @@
+This project is entirely maintained in my spare time. Donations are appreciated.
+
+Bitcoin address: 1EC6j1f2sDGy9L8ma8FFfQyxt9mb9a6Xxy
+
 [![Build Status](https://travis-ci.org/joshjdevl/libsodium-jni.svg)](https://travis-ci.org/joshjdevl/libsodium-jni)
 
 # libsodium-jni - (Android) Java JNI binding to the Networking and Cryptography (NaCl) library 
