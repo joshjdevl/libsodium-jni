@@ -17,6 +17,7 @@ build
 *.swp
 src/main/jniLibs/
 src/main/gen/
+/sdkmanager.log
 
 /installs/
 
