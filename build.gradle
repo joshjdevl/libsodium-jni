@@ -50,9 +50,9 @@ dependencies {
     // TODO are these required in this lib project?
     //compile fileTree(include: ['*.jar'], dir: 'libs')
    //compile 'com.android.support:appcompat-v7:23.1.1'
-   testCompile group: 'com.google.guava', name: 'guava', version: '19.0'
+   testCompile group: 'com.google.guava', name: 'guava', version: '23.0'
    testCompile 'junit:junit:4.12'
-   androidTestCompile group: 'com.google.guava', name: 'guava', version: '19.0'
+   androidTestCompile group: 'com.google.guava', name: 'guava', version: '23.0'
    androidTestCompile 'junit:junit:4.12'
    androidTestCompile 'com.android.support.test:runner:0.5'
 }
@@ -63,20 +63,24 @@ buildscript {
         mavenCentral()
     	jcenter()
         mavenLocal()
+        //https://developer.android.com/topic/libraries/testing-support-library/packages.html#gradle-maven-dependencies
+        maven {
+            url "https://maven.google.com"
+        }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.0'
+        classpath 'com.android.tools.build:gradle:2.3.3'
         classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.11.0"
     }
 }
 
 [
-  [input_arch: 'arm',     output_arch: 'android-armv6',    ndk_platform: 'android-9' ],
-  [input_arch: 'armv7-a', output_arch: 'android-armv7-a',  ndk_platform: 'android-9' ],
+  [input_arch: 'arm',     output_arch: 'android-armv6',    ndk_platform: 'android-14' ],
+  [input_arch: 'armv7-a', output_arch: 'android-armv7-a',  ndk_platform: 'android-14' ],
   [input_arch: 'armv8-a', output_arch: 'android-armv8-a',  ndk_platform: 'android-21'],
-  [input_arch: 'mips32',  output_arch: 'android-mips32',   ndk_platform: 'android-9' ],
+  [input_arch: 'mips32',  output_arch: 'android-mips32',   ndk_platform: 'android-14' ],
   [input_arch: 'mips64',  output_arch: 'android-mips64r6', ndk_platform: 'android-21'],
-  [input_arch: 'x86',     output_arch: 'android-i686',     ndk_platform: 'android-9' ],
+  [input_arch: 'x86',     output_arch: 'android-i686',     ndk_platform: 'android-14' ],
   [input_arch: 'x86_64',  output_arch: 'android-westmere', ndk_platform: 'android-21'],
   [                       output_arch: 'host'                                         ],
 ].each { opts -> 
