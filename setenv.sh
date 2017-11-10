@@ -1,9 +1,9 @@
 #!/bin/bash
 
 export GRADLE_OPTS="-Dorg.gradle.native=false -Dorg.gradle.daemon=true"
-export NDK_VERSION=r14b
+export NDK_VERSION=r15c
 export ANDROID_SDK_VERSION=r25.2.5
-export CLANG_VERSION=3.9
+export CLANG_VERSION=5.0
 
 if uname -a | grep -q -i darwin; then
     export JAVA_HOME=$(/usr/libexec/java_home)
@@ -12,9 +12,9 @@ if uname -a | grep -q -i darwin; then
     export ANDROID_SDK=/usr/local/share/android-sdk
     export ANDROID_HOME=/usr/local/share/android-sdk
 else
-    export MAVEN_VERSION=3.3.9
-    export GRADLE_VERSION=3.4.1
-    export NDK_TOOLCHAIN_PLATFORM=14
+    export MAVEN_VERSION=3.5.2
+    export GRADLE_VERSION=4.3.1
+    export NDK_TOOLCHAIN_PLATFORM=24
     export NDK_TOOLCHAIN_ARCHITECTURE=arm
     export NDK_ROOT=`pwd`/installs/android-ndk-${NDK_VERSION}
     export PATH=${NDK_ROOT}:$PATH
@@ -24,5 +24,6 @@ else
     export PATH=`pwd`/installs/apache-maven-${MAVEN_VERSION}:`pwd`/installs/gradle-${GRADLE_VERSION}/bin:`pwd`/installs/android-toolchain/bin:$PATH
 fi
 
+#export PATH=/usr/lib/llvm-${CLANG_VERSION}/bin:$PATH
 export PATH=${ANDROID_HOME}/emulator:$ANDROID_HOME/bin:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools:${ANDROID_NDK_HOME}:$PATH
 
