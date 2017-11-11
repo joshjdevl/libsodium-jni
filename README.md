@@ -65,7 +65,7 @@ To use the library with your own custom code, skip the aar file and add
 1. The native .SO libraries in your project (Create jnilibs folder and make the required changes to the gradle file)
 2. Add the source code from the src folder and add your own additional code.
 
-###Docker Container
+### Docker Container
 
 The docker container is available from [libsodium-jni](https://hub.docker.com/r/joshjdevl/libsodium-jni/) which is a Automated Build.
 
@@ -88,4 +88,4 @@ gpg2 --keyserver hkp://pool.sks-keyservers.net --recv-keys 4524D716
 
 ### SWIG Extensions
 
-SWIG is used to generate the Java JNI bindings. This means that the same interface definition can be used to generate bindings for all languages supported by SWIG.
+SWIG is used to generate the Java JNI bindings. This means that the same interface definition can be used to generate bindings for all languages supported by SWIG. The interface can be found [here](jni/sodium.i)
