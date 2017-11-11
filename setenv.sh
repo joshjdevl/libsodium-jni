@@ -14,7 +14,7 @@ if uname -a | grep -q -i darwin; then
 else
     export MAVEN_VERSION=3.5.2
     export GRADLE_VERSION=4.3.1
-    export NDK_TOOLCHAIN_PLATFORM=24
+    export NDK_TOOLCHAIN_PLATFORM=16
     export NDK_TOOLCHAIN_ARCHITECTURE=arm
     export NDK_ROOT=`pwd`/installs/android-ndk-${NDK_VERSION}
     export PATH=${NDK_ROOT}:$PATH

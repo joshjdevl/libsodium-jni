@@ -75,12 +75,12 @@ buildscript {
 }
 
 [
-  [input_arch: 'arm',     output_arch: 'android-armv6',    ndk_platform: 'android-14' ],
-  [input_arch: 'armv7-a', output_arch: 'android-armv7-a',  ndk_platform: 'android-14' ],
+  [input_arch: 'arm',     output_arch: 'android-armv6',    ndk_platform: 'android-16' ],
+  [input_arch: 'armv7-a', output_arch: 'android-armv7-a',  ndk_platform: 'android-16' ],
   [input_arch: 'armv8-a', output_arch: 'android-armv8-a',  ndk_platform: 'android-21'],
-  [input_arch: 'mips32',  output_arch: 'android-mips32',   ndk_platform: 'android-14' ],
+  [input_arch: 'mips32',  output_arch: 'android-mips32',   ndk_platform: 'android-16' ],
   [input_arch: 'mips64',  output_arch: 'android-mips64r6', ndk_platform: 'android-21'],
-  [input_arch: 'x86',     output_arch: 'android-i686',     ndk_platform: 'android-14' ],
+  [input_arch: 'x86',     output_arch: 'android-i686',     ndk_platform: 'android-16' ],
   [input_arch: 'x86_64',  output_arch: 'android-westmere', ndk_platform: 'android-21'],
   [                       output_arch: 'host'                                         ],
 ].each { opts -> 
@@ -100,7 +100,7 @@ buildscript {
           workingDir 'libsodium'
           executable "dist-build/android-${opts['input_arch']}.sh"
           environment 'CONFIG_SITE', '' // This makes ./configure load information about the host and guess this is information valid for the target. However, the target is Android here, the host information does not apply. 
-          environment 'NDK_PLATFORM', opts['ndk_platform'] // The lowest possible value is android-9 here. Certain Android API levels below android-16 do not have posix_memalign. This should not make a difference in practice, as android-9 has MAP_ANONYMOUS and HAVE_MMAP and posix_memalign is only used as fallback in the current libsodium code if MAP_ANONYMOUS or HAVE_MMAP are unavailable.
+          //environment 'NDK_PLATFORM', opts['ndk_platform'] // The lowest possible value is android-9 here. Certain Android API levels below android-16 do not have posix_memalign. This should not make a difference in practice, as android-9 has MAP_ANONYMOUS and HAVE_MMAP and posix_memalign is only used as fallback in the current libsodium code if MAP_ANONYMOUS or HAVE_MMAP are unavailable.
         }
       } else {                  // We build for the host OS and architecture
         exec {
