@@ -85,3 +85,7 @@ libsodium-jni is currently being used in production. Feedback, bug reports and p
 Everything has been tested and working on ubuntu 12.04 32bit and 64 bit, macos, and Android
 
 gpg2 --keyserver hkp://pool.sks-keyservers.net --recv-keys 4524D716
+
+### SWIG Extensions
+
+SWIG is used to generate the Java JNI bindings. This means that the same interface definition can be used to generate bindings for all languages supported by SWIG.
