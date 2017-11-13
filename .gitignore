@@ -7,8 +7,8 @@ hs_err*
 jni/swig-2.0.10
 libs/armeabi
 obj
-jni
 libs
+/jni/swig*
 .DS_Store
 build
 .externalNativeBuild
