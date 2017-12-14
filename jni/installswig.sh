@@ -7,7 +7,7 @@ if uname -a | grep -q -i darwin; then
 else
     rm -rf swig*
     VERSION=3.0.8
-    wget --quiet http://prdownloads.sourceforge.net/swig/swig-${VERSION}.tar.gz
+    test -e "swig-${VERSION}.tar.gz" || wget --quiet http://prdownloads.sourceforge.net/swig/swig-${VERSION}.tar.gz
     tar -xf swig-${VERSION}.tar.gz
     cd swig-${VERSION}
     ./configure --quiet
