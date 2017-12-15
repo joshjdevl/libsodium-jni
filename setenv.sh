@@ -1,8 +1,8 @@
 #!/bin/bash
 
 export GRADLE_OPTS="-Dorg.gradle.native=false -Dorg.gradle.daemon=true"
-export NDK_VERSION=r15c
-export ANDROID_SDK_VERSION=r25.2.5
+export NDK_VERSION=r16b
+export ANDROID_SDK_VERSION=r26.0.2
 export CLANG_VERSION=5.0
 
 if uname -a | grep -q -i darwin; then
@@ -13,7 +13,7 @@ if uname -a | grep -q -i darwin; then
     export ANDROID_HOME=/usr/local/share/android-sdk
 else
     export MAVEN_VERSION=3.5.2
-    export GRADLE_VERSION=4.3.1
+    export GRADLE_VERSION=4.4
     export NDK_TOOLCHAIN_PLATFORM=16
     export NDK_TOOLCHAIN_ARCHITECTURE=arm
     export NDK_ROOT=`pwd`/installs/android-ndk-${NDK_VERSION}
