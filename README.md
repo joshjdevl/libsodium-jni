@@ -4,6 +4,10 @@ Bitcoin address: 1EC6j1f2sDGy9L8ma8FFfQyxt9mb9a6Xxy
 
 Bitcoin Cash address: 1PSxB3DRCkeaZK7nSbJ1hoxbsWAXwM8Hyx
 
+Ethereum address: 2f30c73e8d643356ebbcfee7013ccd03c05097fb
+
+Peercoin address: PQUavHtRCLtevq75GhLCec41nvDtmM4wvf
+
 [![Build Status](https://travis-ci.org/joshjdevl/libsodium-jni.svg)](https://travis-ci.org/joshjdevl/libsodium-jni)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.joshjdevl.libsodiumjni/libsodium-jni/badge.svg)](https://oss.sonatype.org/#nexus-search;quick~libsodium)
 
