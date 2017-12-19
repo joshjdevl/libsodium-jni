@@ -613,7 +613,28 @@ int crypto_onetimeauth_update(crypto_onetimeauth_state *dst_state,
 int crypto_onetimeauth_final(crypto_onetimeauth_state *final_state,
                              unsigned char *dst_out);
 
+/*
+    Key exchange
+*/
 
+int crypto_kx_keypair(unsigned char *pk,
+                      unsigned char *sk);
+
+int crypto_kx_seed_keypair(unsigned char *pk,
+                           unsigned char *sk,
+                           const unsigned char *seed);
+
+int crypto_kx_client_session_keys(unsigned char *rx,
+                                  unsigned char *tx,
+                                  const unsigned char *client_pk,
+                                  const unsigned char *client_sk,
+                                  const unsigned char *server_pk);
+
+int crypto_kx_server_session_keys(unsigned char *rx,
+                                  unsigned char *tx,
+                                  const unsigned char *server_pk,
+                                  const unsigned char *server_sk,
+                                  const unsigned char *client_pk);
 
 /* *****************************************************************************
 
