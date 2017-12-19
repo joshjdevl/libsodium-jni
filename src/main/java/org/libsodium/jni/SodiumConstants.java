@@ -23,4 +23,5 @@ public abstract class SodiumConstants {
     public static final int AEAD_CHACHA20_POLY1305_KEYBYTES = 32;
     public static final int AEAD_CHACHA20_POLY1305_NPUBBYTES = 8;
     public static final int AEAD_CHACHA20_POLY1305_ABYTES = 8;
+    public static final int SESSIONKEYBYTES = 32;
 }
