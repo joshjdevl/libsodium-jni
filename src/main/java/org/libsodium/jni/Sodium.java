@@ -1069,4 +1069,20 @@ public class Sodium {
     return SodiumJNI.crypto_stream_xsalsa20_xor_ic(c, m, mlen, n, ic, k);
   }
 
+  public static int crypto_kx_client_session_keys(byte[] rx, byte[] tx, byte[] client_pk, byte[] client_sk, byte[] server_pk) {
+    return SodiumJNI.crypto_kx_client_session_keys(rx, tx, client_pk, client_sk, server_pk);
+  }
+
+  public static int crypto_kx_server_session_keys(byte[] rx, byte[] tx, byte[] server_pk, byte[] server_sk, byte[] client_pk) {
+    return SodiumJNI.crypto_kx_server_session_keys(rx, tx, server_pk, server_sk, client_pk);
+  }
+
+  public static int crypto_kx_keypair(byte[] pk, byte[] sk) {
+    return SodiumJNI.crypto_kx_keypair(pk, sk);
+  }
+
+  public static int crypto_kx_seed_keypair(byte[] pk, byte[] sk, byte[] seed) {
+    return SodiumJNI.crypto_kx_seed_keypair(pk, sk, seed);
+  }
+
 }
