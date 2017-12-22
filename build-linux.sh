@@ -6,5 +6,13 @@
 
 gradle generateSWIGsource --full-stacktrace
 gradle build --full-stacktrace
-./build-kaliumjni.sh
-./build-libsodiumjni.sh
+
+pushd jni
+./jnilib.sh
+popd
+mvn -q clean install
+./singleTest.sh
+
+
+#./build-kaliumjni.sh
+#./build-libsodiumjni.sh
