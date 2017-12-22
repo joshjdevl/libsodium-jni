@@ -14,7 +14,14 @@ gradle build --full-stacktrace
 pushd jni
 ./jnilib.sh
 popd
-sudo cp ./libsodium/libsodium-host/lib/libsodium.so /usr/lib
+
+if uname -a | grep -q -i darwin; then
+  sudo cp ./libsodium/libsodium-host/lib/libsodium.dylib /usr/lib
+else
+  sudo cp ./libsodium/libsodium-host/lib/libsodium.so /usr/lib
+
+fi
+
 mvn -q clean install
 ./singleTest.sh
 
