@@ -10,6 +10,7 @@ gradle build --full-stacktrace
 pushd jni
 ./jnilib.sh
 popd
+sudo cp ./libsodium/libsodium-host/lib/libsodium.so /usr/lib
 mvn -q clean install
 ./singleTest.sh
 
