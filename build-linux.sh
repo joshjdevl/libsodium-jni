@@ -18,7 +18,7 @@ popd
 if uname -a | grep -q -i darwin; then
   #not able to run on travis
   #cp: /usr/lib/libsodium.dylib: Operation not permitted
-  sudo cp ./libsodium/libsodium-host/lib/libsodium.dylib /usr/lib
+  #sudo cp ./libsodium/libsodium-host/lib/libsodium.dylib /usr/lib
 else
   sudo cp ./libsodium/libsodium-host/lib/libsodium.so /usr/lib
   mvn -q clean install
