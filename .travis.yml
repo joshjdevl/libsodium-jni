@@ -20,6 +20,7 @@ after_failure:
 - cat sdkmanager.log
 - cat emulator.log
 - cat logcat.log
+- cat build/tmp/linkSodiumjniSharedLibrary/output.txt
 after_success:
 - echo ${TEST_VAR}
 - gradle uploadArchives -Psigning.password=${GPG_PASSPHRASE}
