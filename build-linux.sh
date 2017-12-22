@@ -16,6 +16,7 @@ pushd jni
 popd
 
 if uname -a | grep -q -i darwin; then
+  echo "macos"
   #not able to run on travis
   #cp: /usr/lib/libsodium.dylib: Operation not permitted
   #sudo cp ./libsodium/libsodium-host/lib/libsodium.dylib /usr/lib
