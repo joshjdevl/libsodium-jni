@@ -165,7 +165,7 @@ model {
           lib library: 'sodium', linkage: 'static'
         }
         binaries.all {
-          linker.args "-Wl,-Bsymbolic" // to work around error "shared library text segment is not shareable"
+          //linker.args "-Wl,-Bsymbolic" // to work around error "shared library text segment is not shareable"
         }
       }
     }
