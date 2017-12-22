@@ -2,6 +2,8 @@ apply plugin: 'maven'
 apply plugin: 'com.android.library'
 apply plugin: 'signing'
 
+import org.gradle.internal.os.OperatingSystem;
+
 if (project==rootProject) {
     apply plugin: 'io.codearte.nexus-staging'
 }
@@ -165,7 +167,10 @@ model {
           lib library: 'sodium', linkage: 'static'
         }
         binaries.all {
-          //linker.args "-Wl,-Bsymbolic" // to work around error "shared library text segment is not shareable"
+          if (OperatingSystem.current().isLinux()) {
+              //flag not on macos clang
+              linker.args "-Wl,-Bsymbolic" // to work around error "shared library text segment is not shareable"
+          }
         }
       }
     }
