@@ -15,6 +15,9 @@ sudo apt-get -qq update
 
 sudo add-apt-repository -y ppa:saiarcot895/myppa
 sudo apt-get -qq update
+echo debconf apt-fast/maxdownloads string 16 | sudo debconf-set-selections
+echo debconf apt-fast/dlflag boolean true | sudo debconf-set-selections
+echo debconf apt-fast/aptmanager string apt-get | sudo debconf-set-selections
 sudo apt-get -y -qq install apt-fast 
 
 sudo apt-fast -qq update
