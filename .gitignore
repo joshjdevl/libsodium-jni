@@ -18,6 +18,7 @@ build
 src/main/jniLibs/
 src/main/gen/
 /sdkmanager.log
+jni/libsodiumjni.jnilib
 
 /installs/
 
