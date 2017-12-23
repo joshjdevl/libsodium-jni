@@ -8,6 +8,8 @@ Ethereum address: 2f30c73e8d643356ebbcfee7013ccd03c05097fb
 
 Peercoin address: PQUavHtRCLtevq75GhLCec41nvDtmM4wvf
 
+Monero address: 48btz6nV4SjWyhDpkXrVVXAtgN6aStdnz8weMyB6qAMhhBVqiy1v3HC6XL1j7K27ZfFRhpw3Y4A4uE8o2PXMxFxY1Q5gGvW
+
 [![Build Status](https://travis-ci.org/joshjdevl/libsodium-jni.svg)](https://travis-ci.org/joshjdevl/libsodium-jni)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.joshjdevl.libsodiumjni/libsodium-jni/badge.svg)](https://oss.sonatype.org/#nexus-search;quick~libsodium)
 
