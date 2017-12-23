@@ -12,11 +12,11 @@ dist: trusty
 osx_image: xcode9.2
 sudo: required
 before_install:
-- travis_wait 60 ./dependencies.sh
+- travis_wait 120 ./dependencies.sh
 before_script:
 - . ./setenv.sh
 script:
-- travis_wait 90 ./travis.sh
+- travis_wait 120 ./travis.sh
 after_failure:
 - cat sdkmanager.log
 - cat emulator.log
