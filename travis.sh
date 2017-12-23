@@ -1,7 +1,7 @@
 #!/bin/bash -ev
 
 if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
-    ./build-linux.sh
+    ./build-mac.sh
 else
     ./build-linux.sh
     #gradle build --full-stacktrace
