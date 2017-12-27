@@ -48,6 +48,11 @@ Credits to:
         <type>jar</type>
     </dependency>
 
+### Usage
+
+* import org.libsodium.jni.NaCl; (this calls System.loadLibrary("sodiumjni");)
+* call NaCl.sodium(). {whatever_method_you_want}
+
 ### MacOS Manual Compilation and Installation
 
 Install brew
