@@ -52,9 +52,13 @@ Credits to:
 
 Install brew
 
+Run [./dependencies-mac.sh](dependencies-mac.sh)
+
 Run [./build-mac.sh](build-mac.sh)
 
 ### Linux Manual Compilation and Installation
+
+Run [./dependencies-linux.sh](dependencies-linux.sh)
 
 Run [./build-linux.sh](build-linux.sh)
 
