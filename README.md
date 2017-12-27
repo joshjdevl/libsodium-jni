@@ -53,6 +53,8 @@ Credits to:
 * import org.libsodium.jni.NaCl; (this calls System.loadLibrary("sodiumjni");)
 * call NaCl.sodium(). {whatever_method_you_want}
 
+Example [invocations](src/test/java/org/libsodium/jni/publickey/AuthenticatedEncryptionTest.java)
+
 ### MacOS Manual Compilation and Installation
 
 Install brew
