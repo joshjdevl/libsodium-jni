@@ -90,6 +90,10 @@ Please refer to the [docker build](https://github.com/joshjdevl/libsodium-jni/bl
 
 [Docker container](https://hub.docker.com/r/joshjdevl/libsodium-jni/)
 
+### Vagrant
+
+There is a [Vagrantfile](Vagrantfile) available for those that would like to set up a virtual machine.
+
 
 ### Issues / Improvements / Help Seeked
 
