@@ -26,7 +26,7 @@ Credits to:
 * [**libstodium**](https://github.com/ArteMisc/libstodium): author [ArteMisc](https://github.com/ArteMisc)
 
 
-## Installation 
+## Installation
 
 * Java package is under org.libsodium.jni
 * Maven coordinates are in the Sonatype OSS [repository](https://oss.sonatype.org/#nexus-search;quick~libsodium)
@@ -55,6 +55,8 @@ Credits to:
 
 Example [invocations](src/test/java/org/libsodium/jni/publickey/AuthenticatedEncryptionTest.java)
 
+## Manual Compilation and Installation
+
 ### MacOS Manual Compilation and Installation
 
 Install brew
@@ -69,13 +71,29 @@ Run [./dependencies-linux.sh](dependencies-linux.sh)
 
 Run [./build-linux.sh](build-linux.sh)
 
-### To use the example app
+## Docker Container
+
+The docker container is available from [libsodium-jni](https://hub.docker.com/r/joshjdevl/libsodium-jni/) which is a Automated Build.
+
+### Manual compilation and installation
+
+Please refer to the [docker build](https://github.com/joshjdevl/libsodium-jni/blob/master/Dockerfile) for the commands used to build.
+
+### Notes
+
+[Docker container](https://hub.docker.com/r/joshjdevl/libsodium-jni/)
+
+## Vagrant
+
+A [Vagrantfile](Vagrantfile) is available for those that would like to set up a virtual machine.
+
+
+## Example application
 Clone the repo and import project from folder example/Sodium in Android studio (Android studio 2.1). Android studio will handle the rest.
 Compile and run. Tested to emulators down to Android Version 16.
 
-### AAR usage
+## Manual AAR usage
 To use the AAR project as is (No .SO file imports needed).
-
 
 It is also possible to build the AAR library yourself using the provided scripts [linux](build-linux.sh) or [mac](build-mac.sh). After building the library open module settings and add the libsodium-jni-release.aar and/or libsodium-jni-debug.aar as a dependency.
 
@@ -84,22 +102,6 @@ To use the library with your own custom code, skip the aar file and add
 
 1. The native .SO libraries in your project (Create jnilibs folder and make the required changes to the gradle file)
 2. Add the source code from the src folder and add your own additional code.
-
-### Docker Container
-
-The docker container is available from [libsodium-jni](https://hub.docker.com/r/joshjdevl/libsodium-jni/) which is a Automated Build.
-
-### Manual compilation and installation
-
-Please refer to the [docker build](https://github.com/joshjdevl/libsodium-jni/blob/master/Dockerfile) for the commands used to build.
-   
-### Notes
-
-[Docker container](https://hub.docker.com/r/joshjdevl/libsodium-jni/)
-
-### Vagrant
-
-There is a [Vagrantfile](Vagrantfile) available for those that would like to set up a virtual machine.
 
 
 ### Issues / Improvements / Help Seeked
