@@ -25,7 +25,7 @@ matrix:
         before_script:
           - . ./setenv.sh
         before_install:
-          - travis_wait 120 ./dependencies.sh
+          - travis_retry travis_wait 120 ./dependencies.sh
         script:
           - travis_wait 120 ./travis.sh
       - os: osx
