@@ -37,4 +37,8 @@ matrix:
           - . ./setenv.sh
         before_install:
           - travis_wait 120 ./dependencies.sh
+          - brew install ccache
+        script:
+          - export PATH="/usr/local/opt/ccache/libexec:$PATH"
+          - travis_wait 120 ./travis.sh
 
