@@ -10,11 +10,11 @@ export C_INCLUDE_PATH
 
 gradle tasks --all
 gradle generateSWIGsource --full-stacktrace
-gradle build --full-stacktrace
+#gradle build --full-stacktrace
 #shorten build time by excluding tasks
 #gradle compileReleaseSources -x compileNative_android-westmere -x compileNative_android-mips64r6 -x compileNative_android-mips32 -x compileNative_android-armv6  --full-stacktrace
 #gradle compileNative_android-armv6 compileNative_android-armv7-a compileNative_host
-#gradle compileNative_android-armv7-a compileNative_host
+gradle compileNative_android-armv7-a compileNative_host
 
 #not able to run on travis
 #cp: /usr/lib/libsodium.dylib: Operation not permitted
