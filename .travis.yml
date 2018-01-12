@@ -18,7 +18,7 @@ matrix:
       - os: linux
         services: docker
         script:
-          - docker build .
+          - travis_retry docker build .
       - os: linux
         dist: trusty
         sudo: required
