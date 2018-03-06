@@ -37,7 +37,7 @@ public class Hash {
         sodium().crypto_hash_sha512(buffer, message, message.length);
         return buffer;
     }
-    
+
     public String sha256(String message, Encoder encoder) {
         byte[] hash = sha256(message.getBytes());
         return encoder.encode(hash);
@@ -50,7 +50,9 @@ public class Hash {
 
     public String pwhash_scryptsalsa208sha256(String passwd, Encoder encoder, byte[] salt, int opslimit, int memlimit) {
         buffer = new byte[KEY_LEN];
-        sodium().crypto_pwhash(buffer, buffer.length, passwd.getBytes(), passwd.length(), salt, opslimit, memlimit,sodium().crypto_pwhash_alg_default());
+        //sodium().crypto_pwhash(buffer, buffer.length, passwd.getBytes(), passwd.length(), salt, opslimit, memlimit,sodium().crypto_pwhash_alg_default());
+
+        sodium().crypto_pwhash_scryptsalsa208sha256(buffer, buffer.length, passwd.getBytes(), passwd.length(), salt, opslimit, memlimit);
         return encoder.encode(buffer);
     }
 

@@ -4,6 +4,8 @@
 
 ./submodule-update.sh
 
+export LIBSODIUM_FULL_BUILD="true"
+
 gradle generateSWIGsource --full-stacktrace
 gradle build --full-stacktrace
 
