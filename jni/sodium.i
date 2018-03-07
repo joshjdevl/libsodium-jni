@@ -1081,7 +1081,6 @@ const char * crypto_pwhash_primitive(void);
 /*
     PW-Hash scryptsalsa208sha256
 */
-/*
 size_t crypto_pwhash_scryptsalsa208sha256_saltbytes(void);
 
 size_t crypto_pwhash_scryptsalsa208sha256_strbytes(void);
@@ -1119,7 +1118,7 @@ int crypto_pwhash_scryptsalsa208sha256_ll(const uint8_t * passwd,
                                           uint32_t p,
                                           uint8_t * buf,
                                           size_t buflen);
-*/
+
 
 /*
     ScalarMult Curve25519
@@ -1185,8 +1184,8 @@ int crypto_sign_ed25519_open(unsigned char *m,
                              const unsigned char *sm,
                              unsigned long long smlen,
                              const unsigned char *pk);
-                             
-                             
+
+
 int crypto_stream_xsalsa20(unsigned char *c, unsigned long long clen,
               const unsigned char *n, const unsigned char *k);
 
