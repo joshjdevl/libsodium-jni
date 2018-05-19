@@ -54,6 +54,7 @@ Credits to:
 
 * import org.libsodium.jni.NaCl; (this calls System.loadLibrary("sodiumjni");)
 * call NaCl.sodium(). {whatever_method_you_want}
+* Note that Android allowBackup is set to false. Your application can override using `tools:replace="android:allowBackup"`
 
 Example [invocations](src/test/java/org/libsodium/jni/publickey/AuthenticatedEncryptionTest.java)
 
