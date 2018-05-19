@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export GRADLE_OPTS="-Dorg.gradle.native=false -Dorg.gradle.daemon=true"
-export NDK_VERSION=r16b
+export NDK_VERSION=r17
 export ANDROID_SDK_VERSION=r26.0.2
 export CLANG_VERSION=5.0
 
