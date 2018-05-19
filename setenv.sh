@@ -6,7 +6,7 @@ export ANDROID_SDK_VERSION=r26.0.2
 export CLANG_VERSION=5.0
 
 if uname -a | grep -q -i darwin; then
-    export JAVA_HOME=$(/usr/libexec/java_home)
+    export JAVA_HOME=${JAVA_HOME:-$(/usr/libexec/java_home)}
     export ANDROID_NDK=/usr/local/share/android-ndk
     export ANDROID_NDK_HOME=/usr/local/share/android-ndk
     export ANDROID_SDK=/usr/local/share/android-sdk
