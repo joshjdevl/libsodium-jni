@@ -10,7 +10,8 @@ pushd libsodium
 
 ./autogen.sh
 ./configure --quiet
-make --quiet && make --quiet check 
+make --quiet
+make --quiet check 
 
 date
 ./dist-build/android-arm.sh 
