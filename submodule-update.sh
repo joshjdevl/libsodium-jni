@@ -12,8 +12,8 @@ git submodule sync
 git submodule update
 
 pushd libsodium
-
-git fetch && git checkout stable
-git reset --hard origin/stable
-git pull
+git reset --hard
+#git fetch && git checkout stable
+#git reset --hard origin/stable
+#git pull
 popd
