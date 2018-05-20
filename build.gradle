@@ -80,7 +80,6 @@ buildscript {
 }
 
 [
-  [input_arch: 'arm',     output_arch: 'android-armv6',    ndk_platform: 'android-16' ],
   [input_arch: 'armv7-a', output_arch: 'android-armv7-a',  ndk_platform: 'android-16' ],
   [input_arch: 'armv8-a', output_arch: 'android-armv8-a',  ndk_platform: 'android-21'],
   [input_arch: 'x86',     output_arch: 'android-i686',     ndk_platform: 'android-16' ],
