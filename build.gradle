@@ -9,13 +9,14 @@ if (project==rootProject) {
 }
 
 repositories {
-    mavenCentral()
     mavenLocal()
+    mavenCentral()
+    jcenter()
+    google()
 }
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
 
     defaultConfig {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -74,7 +75,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.android.tools.build:gradle:3.1.2'
         classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.11.0"
     }
 }
@@ -83,8 +84,6 @@ buildscript {
   [input_arch: 'arm',     output_arch: 'android-armv6',    ndk_platform: 'android-16' ],
   [input_arch: 'armv7-a', output_arch: 'android-armv7-a',  ndk_platform: 'android-16' ],
   [input_arch: 'armv8-a', output_arch: 'android-armv8-a',  ndk_platform: 'android-21'],
-  [input_arch: 'mips32',  output_arch: 'android-mips32',   ndk_platform: 'android-16' ],
-  [input_arch: 'mips64',  output_arch: 'android-mips64r6', ndk_platform: 'android-21'],
   [input_arch: 'x86',     output_arch: 'android-i686',     ndk_platform: 'android-16' ],
   [input_arch: 'x86_64',  output_arch: 'android-westmere', ndk_platform: 'android-21'],
   [                       output_arch: 'host'                                         ],
