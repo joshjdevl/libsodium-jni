@@ -9,9 +9,10 @@ set -ev
 pushd libsodium
 
 ./autogen.sh
-./configure --quiet
-make --quiet && make --quiet check 
-sudo make --quiet install
+./configure --disable-soname-versions --prefix="$PWD/libsodium-host" --libdir="$PWD/libsodium-host/lib"
+make --quiet
+make --quiet check 
+make -j3 install
 
 date
 ./dist-build/android-arm.sh 
