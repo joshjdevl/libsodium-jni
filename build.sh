@@ -20,10 +20,6 @@ date
 date
 ./dist-build/android-armv8-a.sh
 date
-./dist-build/android-mips32.sh
-date
-./dist-build/android-mips64.sh
-date
 ./dist-build/android-x86.sh 
 date
 ./dist-build/android-x86_64.sh
