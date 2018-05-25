@@ -4,7 +4,7 @@
 
 ./submodule-update.sh
 
-export LIBSODIUM_FULL_BUILD="true"
+./build-libsodium-host.sh
 
 gradle generateSWIGsource --full-stacktrace
 gradle build --full-stacktrace
