@@ -114,22 +114,6 @@ buildscript {
   }
 }
 
-task('compileNative_host') {
-  inputs.dir  fileTree(dir: 'libsodium/src', exclude: ['libsodium/**/.libs', 'libsodium/*.la', 'libsodium/**/*.lo', 'libsodium/**/*.o', 'libsodium/**/*.Plo', '**/Makefile', '**/Makefile.in', '**/.deps/*', '**/.libs/*'])
-  outputs.dir("libsodium/libsodium-host")
-  doFirst {
-        exec {
-          workingDir 'libsodium'
-          commandLine './autogen.sh'
-        }
-        exec {
-          workingDir 'libsodium'
-          environment 'LIBSODIUM_FULL_BUILD','true'
-          commandLine './dist-build/nativeclient-x86_64.sh'
-        }
-  }
-}
-
 apply plugin: "c"
 
 model {
