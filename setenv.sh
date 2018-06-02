@@ -25,6 +25,6 @@ else
 fi
 
 #export PATH=/usr/lib/llvm-${CLANG_VERSION}/bin:$PATH
-export PATH=${ANDROID_HOME}/tools.backup/bin:${ANDROID_HOME}/emulator:$ANDROID_HOME/bin:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools:${ANDROID_NDK_HOME}:$PATH
+export PATH=${ANDROID_HOME}/emulator:$ANDROID_HOME/bin:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools:${ANDROID_NDK_HOME}:$PATH
 
 export LIBSODIUM_FULL_BUILD="true"
