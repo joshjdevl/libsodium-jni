@@ -13,6 +13,9 @@ sudo apt-get -qq update && sudo apt-get -y -qq install python-software-propertie
 sudo add-apt-repository -y "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"
 sudo apt-get -qq update
 
+sudo add-apt-repository ppa:git-core/ppa -y
+sudo apt-get -qq update
+
 sudo add-apt-repository -y ppa:saiarcot895/myppa
 sudo apt-get -qq update
 echo debconf apt-fast/maxdownloads string 16 | sudo debconf-set-selections
