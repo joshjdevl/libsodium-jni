@@ -20,6 +20,12 @@ import org.libsodium.jni.encoders.Encoder;
 import org.libsodium.jni.SodiumConstants;
 import static org.libsodium.jni.NaCl.sodium;
 
+/**
+ * @deprecated
+ * These are wrapper methods around the sodium api methods.
+ * These methods were brought in from another project and will be replaced with method signatures that define exceptions.
+ */
+@Deprecated
 public class Hash {
 
     private static final int KEY_LEN = 64;

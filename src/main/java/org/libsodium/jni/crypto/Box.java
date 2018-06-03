@@ -34,6 +34,12 @@ import static org.libsodium.jni.crypto.Util.removeZeros;
 /**
  * Based on Curve25519XSalsa20Poly1305 and Box classes from rbnacl
  */
+/**
+ * @deprecated
+ * These are wrapper methods around the sodium api methods.
+ * These methods were brought in from another project and will be replaced with method signatures that define exceptions.
+ */
+@Deprecated
 public class Box {
 
     private final byte[] privateKey;

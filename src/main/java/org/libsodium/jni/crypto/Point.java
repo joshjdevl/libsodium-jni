@@ -23,6 +23,12 @@ import static org.libsodium.jni.NaCl.sodium;
 import static org.libsodium.jni.crypto.Util.zeros;
 import static org.libsodium.jni.encoders.Encoder.HEX;
 
+/**
+ * @deprecated
+ * These are wrapper methods around the sodium api methods.
+ * These methods were brought in from another project and will be replaced with method signatures that define exceptions.
+ */
+@Deprecated
 public class Point {
 
     private static final String STANDARD_GROUP_ELEMENT = "0900000000000000000000000000000000000000000000000000000000000000";

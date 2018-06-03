@@ -27,6 +27,12 @@ import static org.libsodium.jni.crypto.Util.checkLength;
 import static org.libsodium.jni.crypto.Util.isValid;
 import static org.libsodium.jni.crypto.Util.removeZeros;
 
+/**
+ * @deprecated
+ * These are wrapper methods around the sodium api methods.
+ * These methods were brought in from another project and will be replaced with method signatures that define exceptions.
+ */
+@Deprecated
 public class SecretBox {
 
     private byte[] key;

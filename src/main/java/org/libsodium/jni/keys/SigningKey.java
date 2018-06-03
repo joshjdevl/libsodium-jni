@@ -26,6 +26,12 @@ import static org.libsodium.jni.SodiumConstants.SECRETKEY_BYTES;
 import static org.libsodium.jni.SodiumConstants.SIGNATURE_BYTES;
 import static org.libsodium.jni.NaCl.sodium;
 
+/**
+ * @deprecated
+ * These are wrapper methods around the sodium api methods.
+ * These methods were brought in from another project and will be replaced with method signatures that define exceptions.
+ */
+@Deprecated
 public class SigningKey {
 
     private final byte[] seed;
