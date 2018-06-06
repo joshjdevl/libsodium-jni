@@ -18,6 +18,12 @@ package org.libsodium.jni.crypto;
 
 import java.util.Arrays;
 
+/**
+ * @deprecated
+ * These are wrapper methods around the sodium api methods.
+ * These methods were brought in from another project and will be replaced with method signatures that define exceptions.
+ */
+@Deprecated
 public class Util {
 
     private static final int DEFAULT_SIZE = 32;
