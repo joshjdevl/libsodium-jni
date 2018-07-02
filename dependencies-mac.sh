@@ -20,4 +20,4 @@ brew upgrade ${packages} || true
 #accept licenses
 yes | sdkmanager --licenses
 
-./update-android.sh
+./update-android.sh &> updateandroid.log
