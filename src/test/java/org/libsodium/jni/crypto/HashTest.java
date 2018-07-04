@@ -60,11 +60,11 @@ public class HashTest {
         byte[] hash = new byte[Sodium.crypto_generichash_bytes()];
         byte[] key = new byte[Sodium.crypto_generichash_keybytes()];
         Sodium.randombytes(key, key.length);
-        if (0 == Sodium.crypto_generichash_init(state, key, key.length, hash.length)) {
-                System.out.println("init success");
-        } else {
-                System.out.println("init failed");
-        }
+        assertEquals(0,Sodium.crypto_generichash_init(state, key, key.length, hash.length));
+
+	byte[] message="message".getBytes();
+	assertEquals(0,Sodium.crypto_generichash_update(state,message,message.length));
+	assertEquals(0,Sodium.crypto_generichash_final(state,hash,Sodium.crypto_generichash_bytes()));
     }
 
     @Test
@@ -169,5 +169,15 @@ public class HashTest {
 	byte[] result=hash.blake2("\0".getBytes());
 	//System.out.println("testBlake2NullByte="+HEX.encode(result));
 	assertEquals(HASH_ERR, Blake2_DIGEST_NULL, HEX.encode(result));
+    }
+
+    @Test
+    public void testGenericHash() {
+        Sodium sodium= NaCl.sodium();
+        byte[] hash = new byte[Sodium.crypto_generichash_bytes()];
+        byte[] message = "message".getBytes();
+        byte[] key = new byte[Sodium.crypto_generichash_keybytes()];
+        Sodium.randombytes(key, key.length);
+        assertEquals(0,Sodium.crypto_generichash(hash,Sodium.crypto_generichash_bytes(),message,message.length,key,key.length));
     }
 }
