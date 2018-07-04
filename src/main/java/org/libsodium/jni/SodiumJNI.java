@@ -277,4 +277,19 @@ public class SodiumJNI {
   public final static native int crypto_stream_xsalsa20_noncebytes();
   public final static native int crypto_stream_xsalsa20_xor(byte[] jarg1, byte[] jarg2, int jarg3, byte[] jarg4, byte[] jarg5);
   public final static native int crypto_stream_xsalsa20_xor_ic(byte[] jarg1, byte[] jarg2, int jarg3, byte[] jarg4, int jarg5, byte[] jarg6);
+  public final static native int crypto_secretstream_xchacha20poly1305_keybytes();
+  public final static native int crypto_secretstream_xchacha20poly1305_headerbytes();
+  public final static native int crypto_secretstream_xchacha20poly1305_abytes();
+  public final static native int crypto_secretstream_xchacha20poly1305_statebytes();
+  public final static native int crypto_secretstream_xchacha20poly1305_tag_message();
+  public final static native int crypto_secretstream_xchacha20poly1305_tag_push();
+  public final static native int crypto_secretstream_xchacha20poly1305_tag_rekey();
+  public final static native int crypto_secretstream_xchacha20poly1305_tag_final();
+  public final static native int crypto_secretstream_xchacha20poly1305_messagebytes_max();
+  public final static native void crypto_secretstream_xchacha20poly1305_keygen(byte[] jarg1);
+  public final static native int crypto_secretstream_xchacha20poly1305_init_push(byte[] jarg1, byte[] jarg2, byte[] jarg3);
+  public final static native int crypto_secretstream_xchacha20poly1305_push(byte[] jarg1, byte[] jarg2, int[] jarg3, byte[] jarg4, int jarg5, byte[] jarg6, int jarg7, short jarg8);
+  public final static native int crypto_secretstream_xchacha20poly1305_init_pull(byte[] jarg1, byte[] jarg2, byte[] jarg3);
+  public final static native int crypto_secretstream_xchacha20poly1305_pull(byte[] jarg1, byte[] jarg2, int[] jarg3, byte[] jarg4, byte[] jarg5, int jarg6, byte[] jarg7, int jarg8);
+  public final static native void crypto_secretstream_xchacha20poly1305_rekey(byte[] jarg1);
 }

@@ -1081,4 +1081,64 @@ public class Sodium {
     return SodiumJNI.crypto_stream_xsalsa20_xor_ic(c, m, mlen, n, ic, k);
   }
 
+  public static int crypto_secretstream_xchacha20poly1305_keybytes() {
+    return SodiumJNI.crypto_secretstream_xchacha20poly1305_keybytes();
+  }
+
+  public static int crypto_secretstream_xchacha20poly1305_headerbytes() {
+    return SodiumJNI.crypto_secretstream_xchacha20poly1305_headerbytes();
+  }
+
+  public static int crypto_secretstream_xchacha20poly1305_abytes() {
+    return SodiumJNI.crypto_secretstream_xchacha20poly1305_abytes();
+  }
+
+  public static int crypto_secretstream_xchacha20poly1305_statebytes() {
+    return SodiumJNI.crypto_secretstream_xchacha20poly1305_statebytes();
+  }
+
+  public static int crypto_secretstream_xchacha20poly1305_tag_message() {
+    return SodiumJNI.crypto_secretstream_xchacha20poly1305_tag_message();
+  }
+
+  public static int crypto_secretstream_xchacha20poly1305_tag_push() {
+    return SodiumJNI.crypto_secretstream_xchacha20poly1305_tag_push();
+  }
+
+  public static int crypto_secretstream_xchacha20poly1305_tag_rekey() {
+    return SodiumJNI.crypto_secretstream_xchacha20poly1305_tag_rekey();
+  }
+
+  public static int crypto_secretstream_xchacha20poly1305_tag_final() {
+    return SodiumJNI.crypto_secretstream_xchacha20poly1305_tag_final();
+  }
+
+  public static int crypto_secretstream_xchacha20poly1305_messagebytes_max() {
+    return SodiumJNI.crypto_secretstream_xchacha20poly1305_messagebytes_max();
+  }
+
+  public static void crypto_secretstream_xchacha20poly1305_keygen(byte[] k) {
+    SodiumJNI.crypto_secretstream_xchacha20poly1305_keygen(k);
+  }
+
+  public static int crypto_secretstream_xchacha20poly1305_init_push(byte[] state, byte[] header, byte[] k) {
+    return SodiumJNI.crypto_secretstream_xchacha20poly1305_init_push(state, header, k);
+  }
+
+  public static int crypto_secretstream_xchacha20poly1305_push(byte[] state, byte[] c, int[] clen_p, byte[] m, int mlen, byte[] ad, int adlen, short tag) {
+    return SodiumJNI.crypto_secretstream_xchacha20poly1305_push(state, c, clen_p, m, mlen, ad, adlen, tag);
+  }
+
+  public static int crypto_secretstream_xchacha20poly1305_init_pull(byte[] state, byte[] header, byte[] k) {
+    return SodiumJNI.crypto_secretstream_xchacha20poly1305_init_pull(state, header, k);
+  }
+
+  public static int crypto_secretstream_xchacha20poly1305_pull(byte[] state, byte[] m, int[] mlen_p, byte[] tag_p, byte[] c, int clen, byte[] ad, int adlen) {
+    return SodiumJNI.crypto_secretstream_xchacha20poly1305_pull(state, m, mlen_p, tag_p, c, clen, ad, adlen);
+  }
+
+  public static void crypto_secretstream_xchacha20poly1305_rekey(byte[] state) {
+    SodiumJNI.crypto_secretstream_xchacha20poly1305_rekey(state);
+  }
+
 }
