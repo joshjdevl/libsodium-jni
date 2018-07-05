@@ -227,6 +227,21 @@
 %typemap(freearg) crypto_auth_hmacsha512256_state *""
 
 
+/*
+    crypto_secretstream_xchacha20poly1305_state
+*/
+%typemap(jni) crypto_secretstream_xchacha20poly1305_state *"jbyteArray"
+%typemap(jtype) crypto_secretstream_xchacha20poly1305_state *"byte[]"
+%typemap(jstype) crypto_secretstream_xchacha20poly1305_state *"byte[]"
+%typemap(in) crypto_secretstream_xchacha20poly1305_state *{
+    $1 = (crypto_secretstream_xchacha20poly1305_state *) JCALL2(GetByteArrayElements, jenv, $input, 0);
+}
+%typemap(argout) crypto_secretstream_xchacha20poly1305_state *{
+    JCALL3(ReleaseByteArrayElements, jenv, $input, (jbyte *) $1, 0);
+}
+%typemap(javain) crypto_secretstream_xchacha20poly1305_state *"$javainput"
+%typemap(freearg) crypto_secretstream_xchacha20poly1305_state *""
+
 
 /* *****************************************************************************
 
@@ -1375,3 +1390,49 @@ int crypto_stream_xsalsa20_xor_ic(unsigned char *c,
                                   const unsigned char *n,
                                   uint64_t ic,
                                   const unsigned char *k);
+
+/*
+    Secret Stream Xchacha20 Poly1305
+*/
+
+size_t crypto_secretstream_xchacha20poly1305_keybytes(void);
+size_t crypto_secretstream_xchacha20poly1305_headerbytes(void);
+size_t crypto_secretstream_xchacha20poly1305_abytes(void);
+size_t crypto_secretstream_xchacha20poly1305_statebytes(void);
+
+size_t crypto_secretstream_xchacha20poly1305_tag_message(void);
+size_t crypto_secretstream_xchacha20poly1305_tag_push(void);
+size_t crypto_secretstream_xchacha20poly1305_tag_rekey(void);
+size_t crypto_secretstream_xchacha20poly1305_tag_final(void);
+
+size_t crypto_secretstream_xchacha20poly1305_messagebytes_max(void);
+
+void crypto_secretstream_xchacha20poly1305_keygen(unsigned char *k);
+
+int crypto_secretstream_xchacha20poly1305_init_push(crypto_secretstream_xchacha20poly1305_state *state,
+                                                    unsigned char *header,
+                                                    const unsigned char *k);
+
+int crypto_secretstream_xchacha20poly1305_push(crypto_secretstream_xchacha20poly1305_state *state,
+                                               unsigned char *c,
+                                               unsigned long long *clen_p,
+                                               const unsigned char *m,
+                                               unsigned long long mlen,
+                                               const unsigned char *ad,
+                                               unsigned long long adlen,
+                                               unsigned char tag);
+
+int crypto_secretstream_xchacha20poly1305_init_pull(crypto_secretstream_xchacha20poly1305_state *state,
+                                                    const unsigned char *header,
+                                                    const unsigned char *k);
+
+int crypto_secretstream_xchacha20poly1305_pull(crypto_secretstream_xchacha20poly1305_state *state,
+                                               unsigned char *m,
+                                               unsigned long long *mlen_p,
+                                               unsigned char *tag_p,
+                                               const unsigned char *c,
+                                               unsigned long long clen,
+                                               const unsigned char *ad,
+                                               unsigned long long adlen);
+
+void crypto_secretstream_xchacha20poly1305_rekey(crypto_secretstream_xchacha20poly1305_state *state);
