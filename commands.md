@@ -24,3 +24,5 @@ mvn clean install -P release-sign-artifacts
 mvn clean deploy  -P release-sign-artifacts --settings settings.xml
 
 mvn scm:tag
+
+git tag -a v2.0.1 -m "Version 2.0.1"
