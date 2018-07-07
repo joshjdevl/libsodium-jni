@@ -6,7 +6,7 @@
 
     <groupId>com.github.joshjdevl.libsodiumjni</groupId>
     <artifactId>libsodium-jni</artifactId>
-    <version>2.0.1-SNAPSHOT</version>
+    <version>2.0.1</version>
     <packaging>jar</packaging>
 
     <name>libsodium-jni</name>
