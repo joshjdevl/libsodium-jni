@@ -44,7 +44,7 @@ public class AuthenticatedEncryptionTest {
         ret=Sodium.crypto_box_easy(ciphertext,message,message.length,nonce,bob_public_key,alice_private_key);
         Assert.assertEquals(0,ret);
 
-        byte[] decrypted=new byte[message.length];
+        byte[] decrypted=new byte[Sodium.crypto_box_macbytes() - ciphertext];
         ret=Sodium.crypto_box_open_easy(decrypted, ciphertext, (int)ciphertextlen, nonce,
                 alice_public_key, bob_private_key);
         Assert.assertEquals(0,ret);
