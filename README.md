@@ -19,7 +19,7 @@ Raiblocks address: xrb_1dxetbqeo38gcxejt8n6utajorrntbfrr1qftpw7qwarw6d8kp74fwmcu
 
 A Java JNI binding (to allow for Java and Android integration) to [Networking and Cryptography](http://nacl.cr.yp.to/) library by [Daniel J. Bernstein](http://cr.yp.to/djb.html).
 
-Why JNI and not JNA? JNI is much faster than JNA.
+**Why JNI and not JNA? JNI is much faster than JNA and JNI is faster than JNR.**
 
 If you do use this project in your research project, please do cite this repo. Thanks!
 
