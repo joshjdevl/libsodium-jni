@@ -50,7 +50,7 @@ test -e `pwd`/android-toolchain || ${NDK_ROOT}/build/tools/make_standalone_toolc
 popd
 
 pushd ./installs
-test -e "apache-maven-${MAVEN_VERSION}-bin.tar.gz" || wget --quiet http://www-us.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz
+test -e "apache-maven-${MAVEN_VERSION}-bin.tar.gz" || wget --quiet https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/${MAVEN_VERSION}/apache-maven-${MAVEN_VERSION}-bin.tar.gz
 test -e "apache-maven-${MAVEN_VERSION}" || tar -xf apache-maven-${MAVEN_VERSION}-bin.tar.gz
 popd
 
