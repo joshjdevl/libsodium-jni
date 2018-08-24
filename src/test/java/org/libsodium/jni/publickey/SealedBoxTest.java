@@ -69,4 +69,59 @@ public class SealedBoxTest {
         ret=Sodium.crypto_box_seal_open(plaintext,ciphertext,ciphertext.length,public_key_fromfile,private_key_fromfile);
         Assert.assertEquals(0,ret);
     }
+
+    @Test
+    public void testSealedBoxXChaCha20() {
+        Sodium sodium= NaCl.sodium();
+        int ret=0;
+
+        long publickeylen=Sodium.crypto_box_curve25519xchacha20poly1305_publickeybytes();
+        long privatekeylen=Sodium.crypto_box_curve25519xchacha20poly1305_secretkeybytes();
+        final byte[] public_key=new byte[(int)publickeylen];
+        final byte[] private_key=new byte[(int)privatekeylen];
+
+        Sodium.crypto_box_curve25519xchacha20poly1305_keypair(public_key,private_key);
+
+        String message="testmessage";
+
+        byte[] ciphertext=new byte[Sodium.crypto_box_curve25519xchacha20poly1305_sealbytes()+message.length()];
+        Sodium.crypto_box_curve25519xchacha20poly1305_seal(ciphertext,message.getBytes(),message.length(),public_key);
+
+        byte[] plaintext=new byte[message.length()];
+        ret=Sodium.crypto_box_curve25519xchacha20poly1305_seal_open(plaintext,ciphertext,ciphertext.length,public_key,private_key);
+        Assert.assertEquals(0,ret);
+    }
+
+    @Test
+    public void testSealedBoxFileXChaCha20() throws IOException, URISyntaxException {
+        Sodium sodium= NaCl.sodium();
+        int ret=0;
+
+        long publickeylen=Sodium.crypto_box_curve25519xchacha20poly1305_publickeybytes();
+        long privatekeylen=Sodium.crypto_box_curve25519xchacha20poly1305_secretkeybytes();
+        final byte[] public_key=new byte[(int)publickeylen];
+        final byte[] private_key=new byte[(int)privatekeylen];
+
+        Sodium.crypto_box_curve25519xchacha20poly1305_keypair(public_key,private_key);
+
+        File public_key_file=File.createTempFile("SealedBoxTest","box_public_xchacha.key",TemporaryFile.temporaryFileDirectory());
+        public_key_file.deleteOnExit();
+        Files.write(public_key,public_key_file);
+
+        File private_key_file=File.createTempFile("SealedBoxTest","box_private_xchacha.key",TemporaryFile.temporaryFileDirectory());
+        private_key_file.deleteOnExit();
+        Files.write(private_key,private_key_file);
+
+        byte[] public_key_fromfile = Files.toByteArray(public_key_file);
+        byte[] private_key_fromfile = Files.toByteArray(private_key_file);
+
+        String message="testmessage";
+
+        byte[] ciphertext=new byte[Sodium.crypto_box_curve25519xchacha20poly1305_sealbytes()+message.length()];
+        Sodium.crypto_box_curve25519xchacha20poly1305_seal(ciphertext,message.getBytes(),message.length(),public_key_fromfile);
+
+        byte[] plaintext=new byte[message.length()];
+        ret=Sodium.crypto_box_curve25519xchacha20poly1305_seal_open(plaintext,ciphertext,ciphertext.length,public_key_fromfile,private_key_fromfile);
+        Assert.assertEquals(0,ret);
+    }
 }
