@@ -116,6 +116,15 @@ public class SodiumJNI {
   public final static native int crypto_aead_chacha20poly1305_ietf_npubbytes();
   public final static native int crypto_aead_chacha20poly1305_ietf_encrypt(byte[] jarg1, int[] jarg2, byte[] jarg3, int jarg4, byte[] jarg5, int jarg6, byte[] jarg7, byte[] jarg8, byte[] jarg9);
   public final static native int crypto_aead_chacha20poly1305_ietf_decrypt(byte[] jarg1, int[] jarg2, byte[] jarg3, byte[] jarg4, int jarg5, byte[] jarg6, int jarg7, byte[] jarg8, byte[] jarg9);
+  public final static native int crypto_aead_xchacha20poly1305_ietf_keybytes();
+  public final static native int crypto_aead_xchacha20poly1305_ietf_npubbytes();
+  public final static native int crypto_aead_xchacha20poly1305_ietf_nsecbytes();
+  public final static native int crypto_aead_xchacha20poly1305_ietf_abytes();
+  public final static native int crypto_aead_xchacha20poly1305_ietf_messagebytes_max();
+  public final static native int crypto_aead_xchacha20poly1305_ietf_encrypt_detached(byte[] jarg1, byte[] jarg2, int[] jarg3, byte[] jarg4, int jarg5, byte[] jarg6, int jarg7, byte[] jarg8, byte[] jarg9, byte[] jarg10);
+  public final static native int crypto_aead_xchacha20poly1305_ietf_encrypt(byte[] jarg1, int[] jarg2, byte[] jarg3, int jarg4, byte[] jarg5, int jarg6, byte[] jarg7, byte[] jarg8, byte[] jarg9);
+  public final static native int crypto_aead_xchacha20poly1305_ietf_decrypt_detached(byte[] jarg1, byte[] jarg2, byte[] jarg3, int jarg4, byte[] jarg5, byte[] jarg6, int jarg7, byte[] jarg8, byte[] jarg9);
+  public final static native int crypto_aead_xchacha20poly1305_ietf_decrypt(byte[] jarg1, int[] jarg2, byte[] jarg3, byte[] jarg4, int jarg5, byte[] jarg6, int jarg7, byte[] jarg8, byte[] jarg9);
   public final static native int crypto_auth_hmacsha256_bytes();
   public final static native int crypto_auth_hmacsha256_keybytes();
   public final static native int crypto_auth_hmacsha256(byte[] jarg1, byte[] jarg2, int jarg3, byte[] jarg4);
