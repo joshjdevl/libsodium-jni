@@ -457,6 +457,10 @@ public class Sodium {
     return SodiumJNI.crypto_aead_xchacha20poly1305_ietf_messagebytes_max();
   }
 
+  public static void crypto_aead_xchacha20poly1305_ietf_keygen(byte[] k) {
+    SodiumJNI.crypto_aead_xchacha20poly1305_ietf_keygen(k);
+  }
+
   public static int crypto_aead_xchacha20poly1305_ietf_encrypt_detached(byte[] c, byte[] mac, int[] maclen_p, byte[] m, int mlen, byte[] ad, int adlen, byte[] nsec, byte[] npub, byte[] k) {
     return SodiumJNI.crypto_aead_xchacha20poly1305_ietf_encrypt_detached(c, mac, maclen_p, m, mlen, ad, adlen, nsec, npub, k);
   }

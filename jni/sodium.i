@@ -734,6 +734,8 @@ size_t crypto_aead_xchacha20poly1305_ietf_nsecbytes(void);
 size_t crypto_aead_xchacha20poly1305_ietf_abytes(void);
 size_t crypto_aead_xchacha20poly1305_ietf_messagebytes_max(void);
 
+void crypto_aead_xchacha20poly1305_ietf_keygen(unsigned char *k);
+
 int crypto_aead_xchacha20poly1305_ietf_encrypt_detached(unsigned char *c,
                                                         unsigned char *mac,
                                                         unsigned long long *maclen_p,
