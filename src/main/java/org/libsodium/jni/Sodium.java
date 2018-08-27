@@ -417,24 +417,108 @@ public class Sodium {
     return SodiumJNI.crypto_aead_chacha20poly1305_abytes();
   }
 
+  public static int crypto_aead_chacha20poly1305_messagebytes_max() {
+    return SodiumJNI.crypto_aead_chacha20poly1305_messagebytes_max();
+  }
+
+  public static void crypto_aead_chacha20poly1305_keygen(byte[] k) {
+    SodiumJNI.crypto_aead_chacha20poly1305_keygen(k);
+  }
+
   public static int crypto_aead_chacha20poly1305_encrypt(byte[] c, int[] clen_p, byte[] m, int mlen, byte[] ad, int adlen, byte[] nsec, byte[] npub, byte[] k) {
     return SodiumJNI.crypto_aead_chacha20poly1305_encrypt(c, clen_p, m, mlen, ad, adlen, nsec, npub, k);
+  }
+
+  public static int crypto_aead_chacha20poly1305_encrypt_detached(byte[] c, byte[] mac, int[] maclen_p, byte[] m, int mlen, byte[] ad, int adlen, byte[] nsec, byte[] npub, byte[] k) {
+    return SodiumJNI.crypto_aead_chacha20poly1305_encrypt_detached(c, mac, maclen_p, m, mlen, ad, adlen, nsec, npub, k);
   }
 
   public static int crypto_aead_chacha20poly1305_decrypt(byte[] m, int[] mlen_p, byte[] nsec, byte[] c, int clen, byte[] ad, int adlen, byte[] npub, byte[] k) {
     return SodiumJNI.crypto_aead_chacha20poly1305_decrypt(m, mlen_p, nsec, c, clen, ad, adlen, npub, k);
   }
 
+  public static int crypto_aead_chacha20poly1305_decrypt_detached(byte[] m, byte[] nsec, byte[] c, int clen, byte[] mac, byte[] ad, int adlen, byte[] npub, byte[] k) {
+    return SodiumJNI.crypto_aead_chacha20poly1305_decrypt_detached(m, nsec, c, clen, mac, ad, adlen, npub, k);
+  }
+
+  public static int crypto_aead_chacha20poly1305_ietf_keybytes() {
+    return SodiumJNI.crypto_aead_chacha20poly1305_ietf_keybytes();
+  }
+
+  public static int crypto_aead_chacha20poly1305_ietf_nsecbytes() {
+    return SodiumJNI.crypto_aead_chacha20poly1305_ietf_nsecbytes();
+  }
+
+  public static int crypto_aead_chacha20poly1305_ietf_abytes() {
+    return SodiumJNI.crypto_aead_chacha20poly1305_ietf_abytes();
+  }
+
+  public static int crypto_aead_chacha20poly1305_ietf_messagebytes_max() {
+    return SodiumJNI.crypto_aead_chacha20poly1305_ietf_messagebytes_max();
+  }
+
   public static int crypto_aead_chacha20poly1305_ietf_npubbytes() {
     return SodiumJNI.crypto_aead_chacha20poly1305_ietf_npubbytes();
+  }
+
+  public static void crypto_aead_chacha20poly1305_ietf_keygen(byte[] k) {
+    SodiumJNI.crypto_aead_chacha20poly1305_ietf_keygen(k);
   }
 
   public static int crypto_aead_chacha20poly1305_ietf_encrypt(byte[] c, int[] clen_p, byte[] m, int mlen, byte[] ad, int adlen, byte[] nsec, byte[] npub, byte[] k) {
     return SodiumJNI.crypto_aead_chacha20poly1305_ietf_encrypt(c, clen_p, m, mlen, ad, adlen, nsec, npub, k);
   }
 
+  public static int crypto_aead_chacha20poly1305_ietf_encrypt_detached(byte[] c, byte[] mac, int[] maclen_p, byte[] m, int mlen, byte[] ad, int adlen, byte[] nsec, byte[] npub, byte[] k) {
+    return SodiumJNI.crypto_aead_chacha20poly1305_ietf_encrypt_detached(c, mac, maclen_p, m, mlen, ad, adlen, nsec, npub, k);
+  }
+
   public static int crypto_aead_chacha20poly1305_ietf_decrypt(byte[] m, int[] mlen_p, byte[] nsec, byte[] c, int clen, byte[] ad, int adlen, byte[] npub, byte[] k) {
     return SodiumJNI.crypto_aead_chacha20poly1305_ietf_decrypt(m, mlen_p, nsec, c, clen, ad, adlen, npub, k);
+  }
+
+  public static int crypto_aead_chacha20poly1305_ietf_decrypt_detached(byte[] m, byte[] nsec, byte[] c, int clen, byte[] mac, byte[] ad, int adlen, byte[] npub, byte[] k) {
+    return SodiumJNI.crypto_aead_chacha20poly1305_ietf_decrypt_detached(m, nsec, c, clen, mac, ad, adlen, npub, k);
+  }
+
+  public static int crypto_aead_xchacha20poly1305_ietf_keybytes() {
+    return SodiumJNI.crypto_aead_xchacha20poly1305_ietf_keybytes();
+  }
+
+  public static int crypto_aead_xchacha20poly1305_ietf_npubbytes() {
+    return SodiumJNI.crypto_aead_xchacha20poly1305_ietf_npubbytes();
+  }
+
+  public static int crypto_aead_xchacha20poly1305_ietf_nsecbytes() {
+    return SodiumJNI.crypto_aead_xchacha20poly1305_ietf_nsecbytes();
+  }
+
+  public static int crypto_aead_xchacha20poly1305_ietf_abytes() {
+    return SodiumJNI.crypto_aead_xchacha20poly1305_ietf_abytes();
+  }
+
+  public static int crypto_aead_xchacha20poly1305_ietf_messagebytes_max() {
+    return SodiumJNI.crypto_aead_xchacha20poly1305_ietf_messagebytes_max();
+  }
+
+  public static void crypto_aead_xchacha20poly1305_ietf_keygen(byte[] k) {
+    SodiumJNI.crypto_aead_xchacha20poly1305_ietf_keygen(k);
+  }
+
+  public static int crypto_aead_xchacha20poly1305_ietf_encrypt_detached(byte[] c, byte[] mac, int[] maclen_p, byte[] m, int mlen, byte[] ad, int adlen, byte[] nsec, byte[] npub, byte[] k) {
+    return SodiumJNI.crypto_aead_xchacha20poly1305_ietf_encrypt_detached(c, mac, maclen_p, m, mlen, ad, adlen, nsec, npub, k);
+  }
+
+  public static int crypto_aead_xchacha20poly1305_ietf_encrypt(byte[] c, int[] clen_p, byte[] m, int mlen, byte[] ad, int adlen, byte[] nsec, byte[] npub, byte[] k) {
+    return SodiumJNI.crypto_aead_xchacha20poly1305_ietf_encrypt(c, clen_p, m, mlen, ad, adlen, nsec, npub, k);
+  }
+
+  public static int crypto_aead_xchacha20poly1305_ietf_decrypt_detached(byte[] m, byte[] nsec, byte[] c, int clen, byte[] mac, byte[] ad, int adlen, byte[] npub, byte[] k) {
+    return SodiumJNI.crypto_aead_xchacha20poly1305_ietf_decrypt_detached(m, nsec, c, clen, mac, ad, adlen, npub, k);
+  }
+
+  public static int crypto_aead_xchacha20poly1305_ietf_decrypt(byte[] m, int[] mlen_p, byte[] nsec, byte[] c, int clen, byte[] ad, int adlen, byte[] npub, byte[] k) {
+    return SodiumJNI.crypto_aead_xchacha20poly1305_ietf_decrypt(m, mlen_p, nsec, c, clen, ad, adlen, npub, k);
   }
 
   public static int crypto_auth_hmacsha256_bytes() {
@@ -1139,6 +1223,90 @@ public class Sodium {
 
   public static void crypto_secretstream_xchacha20poly1305_rekey(byte[] state) {
     SodiumJNI.crypto_secretstream_xchacha20poly1305_rekey(state);
+  }
+
+  public static int crypto_box_curve25519xchacha20poly1305_seedbytes() {
+    return SodiumJNI.crypto_box_curve25519xchacha20poly1305_seedbytes();
+  }
+
+  public static int crypto_box_curve25519xchacha20poly1305_publickeybytes() {
+    return SodiumJNI.crypto_box_curve25519xchacha20poly1305_publickeybytes();
+  }
+
+  public static int crypto_box_curve25519xchacha20poly1305_secretkeybytes() {
+    return SodiumJNI.crypto_box_curve25519xchacha20poly1305_secretkeybytes();
+  }
+
+  public static int crypto_box_curve25519xchacha20poly1305_beforenmbytes() {
+    return SodiumJNI.crypto_box_curve25519xchacha20poly1305_beforenmbytes();
+  }
+
+  public static int crypto_box_curve25519xchacha20poly1305_noncebytes() {
+    return SodiumJNI.crypto_box_curve25519xchacha20poly1305_noncebytes();
+  }
+
+  public static int crypto_box_curve25519xchacha20poly1305_macbytes() {
+    return SodiumJNI.crypto_box_curve25519xchacha20poly1305_macbytes();
+  }
+
+  public static int crypto_box_curve25519xchacha20poly1305_messagebytes_max() {
+    return SodiumJNI.crypto_box_curve25519xchacha20poly1305_messagebytes_max();
+  }
+
+  public static int crypto_box_curve25519xchacha20poly1305_sealbytes() {
+    return SodiumJNI.crypto_box_curve25519xchacha20poly1305_sealbytes();
+  }
+
+  public static int crypto_box_curve25519xchacha20poly1305_seed_keypair(byte[] pk, byte[] sk, byte[] seed) {
+    return SodiumJNI.crypto_box_curve25519xchacha20poly1305_seed_keypair(pk, sk, seed);
+  }
+
+  public static int crypto_box_curve25519xchacha20poly1305_keypair(byte[] pk, byte[] sk) {
+    return SodiumJNI.crypto_box_curve25519xchacha20poly1305_keypair(pk, sk);
+  }
+
+  public static int crypto_box_curve25519xchacha20poly1305_beforenm(byte[] k, byte[] pk, byte[] sk) {
+    return SodiumJNI.crypto_box_curve25519xchacha20poly1305_beforenm(k, pk, sk);
+  }
+
+  public static int crypto_box_curve25519xchacha20poly1305_detached_afternm(byte[] c, byte[] mac, byte[] m, int mlen, byte[] n, byte[] k) {
+    return SodiumJNI.crypto_box_curve25519xchacha20poly1305_detached_afternm(c, mac, m, mlen, n, k);
+  }
+
+  public static int crypto_box_curve25519xchacha20poly1305_detached(byte[] c, byte[] mac, byte[] m, int mlen, byte[] n, byte[] pk, byte[] sk) {
+    return SodiumJNI.crypto_box_curve25519xchacha20poly1305_detached(c, mac, m, mlen, n, pk, sk);
+  }
+
+  public static int crypto_box_curve25519xchacha20poly1305_easy_afternm(byte[] c, byte[] m, int mlen, byte[] n, byte[] k) {
+    return SodiumJNI.crypto_box_curve25519xchacha20poly1305_easy_afternm(c, m, mlen, n, k);
+  }
+
+  public static int crypto_box_curve25519xchacha20poly1305_easy(byte[] c, byte[] m, int mlen, byte[] n, byte[] pk, byte[] sk) {
+    return SodiumJNI.crypto_box_curve25519xchacha20poly1305_easy(c, m, mlen, n, pk, sk);
+  }
+
+  public static int crypto_box_curve25519xchacha20poly1305_open_detached_afternm(byte[] m, byte[] c, byte[] mac, int clen, byte[] n, byte[] k) {
+    return SodiumJNI.crypto_box_curve25519xchacha20poly1305_open_detached_afternm(m, c, mac, clen, n, k);
+  }
+
+  public static int crypto_box_curve25519xchacha20poly1305_open_detached(byte[] m, byte[] c, byte[] mac, int clen, byte[] n, byte[] pk, byte[] sk) {
+    return SodiumJNI.crypto_box_curve25519xchacha20poly1305_open_detached(m, c, mac, clen, n, pk, sk);
+  }
+
+  public static int crypto_box_curve25519xchacha20poly1305_open_easy_afternm(byte[] m, byte[] c, int clen, byte[] n, byte[] k) {
+    return SodiumJNI.crypto_box_curve25519xchacha20poly1305_open_easy_afternm(m, c, clen, n, k);
+  }
+
+  public static int crypto_box_curve25519xchacha20poly1305_open_easy(byte[] m, byte[] c, int clen, byte[] n, byte[] pk, byte[] sk) {
+    return SodiumJNI.crypto_box_curve25519xchacha20poly1305_open_easy(m, c, clen, n, pk, sk);
+  }
+
+  public static int crypto_box_curve25519xchacha20poly1305_seal(byte[] c, byte[] m, int mlen, byte[] pk) {
+    return SodiumJNI.crypto_box_curve25519xchacha20poly1305_seal(c, m, mlen, pk);
+  }
+
+  public static int crypto_box_curve25519xchacha20poly1305_seal_open(byte[] m, byte[] c, int clen, byte[] pk, byte[] sk) {
+    return SodiumJNI.crypto_box_curve25519xchacha20poly1305_seal_open(m, c, clen, pk, sk);
   }
 
 }
