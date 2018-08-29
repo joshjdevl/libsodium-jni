@@ -1630,3 +1630,17 @@ int crypto_box_curve25519xchacha20poly1305_seal_open(unsigned char *m,
                                                      unsigned long long clen,
                                                      const unsigned char *pk,
                                                      const unsigned char *sk);
+                                                     
+char * sodium_bin2hex(char *const hex,
+                      const size_t hex_maxlen,
+                      const unsigned char *const bin,
+                      const size_t bin_len);
+
+int
+sodium_hex2bin(unsigned char *const bin, const size_t bin_maxlen,
+               const char *const hex, const size_t hex_len,
+               const char *const ignore, size_t *const bin_len,
+               const char **const hex_end);
+
+int
+sodium_compare(const unsigned char *b1_, const unsigned char *b2_, size_t len);
