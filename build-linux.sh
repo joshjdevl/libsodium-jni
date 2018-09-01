@@ -14,12 +14,12 @@ gradle generateSWIGsource --full-stacktrace
 #performs the android ndk libsodium build
 gradle build --full-stacktrace
 
-#host handling of libsodium shared library (linux and mac)
+#host building of jni wrapper around libsodium shared library (linux and mac)
 pushd jni
 ./jnilib.sh
 popd
 
-#copies the libsodium shared library to the host lib path in order to be able to use host libsodium library
+#copies the libsodium shared library to the host lib path in order to be able to use host libsodium library (had errors loading library from custom location)
 sudo cp ./libsodium/libsodium-host/lib/libsodium.so /usr/lib
 #host libsodium api build
 mvn -q clean install
