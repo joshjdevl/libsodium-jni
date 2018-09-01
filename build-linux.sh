@@ -14,6 +14,7 @@ gradle generateSWIGsource --full-stacktrace
 #performs the android ndk libsodium build
 gradle build --full-stacktrace
 
+#host handling of libsodium shared library (linux and mac)
 pushd jni
 ./jnilib.sh
 popd
