@@ -651,6 +651,20 @@ int crypto_kx_server_session_keys(unsigned char *rx,
                                   const unsigned char *server_sk,
                                   const unsigned char *client_pk);
 
+
+/*
+    Key derivation
+*/
+
+void crypto_kdf_keygen(unsigned char *key);
+
+int crypto_kdf_derive_from_key(unsigned char *subkey,
+                               const size_t subkey_len,
+                               unsigned long long subkey_id,
+                               const char *ctx,
+                               const unsigned char *key);
+                               
+
 /* *****************************************************************************
 
     LOW LEVEL API'S
