@@ -401,6 +401,14 @@ public class Sodium {
     return SodiumJNI.crypto_kx_server_session_keys(rx, tx, server_pk, server_sk, client_pk);
   }
 
+  public static void crypto_kdf_keygen(byte[] key) {
+    SodiumJNI.crypto_kdf_keygen(key);
+  }
+
+  public static int crypto_kdf_derive_from_key(byte[] subkey, int subkey_len, int subkey_id, byte[] ctx, byte[] key) {
+    return SodiumJNI.crypto_kdf_derive_from_key(subkey, subkey_len, subkey_id, ctx, key);
+  }
+
   public static int crypto_aead_chacha20poly1305_keybytes() {
     return SodiumJNI.crypto_aead_chacha20poly1305_keybytes();
   }
