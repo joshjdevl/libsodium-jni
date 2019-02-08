@@ -41,6 +41,10 @@ public class Sodium {
     SodiumJNI.randombytes_stir();
   }
 
+  public static void randombytes_buf_deterministic(byte[] buff, int buff_len, byte[] seed) {
+    SodiumJNI.randombytes_buf_deterministic(buff, buff_len, seed);
+  }
+
   public static void sodium_increment(byte[] src_dst_number, int number_len) {
     SodiumJNI.sodium_increment(src_dst_number, number_len);
   }
