@@ -651,19 +651,24 @@ int crypto_kx_server_session_keys(unsigned char *rx,
                                   const unsigned char *server_sk,
                                   const unsigned char *client_pk);
 
-
 /*
-    Key derivation
+    Key Derivation
 */
 
-void crypto_kdf_keygen(unsigned char *key);
+size_t crypto_kdf_bytes_min(void);
+size_t crypto_kdf_bytes_max(void);
+size_t crypto_kdf_keybytes(void);
+size_t crypto_kdf_contextbytes(void);
+
+const char * crypto_kdf_primitive(void);
 
 int crypto_kdf_derive_from_key(unsigned char *subkey,
                                const size_t subkey_len,
                                unsigned long long subkey_id,
                                const char *ctx,
                                const unsigned char *key);
-                               
+
+void crypto_kdf_keygen(unsigned char *key);
 
 /* *****************************************************************************
 

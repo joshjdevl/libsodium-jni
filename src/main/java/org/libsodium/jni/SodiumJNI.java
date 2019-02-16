@@ -107,8 +107,13 @@ public class SodiumJNI {
   public final static native int crypto_kx_seed_keypair(byte[] jarg1, byte[] jarg2, byte[] jarg3);
   public final static native int crypto_kx_client_session_keys(byte[] jarg1, byte[] jarg2, byte[] jarg3, byte[] jarg4, byte[] jarg5);
   public final static native int crypto_kx_server_session_keys(byte[] jarg1, byte[] jarg2, byte[] jarg3, byte[] jarg4, byte[] jarg5);
-  public final static native void crypto_kdf_keygen(byte[] jarg1);
+  public final static native int crypto_kdf_bytes_min();
+  public final static native int crypto_kdf_bytes_max();
+  public final static native int crypto_kdf_keybytes();
+  public final static native int crypto_kdf_contextbytes();
+  public final static native byte[] crypto_kdf_primitive();
   public final static native int crypto_kdf_derive_from_key(byte[] jarg1, int jarg2, int jarg3, byte[] jarg4, byte[] jarg5);
+  public final static native void crypto_kdf_keygen(byte[] jarg1);
   public final static native int crypto_aead_chacha20poly1305_keybytes();
   public final static native int crypto_aead_chacha20poly1305_nsecbytes();
   public final static native int crypto_aead_chacha20poly1305_npubbytes();
