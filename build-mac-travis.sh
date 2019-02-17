@@ -4,8 +4,10 @@
 
 ./submodule-update.sh
 
+./build-libsodium-host.sh
+
 #needed for mac osx
-C_INCLUDE_PATH="${JAVA_HOME}/include:${JAVA_HOME}/include/linux:/System/Library/Frameworks/JavaVM.framework/Headers"
+C_INCLUDE_PATH="${JAVA_HOME}/include:${JAVA_HOME}/include/linux:${JAVA_HOME}/include/darwin:/System/Library/Frameworks/JavaVM.framework/Headers"
 export C_INCLUDE_PATH
 
 gradle tasks --all

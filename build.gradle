@@ -125,6 +125,7 @@ model {
       jdk {
         headers.srcDir "${System.getenv("JAVA_HOME")}/include"
         headers.srcDir "${System.getenv("JAVA_HOME")}/include/linux" // this seems to be host OS dependent, but should be host OS independent
+        headers.srcDir "${System.getenv("JAVA_HOME")}/include/darwin"
       }
       sodium {
         headers.srcDir "${projectDir}/libsodium/libsodium-host/include"
