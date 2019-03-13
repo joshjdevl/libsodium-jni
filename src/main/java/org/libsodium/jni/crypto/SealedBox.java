@@ -1,8 +1,8 @@
 package org.libsodium.jni.crypto;
 
-import org.libsodium.jni.Sodium;
 import org.libsodium.jni.encoders.Encoder;
 
+import static org.libsodium.jni.NaCl.sodium;
 import static org.libsodium.jni.SodiumConstants.SEAL_BYTES;
 import static org.libsodium.jni.crypto.Util.isValid;
 
@@ -33,7 +33,7 @@ public class SealedBox {
         if (publicKey == null)
             throw new RuntimeException("Encryption failed. Public key not available.");
         byte[] ct = new byte[message.length + SEAL_BYTES];
-        isValid(Sodium.crypto_box_seal(
+        isValid(sodium().crypto_box_seal(
                 ct, message, message.length, publicKey),
                 "Encryption failed");
         return ct;
@@ -44,7 +44,7 @@ public class SealedBox {
             throw new RuntimeException("Decryption failed. Private key not available.");
 
         byte[] message = new byte[ciphertext.length - SEAL_BYTES];
-        isValid(Sodium.crypto_box_seal_open(
+        isValid(sodium().crypto_box_seal_open(
                 message, ciphertext, ciphertext.length, publicKey, privateKey),
                 "Decryption failed. Ciphertext failed verification");
         return message;
