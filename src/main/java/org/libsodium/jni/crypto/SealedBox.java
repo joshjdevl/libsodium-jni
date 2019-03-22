@@ -11,7 +11,10 @@ public class SealedBox {
     private byte[] publicKey;
     private byte[] privateKey;
 
-    public SealedBox(byte[] publicKey) {
+    public SealedBox(byte[] publicKey) throws IllegalArgumentException {
+        if (publicKey == null) {
+            throw new IllegalArgumentException("Public key must not be null");
+        }
         this.publicKey = publicKey;
         this.privateKey = null;
     }
@@ -20,7 +23,13 @@ public class SealedBox {
         this(encoder.decode(publicKey));
     }
 
-    public SealedBox(byte[] publicKey, byte[] privateKey) {
+    public SealedBox(byte[] publicKey, byte[] privateKey) throws IllegalArgumentException {
+        if (publicKey == null) {
+            throw new IllegalArgumentException("Public key must not be null");
+        }
+        if (privateKey == null) {
+            throw new IllegalArgumentException("Private key must not be null");
+        }
         this.publicKey = publicKey;
         this.privateKey = privateKey;
     }
@@ -30,8 +39,6 @@ public class SealedBox {
     }
 
     public byte[] encrypt(byte[] message) {
-        if (publicKey == null)
-            throw new RuntimeException("Encryption failed. Public key not available.");
         byte[] ct = new byte[message.length + SEAL_BYTES];
         isValid(sodium().crypto_box_seal(
                 ct, message, message.length, publicKey),
@@ -40,9 +47,6 @@ public class SealedBox {
     }
 
     public byte[] decrypt(byte[] ciphertext) {
-        if (privateKey == null)
-            throw new RuntimeException("Decryption failed. Private key not available.");
-
         byte[] message = new byte[ciphertext.length - SEAL_BYTES];
         isValid(sodium().crypto_box_seal_open(
                 message, ciphertext, ciphertext.length, publicKey, privateKey),
