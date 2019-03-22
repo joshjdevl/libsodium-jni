@@ -11,7 +11,7 @@ public class SealedBox {
     private byte[] publicKey;
     private byte[] privateKey;
 
-    public SealedBox(byte[] publicKey) throws IllegalArgumentException {
+    public SealedBox(byte[] publicKey) {
         if (publicKey == null) {
             throw new IllegalArgumentException("Public key must not be null");
         }
@@ -23,7 +23,7 @@ public class SealedBox {
         this(encoder.decode(publicKey));
     }
 
-    public SealedBox(byte[] publicKey, byte[] privateKey) throws IllegalArgumentException {
+    public SealedBox(byte[] publicKey, byte[] privateKey) {
         if (publicKey == null) {
             throw new IllegalArgumentException("Public key must not be null");
         }
