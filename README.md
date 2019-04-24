@@ -99,7 +99,7 @@ class MainActivity : AppCompatActivity() {
         // Test Libsodium
         val seed = Random().randomBytes(SodiumConstants.SECRETKEY_BYTES)
         val encryptionKeyPair = KeyPair(seed)
-        Log.i("TEST SODIUM:", ""+encryptionKeyPair.publicKey)
+        Log.i("PUBLIC KEY:", encryptionKeyPair.publicKey.toString())
     }
 }
 
