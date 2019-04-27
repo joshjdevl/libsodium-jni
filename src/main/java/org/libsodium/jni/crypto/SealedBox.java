@@ -1,56 +1,51 @@
 package org.libsodium.jni.crypto;
 
 import org.libsodium.jni.encoders.Encoder;
+import org.libsodium.jni.keys.KeyPair;
 
 import static org.libsodium.jni.NaCl.sodium;
 import static org.libsodium.jni.SodiumConstants.SEAL_BYTES;
-import static org.libsodium.jni.crypto.Util.isValid;
 
 public class SealedBox {
 
-    private byte[] publicKey;
-    private byte[] privateKey;
+    private byte[] mPublicKey;
 
     public SealedBox(byte[] publicKey) {
         if (publicKey == null) {
             throw new IllegalArgumentException("Public key must not be null");
         }
-        this.publicKey = publicKey;
-        this.privateKey = null;
+        mPublicKey = publicKey;
     }
 
     public SealedBox(String publicKey, Encoder encoder) {
         this(encoder.decode(publicKey));
     }
 
-    public SealedBox(byte[] publicKey, byte[] privateKey) {
-        if (publicKey == null) {
-            throw new IllegalArgumentException("Public key must not be null");
+    private static boolean isValid(int status, String message) {
+        if (status != 0) {
+            throw new IllegalArgumentException(message);
         }
-        if (privateKey == null) {
-            throw new IllegalArgumentException("Private key must not be null");
-        }
-        this.publicKey = publicKey;
-        this.privateKey = privateKey;
-    }
-
-    public SealedBox(String publicKey, String privateKey, Encoder encoder) {
-        this(encoder.decode(publicKey), encoder.decode(privateKey));
+        return true;
     }
 
     public byte[] encrypt(byte[] message) {
         byte[] ct = new byte[message.length + SEAL_BYTES];
         isValid(sodium().crypto_box_seal(
-                ct, message, message.length, publicKey),
+                ct, message, message.length, mPublicKey),
                 "Encryption failed");
         return ct;
     }
 
-    public byte[] decrypt(byte[] ciphertext) {
+    public static byte[] decrypt(byte[] ciphertext, byte[] pubicKey, byte[] privateKey) {
         byte[] message = new byte[ciphertext.length - SEAL_BYTES];
         isValid(sodium().crypto_box_seal_open(
-                message, ciphertext, ciphertext.length, publicKey, privateKey),
+                message, ciphertext, ciphertext.length, pubicKey, privateKey),
                 "Decryption failed. Ciphertext failed verification");
         return message;
+    }
+
+    public static byte[] decrypt(byte[] ciphertext, KeyPair keyPair) {
+        return decrypt(ciphertext, keyPair.getPublicKey().toBytes(),
+                keyPair.getPrivateKey().toBytes());
     }
 }
