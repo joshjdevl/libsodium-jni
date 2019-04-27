@@ -21,26 +21,21 @@ public class SealedBox {
         this(encoder.decode(publicKey));
     }
 
-    private static boolean isValid(int status, String message) {
-        if (status != 0) {
-            throw new IllegalArgumentException(message);
-        }
-        return true;
-    }
-
     public byte[] encrypt(byte[] message) {
         byte[] ct = new byte[message.length + SEAL_BYTES];
-        isValid(sodium().crypto_box_seal(
-                ct, message, message.length, mPublicKey),
-                "Encryption failed");
+        if (sodium().crypto_box_seal(ct, message, message.length, mPublicKey) != 0) {
+            throw new IllegalArgumentException("Failed to encrypt");
+        }
         return ct;
     }
 
     public static byte[] decrypt(byte[] ciphertext, byte[] pubicKey, byte[] privateKey) {
         byte[] message = new byte[ciphertext.length - SEAL_BYTES];
-        isValid(sodium().crypto_box_seal_open(
-                message, ciphertext, ciphertext.length, pubicKey, privateKey),
-                "Decryption failed. Ciphertext failed verification");
+        if (sodium().crypto_box_seal_open(
+                message, ciphertext, ciphertext.length, pubicKey, privateKey) != 0) {
+            throw new IllegalArgumentException(
+                    "Failed to decrypt, ensure to provide the correct combination of parameters");
+        }
         return message;
     }
 
