@@ -1,16 +1,11 @@
-This project is entirely maintained in my spare time. Donations are appreciated.
+> **This project is entirely maintained in my spare time. Donations are appreciated:** :clap:<br/><br/>
+> **Bitcoin address:** 1EC6j1f2sDGy9L8ma8FFfQyxt9mb9a6Xxy <br/>
+> **Bitcoin Cash address:** 1PSxB3DRCkeaZK7nSbJ1hoxbsWAXwM8Hyx <br/>
+> **Ethereum address:** 2f30c73e8d643356ebbcfee7013ccd03c05097fb <br/>
+> **Peercoin address:** PQUavHtRCLtevq75GhLCec41nvDtmM4wvf <br/>
+> **Raiblocks address:** xrb_1dxetbqeo38gcxejt8n6utajorrntbfrr1qftpw7qwarw6d8kp74fwmcuqi9  <br/>
+> **Monero address:** 48btz6nV4SjWyhDpkXrVVXAtgN6aStdnz8weMyB6qAMhhBVqiy1v3HC6XL1j7K27ZfFRhpw3Y4A4uE8o2PXMxFxY1Q5gGvW
 
-Bitcoin address: 1EC6j1f2sDGy9L8ma8FFfQyxt9mb9a6Xxy
-
-Bitcoin Cash address: 1PSxB3DRCkeaZK7nSbJ1hoxbsWAXwM8Hyx
-
-Ethereum address: 2f30c73e8d643356ebbcfee7013ccd03c05097fb
-
-Peercoin address: PQUavHtRCLtevq75GhLCec41nvDtmM4wvf
-
-Monero address: 48btz6nV4SjWyhDpkXrVVXAtgN6aStdnz8weMyB6qAMhhBVqiy1v3HC6XL1j7K27ZfFRhpw3Y4A4uE8o2PXMxFxY1Q5gGvW
-
-Raiblocks address: xrb_1dxetbqeo38gcxejt8n6utajorrntbfrr1qftpw7qwarw6d8kp74fwmcuqi9
 
 [![Build Status](https://travis-ci.org/joshjdevl/libsodium-jni.svg)](https://travis-ci.org/joshjdevl/libsodium-jni)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.joshjdevl.libsodiumjni/libsodium-jni/badge.svg)](https://oss.sonatype.org/#nexus-search;quick~libsodium)
@@ -23,16 +18,16 @@ A Java JNI binding (to allow for Java and Android integration) to [Networking an
 
 If you do use this project in your research project, please do cite this repo. Thanks!
 
-Credits to:
-* [**Libsodium**](https://github.com/jedisct1/libsodium): author [Frank Denis](https://github.com/jedisct1) and [Contributors](https://github.com/jedisct1/libsodium/graphs/contributors)
-* [**Kalium**](https://github.com/abstractj/kalium): author [abstractj](https://github.com/abstractj) and [Contributors](https://github.com/abstractj/kalium/graphs/contributors)
-* [**Robosodium**](https://github.com/GerardSoleCa/Robosodium): author [GerardSoleCa](https://github.com/GerardSoleCa)
-* [**libstodium**](https://github.com/ArteMisc/libstodium): author [ArteMisc](https://github.com/ArteMisc)
+> Credits to: <br/>
+> * [**Libsodium**](https://github.com/jedisct1/libsodium): author [Frank Denis](https://github.com/jedisct1) and [Contributors](https://github.com/jedisct1/libsodium/graphs/contributors)
+> * [**Kalium**](https://github.com/abstractj/kalium): author [abstractj](https://github.com/abstractj) and [Contributors](https://github.com/abstractj/kalium/graphs/contributors)
+> * [**Robosodium**](https://github.com/GerardSoleCa/Robosodium): author [GerardSoleCa](https://github.com/GerardSoleCa)
+> * [**libstodium**](https://github.com/ArteMisc/libstodium): author [ArteMisc](https://github.com/ArteMisc)
 
 
 ## Installation
 
-* Java package is under org.libsodium.jni
+* Java package is under `org.libsodium.jni` 
 * Maven coordinates are in the Sonatype OSS [repository](https://oss.sonatype.org/#nexus-search;quick~libsodium)
 
 ### Android Archive (AAR)
@@ -43,6 +38,32 @@ Credits to:
         <type>aar</type>
     </dependency>
 
+### Android Gradle (AAR)
+1. Add library to dependencies:
+```gradle
+// build.gradle
+dependencies {
+    ...
+    compile 'com.github.joshjdevl.libsodiumjni:libsodium-jni-aar:2.0.1'
+}
+```
+2. To fix the warning [allowBackup](src/main/AndroidManifest.xml), add `xmlns:tools="http://schemas.android.com/tools"` and `tools:replace="android:allowBackup"` to your Manifest:
+```xml
+<!-- AndroidManifest.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.name.myapp">
+    <application
+            ...
+            tools:replace="android:allowBackup">
+        <activity android:name=".MainActivity">
+            ...
+        </activity>
+    </application>
+</manifest>
+```
+
 ### Java Archive (JAR)
 
     <dependency>
@@ -52,13 +73,37 @@ Credits to:
         <type>jar</type>
     </dependency>
 
-### Usage
 
+
+### Usage
+#### Java
 Example [invocations](src/test/java/org/libsodium/jni/publickey/AuthenticatedEncryptionTest.java)
 
 * import org.libsodium.jni.NaCl; (this calls System.loadLibrary("sodiumjni");)
 * call NaCl.sodium(). {whatever_method_you_want}
 * Note that Android [allowBackup is set to false](src/main/AndroidManifest.xml). WARNING Your application can override the allow backup, just be sure that there is no sensitive data or secrets that might be backed up. Option can be used with  `tools:replace="android:allowBackup"`
+
+#### Kotlin
+```kotlin
+// MainActivity.kt
+
+import org.libsodium.jni.SodiumConstants
+import org.libsodium.jni.crypto.Random
+import org.libsodium.jni.keys.KeyPair
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        // Test Libsodium
+        val seed = Random().randomBytes(SodiumConstants.SECRETKEY_BYTES)
+        val encryptionKeyPair = KeyPair(seed)
+        Log.i("PUBLIC KEY:", encryptionKeyPair.publicKey.toString())
+    }
+}
+
+```
 
 ## Manual Compilation and Installation
 
@@ -109,13 +154,11 @@ To use the library with your own custom code, skip the aar file and add
 2. Add the source code from the src folder and add your own additional code.
 
 
-### Issues / Improvements / Help Seeked
+### Issues / Improvements / Help Seeked :v:
 
-libsodium-jni is currently being used in production. Feedback, bug reports and patches are always welcome.
+*libsodium-jni* is currently being used in production. Feedback, bug reports and patches are always welcome. Everything has been tested and working on ubuntu 12.04 32bit and 64 bit, macos, and Android.
 
-Everything has been tested and working on ubuntu 12.04 32bit and 64 bit, macos, and Android
-
-gpg2 --keyserver hkp://pool.sks-keyservers.net --recv-keys 4524D716
+`gpg2 --keyserver hkp://pool.sks-keyservers.net --recv-keys 4524D716`
 
 ### SWIG Extensions
 
