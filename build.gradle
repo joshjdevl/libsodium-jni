@@ -16,7 +16,7 @@ repositories {
 }
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
 
     defaultConfig {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -75,8 +75,8 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.4'
-        classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.11.0"
+        classpath 'com.android.tools.build:gradle:3.4.0'
+        classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.20.0"
     }
 }
 
