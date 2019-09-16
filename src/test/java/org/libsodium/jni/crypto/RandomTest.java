@@ -20,7 +20,6 @@ import org.junit.Test;
 import org.libsodium.jni.fixture.TestVectors;
 
 import static org.libsodium.jni.encoders.Encoder.HEX;
-import static org.libsodium.jni.crypto.Util.isValid;
 
 import java.util.Arrays;
 
