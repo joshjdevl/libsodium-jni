@@ -17,11 +17,17 @@
 package org.libsodium.jni.crypto;
 
 import org.junit.Test;
+import org.libsodium.jni.fixture.TestVectors;
+
+import static org.libsodium.jni.encoders.Encoder.HEX;
+import static org.libsodium.jni.crypto.Util.isValid;
 
 import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class RandomTest {
 
@@ -48,4 +54,19 @@ public class RandomTest {
         final int size = 32;
         assertFalse("Should produce different random bytes", Arrays.equals(new Random().randomBytes(), new Random().randomBytes(size)));
     }
+
+    @Test
+    public void testDeterministicRandomBytes() throws Exception {
+        byte[] seed = HEX.decode(TestVectors.RANDOMBYTES_SEED);
+        byte[] expected = HEX.decode(TestVectors.DETERMINISTIC_RANDOMBYTES);
+        assertTrue("Should produce the expected bytes", Arrays.equals(new Random().randomBytesDeterministic(seed, 100), expected));
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void testDeterministicRandomBytesInvalidSeedLength() throws Exception {
+        byte[] seed = HEX.decode("000102030405060708090a");
+        new Random().randomBytesDeterministic(seed, 100);
+        fail("Should raise an exception");
+    }
+    
 }
