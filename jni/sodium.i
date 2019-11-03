@@ -282,6 +282,10 @@ int randombytes_close(void);
 
 void randombytes_stir(void);
 
+void randombytes_buf_deterministic(unsigned char * const buff, const unsigned long long buff_len, const unsigned char *seed);
+
+size_t randombytes_seedbytes(void);
+
 /*
     helpers API
 */

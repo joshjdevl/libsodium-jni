@@ -26,4 +26,5 @@ public abstract class SodiumConstants {
     public static final int SESSIONKEYBYTES = 32;
     public static final int MAC_BYTES = 16;
     public static final int SEAL_BYTES = PUBLICKEY_BYTES + MAC_BYTES;
+    public static final int RANDOMBYTES_SEEDBYTES = 32;
 }

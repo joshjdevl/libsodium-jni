@@ -16,6 +16,7 @@
 
 package org.libsodium.jni.crypto;
 
+import static org.libsodium.jni.SodiumConstants.RANDOMBYTES_SEEDBYTES;
 import static org.libsodium.jni.NaCl.sodium;
 
 public class Random {
@@ -39,4 +40,20 @@ public class Random {
         sodium().randombytes(buffer, DEFAULT_SIZE);
         return buffer;
     }
+
+    /**
+     * Deterministically generate pseudorandom bytes of length 'size' from a seed
+     *
+     * @param seed the seed to generate the bytes from 
+     * @param size the size of the buffer
+     * @return Byte array with deterministically generated pseudorandom bytes
+     */
+    public byte[] randomBytesDeterministic(byte[] seed, int size) {
+        if (seed == null || seed.length != RANDOMBYTES_SEEDBYTES)
+            throw new RuntimeException("Invalid size: " + seed.length);
+        byte[] buffer = new byte[size];
+        sodium().randombytes_buf_deterministic(buffer, size, seed);
+        return buffer;
+    }
+    
 }
