@@ -45,20 +45,18 @@ public class Hash {
     }
 
     public String sha256(String message, Encoder encoder) {
-        byte[] hash = sha256(message.getBytes());
+        byte[] hash = sha256(encoder.decode( message ));
         return encoder.encode(hash);
     }
 
     public String sha512(String message, Encoder encoder) {
-        byte[] hash = sha512(message.getBytes());
+        byte[] hash = sha512(encoder.decode( message ));
         return encoder.encode(hash);
     }
 
     public String pwhash_scryptsalsa208sha256(String passwd, Encoder encoder, byte[] salt, int opslimit, int memlimit) {
         buffer = new byte[KEY_LEN];
-        //sodium().crypto_pwhash(buffer, buffer.length, passwd.getBytes(), passwd.length(), salt, opslimit, memlimit,sodium().crypto_pwhash_alg_default());
-
-        sodium().crypto_pwhash_scryptsalsa208sha256(buffer, buffer.length, passwd.getBytes(), passwd.length(), salt, opslimit, memlimit);
+        sodium().crypto_pwhash_scryptsalsa208sha256(buffer, buffer.length, encoder.decode( passwd ), passwd.length(), salt, opslimit, memlimit);
         return encoder.encode(buffer);
     }
 
@@ -72,7 +70,7 @@ public class Hash {
 
     public String blake2(String message, Encoder encoder) throws UnsupportedOperationException {
         if (!blakeSupportedVersion()) throw new UnsupportedOperationException();
-        byte[] hash = blake2(message.getBytes());
+        byte[] hash = blake2(encoder.decode( message ));
         return encoder.encode(hash);
     }
 
